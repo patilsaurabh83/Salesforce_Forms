@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        /* Add your custom styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #534747;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            /* Darkened background */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h4,
+        h6 {
+            color: #007bff;
+        }
+
+        h6 {
+            margin-top: -20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+            /* Hover effect */
+        }
+
+        textarea {
+            resize: vertical;
+        }
+        p {
+            color: rgb(106, 206, 99);
+        }
+
+        select {
+            padding: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Add hover effect */
+        input[type="text"]:hover,
+        select:hover,
+        textarea:hover {
+            border-color: #007bff;
+        }
+
+        /* Add red border for mandatory fields */
+        input[type="email"][required],
+        textarea[required] {
+            border-color: #ff0000;
+        }
+
+        /* Error message style */
+        #error-message {
+            color: red;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h4>RecruitPro</h4>
+        <h6>Unlocking Opportunities,Transforming Careers</h6>
+
+        <h1>Contact Us</h1>
+        <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
+            <input type="hidden" name="orgid" value="00D5j00000DAZO0">
+            <input type="hidden" name="retURL" value="https://www.capgemini.com/in-en/">
+
+            <label for="name">Contact Name</label>
+            <input id="name" maxlength="80" name="name" size="20" type="text"><br>
+
+            <label for="email">Email</label>
+            <input id="email" maxlength="80" name="email" size="20" type="text" required><br>
+
+            <label for="phone">Phone</label>
+            <input id="phone" maxlength="40" name="phone" size="20" type="text"><br>
+
+            <label for="subject">Subject</label>
+            <input id="subject" maxlength="80" name="subject" size="20" type="text"><br>
+
+            <label for="company">Company</label>
+            <select id="company" name="company">
+                <option value="">--None--</option>
+                <option value="Amazon.com, Inc.">Amazon.com, Inc.</option>
+                <option value="Apple Inc.">Apple Inc.</option>
+                <option value="Berkshire Hathaway Inc">Berkshire Hathaway Inc</option>
+                <option value="Discovery Limited">Discovery Limited</option>
+                <option value="Nestlé S.A.">Nestlé S.A.</option>
+                <option value="Samsung Electronics Co., Ltd.">Samsung Electronics Co., Ltd.</option>
+                <option value="Shoprite Holdings Ltd">Shoprite Holdings Ltd</option>
+                <option value="Toyota Motor Corporation">Toyota Motor Corporation</option>
+                <option value="Volkswagen Group">Volkswagen Group</option>
+            </select><br>
+
+            <label for="issues">Issues related to:</label>
+            <select id="issues" name="issues">
+                <option value="">--None--</option>
+                <option value="Browser compatibility issues.">Browser compatibility issues</option>
+                <option value="Network connection problems.">Network connection problems</option>
+                <option value="Expired or incorrect link.">Expired or incorrect link</option>
+                <option value="Firewall or security settings blocking access.">Firewall or security settings blocking
+                    access</option>
+                <option value="JavaScript or plugin issues.">JavaScript or plugin issues</option>
+                <option value="Device compatibility limitations.">Device compatibility limitations</option>
+                <option value="Server or hosting service downtime.">Server or hosting service downtime</option>
+                <option value="Authentication or login problems.">Authentication or login problems</option>
+                <option value="Popup blockers preventing link opening.">Popup blockers preventing link opening</option>
+                <option value="Expired or invalid invitation.">Expired or invalid invitation</option>
+            </select><br>
+
+
+
+
+            <label for="reason">Case Reason</label>
+            <select id="reason" name="reason">
+                <option value="">--None--</option>
+                <option value="Installation">Installation</option>
+                <option value="Equipment Complexity">Equipment Complexity</option>
+                <option value="Performance">Performance</option>
+                <option value="Breakdown">Breakdown</option>
+                <option value="Equipment Design">Equipment Design</option>
+                <option value="Feedback">Feedback</option>
+                <option value="Other">Other</option>
+            </select><br>
+
+            <label for="status">Status</label>
+            <select id="status" name="status">
+                <option value="">--None--</option>
+                <option value="New">New</option>
+                <option value="Working">Working</option>
+
+            </select><br>
+
+            <label for="type">Type</label>
+            <select id="type" name="type">
+                <option value="">--None--</option>
+                <option value="Mechanical">Mechanical</option>
+                <option value="Electrical">Electrical</option>
+                <option value="Electronic">Electronic</option>
+                <option value="Structural">Structural</option>
+                <option value="Other">Other</option>
+            </select><br>
+
+            <label for="description">Description</label>
+            <textarea name="description" rows="4" cols="50" required></textarea><br>
+
+            <p >Upon successful submission of the form, you will be redirected to the organization's portal.</p>
+
+            <input type="submit" name="submit" value="Submit">
+        </form>
+
+        <!-- Error message for email validation -->
+        <div id="error-message">Email must contain "@gmail.com"</div>
+
+        <script>
+            // JavaScript to check if email contains "gmail.com"
+            document.querySelector('#email').addEventListener('blur', function () {
+                const email = this.value;
+                if (!email.includes('gmail.com')) {
+                    document.querySelector('#error-message').style.display = 'block';
+                } else {
+                    document.querySelector('#error-message').style.display = 'none';
+                }
+            });
+        </script>
+    </div>
+</body>
+
+</html>

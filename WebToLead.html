@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Inquiry Form</title>
+    <style>
+        /* Add your custom styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+        h4,h6 {
+           color: #007bff;
+        }
+        h6{
+            margin-top: -20px;
+        }
+
+        p {
+            color: rgb(106, 206, 99);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h4>RecruiterPro</h4>
+        <h6>Unlocking Opportunities,Transforming Careers</h6>
+
+        <h2>Lead Inquiry Form</h2>
+        <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+            <input type=hidden name="oid" value="00D5j00000DAZO0">
+            <input type=hidden name="retURL" value="https://www.capgemini.com/in-en/">
+            
+            <label for="salutation">Salutation</label>
+            <select id="salutation" name="salutation">
+                <option value="">--None--</option>
+                <option value="Mr.">Mr.</option>
+                <option value="Ms.">Ms.</option>
+                <option value="Mrs.">Mrs.</option>
+                <option value="Dr.">Dr.</option>
+                <option value="Prof.">Prof.</option>
+                <option value="Mx.">Mx.</option>
+            </select>
+
+            <label for="first_name">First Name</label>
+            <input id="first_name" maxlength="40" name="first_name" size="20" type="text" required />
+
+            <label for="last_name">Last Name</label>
+            <input id="last_name" maxlength="80" name="last_name" size="20" type="text" required/>
+
+            <label for="email">Email *</label>
+            <input id="email" maxlength="80" name="email" size="20" type="text" required /><br>
+            
+            <label for="phone">Mobile Number</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" required/><br>
+
+            <label>Interested In fields</label><select  id="00N5j00000SCZQn" name="00N5j00000SCZQn" title="Interested In fields"><option value="">--None--</option><option value="Manufacturing and Engineering">Manufacturing and Engineering</option>
+                <option value="Technology and Information Technology (IT)">Technology and Information Technology (IT)</option>
+                <option value="Consulting Services">Consulting Services</option>
+                </select><br>
+
+            <label>Experience</label><input  id="00N5j00000SCZVo" name="00N5j00000SCZVo" size="20" type="text"  required/><br>
+
+
+    <label for="company">Company You are Interested In</label>
+<input id="company" maxlength="40" name="company" size="20" type="text" list="companyList" />
+
+<datalist id="companyList">
+    <option value="Amazon.com, Inc.">
+    <option value="Apple Inc.">
+    <option value="Berkshire Hathaway Inc">
+    <option value="Discovery Limited">
+    <option value="Nestlé S.A.">
+    <option value="Samsung Electronics Co., Ltd.">
+    <option value="Shoprite Holdings Ltd">
+    <option value="Toyota Motor Corporation">
+    <option value="Volkswagen Group">
+</datalist>
+
+
+            <label for="state">State/Province</label>
+            <input id="state" maxlength="20" name="state" size="20" type="text" />
+
+            <label for="city">City</label>
+            <input id="city" maxlength="40" name="city" size="20" type="text" />
+
+            <label for="zip">Zip</label>
+            <input id="zip" maxlength="20" name="zip" size="20" type="text" />
+
+
+            <label for="lead_source">Lead Source(Choose Web)</label>
+            <select id="lead_source" name="lead_source">
+                <option value="">--None--</option>
+                <option value="Web">Web</option>
+                <option value="Phone Inquiry">Phone Inquiry</option>
+                <option value="Partner Referral">Partner Referral</option>
+                <option value="Purchased List">Purchased List</option>
+                <option value="Other">Other</option>
+            </select>
+
+           
+            <p >Upon successful submission of the form, you will be redirected to the organization's portal.</p>
+
+            <input type="submit" name="submit" value="Submit">
+        </form>
+    </div>
+
+</body>
+</html>

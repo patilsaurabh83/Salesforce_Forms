@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RecruiterPro Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            margin: 0;
+            padding: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+
+        select {
+            height: 40px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+
+
+        .header h1 {
+            color: rgb(0, 0, 0);
+            margin: 0;
+            padding-bottom: 50px;
+            padding-top: 10px;
+        }
+
+        .tagline {
+            color: #007BFF;
+            font-weight: bold;
+            font-size: 14px;
+            
+        }
+
+        .error-message {
+            color: rgb(247, 176, 11);
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+    <div class="container">
+        
+        <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D5j00000DAZO0" method="POST">
+    
+            <input type=hidden name="oid" value="00D5j00000DAZO0">
+            <input type=hidden name="retURL" value="https://www.capgemini.com/in-en/">
+            
+            <div class="tagline">
+                RecruiterPro<br>
+                Unlocking Opportunities, Transforming Careers
+            </div>
+
+            <div class="header">
+                <h3>Candidate Registration Form</h3>
+            </div>
+            
+            <label for="first_name">First Name</label>
+            <input id="first_name" maxlength="40" name="first_name" type="text" required /><br>
+
+            <label for="last_name">Last Name</label>
+            <input id="last_name" maxlength="80" name="last_name" type="text" required /><br>
+
+            <label for="email">Email (must contain @gmail.com)</label>
+<input id="email" maxlength="80" name="email" type="text" required />
+<span id="emailError" class="error-message"></span>
+<br>
+
+<label for="phone">Phone (10 digits required)</label>
+<input id="phone" maxlength="10" name="phone" type="text" required placeholder="e.g., 1234567890" />
+<span id="phoneError" class="error-message"></span>
+<br>
+
+
+        <label >Experience</label>
+            <input id="00N5j00000SCZVo" name="00N5j00000SCZVo" type="text" /><br>
+
+            <label for="lead_source">Lead Source</label><select  id="lead_source" name="lead_source" required>
+                <option value="">--None--</option>
+                <option value="Feedback">Feedback</option>
+                <option value="Registration">Registration</option>
+                </select><br>
+        
+                <label for="region" >Region name</label>
+                <select id="region" name="00N5j00000TWkBW" required>
+                    <option value="" selected>--Select a Region--</option>
+                    <option value="South America">South America</option>
+                    <option value="Australia (Oceania)">Australia (Oceania)</option>
+                    <option value="North America">North America</option>
+                    <option value="Europe">Europe</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Africa">Africa</option>
+                </select >
+                
+                <label for="country">Preferred Country:</label>
+                <select id="country" name="00N5j00000TWkBb">
+                    <option value="" selected>--Select a Country--</option>
+                </select>
+                
+
+                <!-- Validations for the regions and the countries -->
+
+                <script>
+                    var regionDropdown = document.getElementById("region");
+                    var countryDropdown = document.getElementById("country");
+                
+                    var countryOptions = {
+                        "South America": ["Argentina", "Chile", "Colombia", "Peru"],
+                        "Australia (Oceania)": ["Fiji", "New Zealand", "Papua New Guinea", "Samoa"],
+                        "North America": ["Mexico", "Guatemala", "Cuba", "Dominican Republic"],
+                        "Europe": ["Italy", "Netherlands", "Spain", "Switzerland"],
+                        "Asia": ["China", "India", "Malaysia", "South Korea", "Thailand"],
+                        "Africa": ["Egypt", "Kenya", "Morocco", "Nigeria", "Algeria"]
+                    };
+                
+                    regionDropdown.addEventListener("change", function () {
+                        var selectedRegion = regionDropdown.value;
+                        var countryOptionsForRegion = countryOptions[selectedRegion] || [];
+                
+                        countryDropdown.innerHTML = "<option value=''>--Select a Country--</option>";
+                
+                        for (var i = 0; i < countryOptionsForRegion.length; i++) {
+                            var option = document.createElement("option");
+                            option.value = countryOptionsForRegion[i];
+                            option.textContent = countryOptionsForRegion[i];
+                            countryDropdown.appendChild(option);
+                        }
+                    });
+                </script>
+
+                <!-- Phone number and email valiadtions -->
+
+                <script>
+                    var emailInput = document.getElementById("email");
+                    var emailError = document.getElementById("emailError");
+                    var phoneInput = document.getElementById("phone");
+                    var phoneError = document.getElementById("phoneError");
+                
+                    emailInput.addEventListener("input", function () {
+                        var emailValue = emailInput.value;
+                        if (!emailValue.endsWith("@gmail.com")) {
+                            // The email does not contain "@gmail.com"
+                            emailError.textContent = "Email must contain @gmail.com";
+                        } else {
+                            emailError.textContent = "";
+                        }
+                    });
+                
+                    phoneInput.addEventListener("input", function () {
+                        var phoneValue = phoneInput.value;
+                        if (phoneValue.length === 10 && /^\d{10}$/.test(phoneValue)) {
+                            // The phone number is valid
+                            phoneError.textContent = "";
+                        } else {
+                            // The phone number is not 10 digits
+                            phoneError.textContent = "Phone number must be exactly 10 digits.";
+                        }
+                    });
+                </script>
+                
+            <label for="company">Company</label>
+            <input id="company" maxlength="40" name="company" type="text" /><br>
+
+            <label for="city">City</label>
+            <input id="city" maxlength="40" name="city" type="text" /><br>
+
+            <input type="submit" name="submit">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Feedback Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2f273f; 
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        select {
+            height: 34px; 
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .rating-container {
+            display: flex;
+            gap: 10px;
+            align-items: center; 
+        }
+
+        input[type="radio"] {
+            margin: 0; 
+
+        }
+
+        label.rating-label {
+            display: flex;
+            align-items: center;
+           
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .header{
+            color: rgb(0, 0, 0);
+            margin: 0;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            text-align: center;
+        }
+
+        textarea {
+            max-width: calc(100% - 16px); 
+            height: 150px;
+        }
+
+        .tagline {
+            color: #007BFF;
+            font-weight: bold;
+            font-size: 14px;
+            
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #777;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+
+    <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D5j00000DAZO0" method="POST">
+        <input type=hidden name="orgid" value="00D5j00000DAZO0">
+        <input type=hidden name="retURL" value="https://patilsaurabh83.github.io/Salesforce_Forms/Thank You.html">
+
+        <div class="tagline">
+            RecruiterPro<br>
+            Unlocking Opportunities, Transforming Careers
+        </div>
+
+        <div class="header">
+            <h3>Feedback Form</h3>
+        </div>
+
+        <label for="name">Name</label><input id="name" maxlength="80" name="name" size="20" type="text" required placeholder="ex. John Doe"><br>
+
+        <label for="email">Email</label><input id="email" maxlength="80" name="email" size="20" type="email" required placeholder="ex. xyz@gmail.com"><br>
+
+        <label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" required/><br>
+
+        <input type="hidden" id="type" name="type" value="Feedback">
+
+        <label>Rate Us</label>
+        <div class="rating-container">
+            <label for="rating-1"><input type="radio" id="rating-1" name="rating" value="1" required> 1</label>
+            <label for="rating-2"><input type="radio" id="rating-2" name="rating" value="2" required> 2</label>
+            <label for="rating-3"><input type="radio" id="rating-3" name="rating" value="3" required> 3</label>
+            <label for="rating-4"><input type="radio" id="rating-4" name="rating" value="4" required> 4</label>
+            <label for="rating-5"><input type="radio" id="rating-5" name="rating" value="5" required> 5</label>
+        </div><br>
+
+        <label>Would You Recommend Us?</label><select  id="00N5j00000ULrbT" name="00N5j00000ULrbT" title="Would You Recommend Us?"><option value="">--None--</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            </select><br>
+            
+            <label for="heardAbout">How Did You Hear About Us?</label>
+            <select id="00N5j00000ULrcH" name="00N5j00000ULrcH" required>
+                <option value="">-- Select One --</option>
+                <option value="Social Media">Social Media</option>
+                <option value="Friend">Friend</option>
+                <option value="Online Search">Online Search</option>
+                <option value="Advertisement">Advertisement</option>
+                <option value="Other">Other</option>
+            </select><br>
+
+
+        <label for="subject">Subject</label><input  id="subject" maxlength="80" name="subject" size="20" type="text" /><br>     
+
+        <label for="description">Additional Words/Comments</label><textarea name="description" required placeholder="Write briefly about your overall experince during the Process" ></textarea><br>
+       
+
+        <input type="hidden" id="external" name="external" value="1"><br>
+
+        <input type="submit" name="submit">
+    </form>
+
+    <div class="footer">
+        &copy; 2023 RecruiterPro. All rights reserved.
+    </div>
+
+
+</div>
+</body>
+</html>

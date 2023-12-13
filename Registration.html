@@ -81,6 +81,19 @@
             font-size: 12px;
         }
 
+
+         label {
+            display: block;
+            margin-bottom: 15px;
+            font-size: 14px; 
+            color: #333;
+        }
+    
+        input[type="checkbox"] {
+            margin-right: 5px;
+            transform: scale(1.3);
+        }
+
          .message {
             padding-top: 10px;
             font-size: 11px;
@@ -424,6 +437,13 @@
                 </script>
 
 
+            <label for="termsCheckbox">
+                    <input type="checkbox" id="termsCheckbox" name="termsCheckbox" required>
+                    I have read and agree to the <a href="https://patilsaurabh83.github.io/Salesforce_Forms/Terms and conditions.html" target="_blank">terms and conditions</a> and privacy parameters.
+                </label> 
+
+            
+            
             <input type="submit" name="register" value="Register">
             <div class="message">
                 NOTE :Before you proceed, we recommend reviewing your details to ensure accuracy

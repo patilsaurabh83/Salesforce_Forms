@@ -82,11 +82,11 @@
         }
 
 
-         label {
+          label[for="termsCheckbox"] {
+            font-size: 12px;
+            color: #333;
             display: block;
             margin-bottom: 15px;
-            font-size: 14px; 
-            color: #333;
         }
     
         input[type="checkbox"] {
@@ -189,8 +189,7 @@
 </script>
 
 
-            <label for="grade">Grade(Auto fill Using Exp.)</label>
-<select  id="00N5j00000TYwVZ" name="00N5j00000TYwVZ" title="Grade">
+   <select id="00N5j00000TYwVZ" name="00N5j00000TYwVZ" title="Grade" hidden>
     <option value="">--None--</option>
     <option value="A+">A+</option>
     <option value="A">A</option>
@@ -239,7 +238,7 @@
     }
 
     // Attach an event listener to the experience input field to update the grade input
-    var experienceInput = document.getElementById("00N5j00000SCZVo"); // Replace with the actual experience input field
+    var experienceInput = document.getElementById("00N5j00000SCZVo"); 
     if (experienceInput) {
         experienceInput.addEventListener("input", updateGradeInput);
     }
@@ -297,10 +296,7 @@
 
 
 
-            <label for="lead_source">Related To</label><select  id="lead_source" name="lead_source" required>
-                <option value="">--None--</option>
-                <option value="Registration">Registration</option>
-                </select><br>
+            <input type="hidden" id="lead_source" name="lead_source" value="Registration">
         
                              <label for="region" >Region name</label>
                 <select id="region" name="00N5j00000TWkBW" required>
@@ -319,15 +315,15 @@
                 </select> -->
            
 
-                <label for="country" required>Preferred Country:</label>
+                <label for="country" required>Country</label>
 <select id="country" name="00N5j00000TWkBb">
     <option value="" selected>--Select a Country--</option>
 </select>
 
-<label for="city" required>City:</label>
+<label for="city" required>City</label>
 <select id="city" name="city">
     <option value="" selected>--Select a City--</option>
-</select>
+</select><br>
 
 <!--             Region country and city list control -->
 
@@ -437,10 +433,10 @@
                 </script>
 
 
-            <label for="termsCheckbox">
+            <br><label for="termsCheckbox">
                     <input type="checkbox" id="termsCheckbox" name="termsCheckbox" required>
-                    I have read and agree to the <a href="https://patilsaurabh83.github.io/Salesforce_Forms/Terms and conditions.html" target="_blank">terms and conditions</a> and privacy parameters.
-                </label> 
+                    I have read and agree to the <a href="https://patilsaurabh83.github.io/Salesforce_Forms/Terms and conditions.html" target="_blank">terms and conditions</a> and privacy Policy.
+                </label> <br>
 
             
             

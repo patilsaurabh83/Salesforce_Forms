@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #2f273f; 
+            background-color: #2f273f;
         }
 
         .container {
@@ -61,7 +62,7 @@
 
 
 
-          .header{
+        .header {
             color: rgb(0, 0, 0);
             margin: 0;
             padding-bottom: 10px;
@@ -73,7 +74,7 @@
             color: #007BFF;
             font-weight: bold;
             font-size: 14px;
-            
+
         }
 
         .error-message {
@@ -82,37 +83,36 @@
         }
 
 
-          label[for="termsCheckbox"] {
+        label[for="termsCheckbox"] {
             font-size: 12px;
             color: #333;
             display: block;
             margin-bottom: 15px;
         }
-    
+
         input[type="checkbox"] {
             margin-right: 5px;
             transform: scale(1.3);
         }
 
-         .message {
+        .message {
             padding-top: 10px;
             font-size: 11px;
-            font-style: italic; 
-            color: rgb(5, 5, 76); 
+            font-style: italic;
+            color: rgb(5, 5, 76);
         }
-
-        
-        
     </style>
 </head>
+
 <body>
     <div class="container">
-        
-        <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D5j00000DAZO0" method="POST">
-    
+
+        <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D5j00000DAZO0"
+            method="POST">
+
             <input type=hidden name="oid" value="00D5j00000DAZO0">
             <input type=hidden name="retURL" value="https://patilsaurabh83.github.io/Salesforce_Forms/Thank You.html">
-            
+
             <div class="tagline">
                 RecruiterPro<br>
                 Unlocking Opportunities,Transforming Careers
@@ -121,7 +121,9 @@
             <div class="header">
                 <h3>Candidate Registration Form</h3>
             </div>
-            
+
+
+
             <label for="first_name">First Name</label>
             <input id="first_name" maxlength="40" name="first_name" type="text" required /><br>
 
@@ -129,317 +131,365 @@
             <input id="last_name" maxlength="80" name="last_name" type="text" required /><br>
 
             <label for="email">Email</label>
-<input id="email" maxlength="80" name="email" type="text" required placeholder="e.g., xyz@gmail.com"/>
-<span id="emailError" class="error-message"></span>
-<br>
+            <input id="email" maxlength="80" name="email" type="text" required placeholder="e.g., xyz@gmail.com" />
+            <span id="emailError" class="error-message"></span>
+            <br>
 
-<label for="phone">Phone (10 digits required)</label>
-<input id="phone" maxlength="10" name="phone" type="text" required placeholder="e.g., 1234567890" />
-<span id="phoneError" class="error-message"></span>
-<br>
+            <label for="phone">Phone (10 digits required)</label>
+            <input id="phone" maxlength="10" name="phone" type="text" required placeholder="e.g., 1234567890" />
+            <span id="phoneError" class="error-message"></span>
+            <br>
 
 
-        <label>Experience</label>
-<input id="00N5j00000SCZVo" name="00N5j00000SCZVo" type="text" placeholder="0 - 45" required/><br>
+            <label>Experience</label>
+            <input id="00N5j00000SCZVo" name="00N5j00000SCZVo" type="text" placeholder="0 - 45" required /><br>
 
             <!-- Experience Level field -->
-<label for="00N5j00000RpTNG">Experience Level</label>
-<input id="00N5j00000RpTNG" name="00N5j00000RpTNG" type="text" maxlength="20" size="20" readonly /><br>
+            <label for="00N5j00000RpTNG">Experience Level</label>
+            <input id="00N5j00000RpTNG" name="00N5j00000RpTNG" type="text" maxlength="20" size="20" readonly /><br>
 
-<!-- Script to calculate and update Experience Level based on entered experience -->
-<script>
-    function updateExperienceLevel() {
-        var experienceInput = document.getElementById("00N5j00000SCZVo");
-        var experienceLevelInput = document.getElementById("00N5j00000RpTNG");
+            <!-- Script to calculate and update Experience Level based on entered experience -->
+            <script>
+                function updateExperienceLevel() {
+                    var experienceInput = document.getElementById("00N5j00000SCZVo");
+                    var experienceLevelInput = document.getElementById("00N5j00000RpTNG");
 
-        if (experienceInput && experienceLevelInput) {
-            var experience = parseInt(experienceInput.value, 10);
+                    if (experienceInput && experienceLevelInput) {
+                        var experience = parseInt(experienceInput.value, 10);
 
-            // Define your experience level ranges
-            var experienceLevels = [
-                { level: "Entry Level", range: [0, 1] },
-                { level: "Junior", range: [1, 3] },
-                { level: "Entry to Mid-Level", range: [0, 5] },
-                { level: "Mid-Level", range: [3, 8] },
-                { level: "Mid to Senior", range: [5, 10] },
-                { level: "Senior", range: [8, 12] },
-                { level: "Senior to Lead", range: [10, 15] },
-                { level: "Lead", range: [12, 18] },
-                { level: "Director", range: [15, 25] },
-                { level: "Executive", range: [25, 45] },
-            ];
+                        // Define your experience level ranges
+                        var experienceLevels = [
+                            { level: "Entry Level", range: [0, 1] },
+                            { level: "Junior", range: [1, 3] },
+                            { level: "Entry to Mid-Level", range: [0, 5] },
+                            { level: "Mid-Level", range: [3, 8] },
+                            { level: "Mid to Senior", range: [5, 10] },
+                            { level: "Senior", range: [8, 12] },
+                            { level: "Senior to Lead", range: [10, 15] },
+                            { level: "Lead", range: [12, 18] },
+                            { level: "Director", range: [15, 25] },
+                            { level: "Executive", range: [25, 45] },
+                        ];
 
-            // Find the appropriate experience level based on the entered experience
-            var selectedLevel = experienceLevels.find(level => experience >= level.range[0] && experience <= level.range[1]);
+                        // Find the appropriate experience level based on the entered experience
+                        var selectedLevel = experienceLevels.find(level => experience >= level.range[0] && experience <= level.range[1]);
 
-            // Update the value of the read-only experience level field
-            if (selectedLevel) {
-                experienceLevelInput.value = selectedLevel.level;
-            } else {
-                experienceLevelInput.value = "Not specified";
-            }
-        }
-    }
+                        // Update the value of the read-only experience level field
+                        if (selectedLevel) {
+                            experienceLevelInput.value = selectedLevel.level;
+                        } else {
+                            experienceLevelInput.value = "Not specified";
+                        }
+                    }
+                }
 
-    // Attach an event listener to the experience input field to update the experience level
-    var experienceInput = document.getElementById("00N5j00000SCZVo");
-    if (experienceInput) {
-        experienceInput.addEventListener("input", updateExperienceLevel);
-    }
-</script>
-
-
-   <select id="00N5j00000TYwVZ" name="00N5j00000TYwVZ" title="Grade" hidden>
-    <option value="">--None--</option>
-    <option value="A+">A+</option>
-    <option value="A">A</option>
-    <option value="B+">B+</option>
-    <option value="B">B</option>
-    </select><br>
+                // Attach an event listener to the experience input field to update the experience level
+                var experienceInput = document.getElementById("00N5j00000SCZVo");
+                if (experienceInput) {
+                    experienceInput.addEventListener("input", updateExperienceLevel);
+                }
+            </script>
 
 
-
-<script>
-    // Function to calculate the grade based on experience
-    function calculateGrade(experience) {
-        if (experience >= 0 && experience <= 5) {
-            return 'B';
-        } else if (experience > 5 && experience <= 10) {
-            return 'B+';
-        } else if (experience > 10 && experience <= 15) {
-            return 'A';
-        } else if (experience > 15) {
-            return 'A+';
-        }
-        // Default to B if experience is not within defined ranges
-        return 'None';
-    }
-
-    // Function to update the grade input field
-    function updateGradeInput() {
-        var experienceInput = document.getElementById("00N5j00000SCZVo"); // Replace with the actual experience input field
-        var gradeInput = document.getElementById("00N5j00000TYwVZ");
-
-        if (experienceInput && gradeInput) {
-            var experience = parseInt(experienceInput.value, 10);
-            var calculatedGrade = calculateGrade(experience);
-
-            gradeInput.value = calculatedGrade;
-            // Trigger a change event on the grade input
-            var event = new Event('change');
-            gradeInput.dispatchEvent(event);
-
-            // Trigger a change event on the grade select (if available)
-            var gradeSelect = document.getElementById("gradeSelect");
-            if (gradeSelect) {
-                gradeSelect.dispatchEvent(event);
-            }
-        }
-    }
-
-    // Attach an event listener to the experience input field to update the grade input
-    var experienceInput = document.getElementById("00N5j00000SCZVo"); 
-    if (experienceInput) {
-        experienceInput.addEventListener("input", updateGradeInput);
-    }
-
-    // Initial update when the page loads
-    updateGradeInput();
-</script>
+            <select id="00N5j00000TYwVZ" name="00N5j00000TYwVZ" title="Grade" hidden>
+                <option value="">--None--</option>
+                <option value="A+">A+</option>
+                <option value="A">A</option>
+                <option value="B+">B+</option>
+                <option value="B">B</option>
+            </select><br>
 
 
 
-<label for="company">Company (You are interested In)</label>
-<select id="company" name="company" required>
-    <option value="" disabled selected>Select a company</option>
-</select>
+            <script>
+                // Function to calculate the grade based on experience
+                function calculateGrade(experience) {
+                    if (experience >= 0 && experience <= 5) {
+                        return 'B';
+                    } else if (experience > 5 && experience <= 10) {
+                        return 'B+';
+                    } else if (experience > 10 && experience <= 15) {
+                        return 'A';
+                    } else if (experience > 15) {
+                        return 'A+';
+                    }
+                    // Default to B if experience is not within defined ranges
+                    return 'None';
+                }
 
-<script>
-    // Function to update the list of companies based on the selected grade
-    function updateCompanyList() {
-        var selectedGrade = document.getElementById("00N5j00000TYwVZ").value;
-        var companySelect = document.getElementById("company");
+                // Function to update the grade input field
+                function updateGradeInput() {
+                    var experienceInput = document.getElementById("00N5j00000SCZVo"); // Replace with the actual experience input field
+                    var gradeInput = document.getElementById("00N5j00000TYwVZ");
 
-       var companies = {
-    "A+": ["Amazon.com, Inc.", "Apple Inc.", "Google", "Facebook", "Microsoft", "Samsung Electronics Co., Ltd.", "Toyota Motor Corporation", "Volkswagen Group", "Alphabet Inc.", "Alibaba Group", "Tencent Holdings", "Intel Corporation", "Amazon Web Services", "Sony Corporation", "NVIDIA Corporation"],
-    "A": ["Berkshire Hathaway Inc.", "Accenture", "Capgemini Ltd.", "Nestlé S.A.", "Infosys", "Samsung Electronics Co., Ltd.", "Apple Inc.", "Microsoft", "Google", "Amazon.com, Inc.", "Toyota Motor Corporation", "Volkswagen Group", "IBM", "Deloitte", "TCS (Tata Consultancy Services)"],
-    "B+": ["Cognizant", "Wipro", "EY Ltd.", "Shoprite Holdings Ltd", "Infosys", "Accenture", "HCL Technologies", "Tech Mahindra", "Deloitte", "IBM", "TCS (Tata Consultancy Services)"],
-    "B": ["Discovery Limited", "Cognizant", "EY Ltd.", "Accenture", "Wipro", "Infosys", "HCL Technologies", "Tech Mahindra"]
-};
+                    if (experienceInput && gradeInput) {
+                        var experience = parseInt(experienceInput.value, 10);
+                        var calculatedGrade = calculateGrade(experience);
+
+                        gradeInput.value = calculatedGrade;
+                        // Trigger a change event on the grade input
+                        var event = new Event('change');
+                        gradeInput.dispatchEvent(event);
+
+                        // Trigger a change event on the grade select (if available)
+                        var gradeSelect = document.getElementById("gradeSelect");
+                        if (gradeSelect) {
+                            gradeSelect.dispatchEvent(event);
+                        }
+                    }
+                }
+
+                // Attach an event listener to the experience input field to update the grade input
+                var experienceInput = document.getElementById("00N5j00000SCZVo");
+                if (experienceInput) {
+                    experienceInput.addEventListener("input", updateGradeInput);
+                }
+
+                // Initial update when the page loads
+                updateGradeInput();
+            </script>
 
 
-        // Clear the current options
-        companySelect.innerHTML = '<option value="" disabled selected>Select a company</option>';
 
-        // Add options based on the selected grade
-        var companiesForGrade = companies[selectedGrade];
-        if (companiesForGrade) {
-            companiesForGrade.forEach(function (company) {
-                var option = document.createElement("option");
-                option.value = company;
-                option.textContent = company;
-                companySelect.appendChild(option);
-            });
-        }
-    }
+            <label for="company">Company (You are interested In)</label>
+            <select id="company" name="company" required>
+                <option value="" disabled selected>Select a company</option>
+            </select>
 
-    // Attach an event listener to the grade select element to update the company list
-    var gradeSelect = document.getElementById("00N5j00000TYwVZ");
-    if (gradeSelect) {
-        gradeSelect.addEventListener("change", updateCompanyList);
-    }
+            <script>
+                // Function to update the list of companies based on the selected grade
+                function updateCompanyList() {
+                    var selectedGrade = document.getElementById("00N5j00000TYwVZ").value;
+                    var companySelect = document.getElementById("company");
 
-    // Initial update when the page loads
-    updateCompanyList();
-</script>
+                    var companies = {
+                        "A+": ["Amazon.com, Inc.", "Apple Inc.", "Google", "Facebook", "Microsoft", "Samsung Electronics Co., Ltd.", "Toyota Motor Corporation", "Volkswagen Group", "Alphabet Inc.", "Alibaba Group", "Tencent Holdings", "Intel Corporation", "Amazon Web Services", "Sony Corporation", "NVIDIA Corporation"],
+                        "A": ["Berkshire Hathaway Inc.", "Accenture", "Capgemini Ltd.", "Nestlé S.A.", "Infosys", "Samsung Electronics Co., Ltd.", "Apple Inc.", "Microsoft", "Google", "Amazon.com, Inc.", "Toyota Motor Corporation", "Volkswagen Group", "IBM", "Deloitte", "TCS (Tata Consultancy Services)"],
+                        "B+": ["Cognizant", "Wipro", "EY Ltd.", "Shoprite Holdings Ltd", "Infosys", "Accenture", "HCL Technologies", "Tech Mahindra", "Deloitte", "IBM", "TCS (Tata Consultancy Services)"],
+                        "B": ["Discovery Limited", "Cognizant", "EY Ltd.", "Accenture", "Wipro", "Infosys", "HCL Technologies", "Tech Mahindra"]
+                    };
+
+
+                    // Clear the current options
+                    companySelect.innerHTML = '<option value="" disabled selected>Select a company</option>';
+
+                    // Add options based on the selected grade
+                    var companiesForGrade = companies[selectedGrade];
+                    if (companiesForGrade) {
+                        companiesForGrade.forEach(function (company) {
+                            var option = document.createElement("option");
+                            option.value = company;
+                            option.textContent = company;
+                            companySelect.appendChild(option);
+                        });
+                    }
+                }
+
+                // Attach an event listener to the grade select element to update the company list
+                var gradeSelect = document.getElementById("00N5j00000TYwVZ");
+                if (gradeSelect) {
+                    gradeSelect.addEventListener("change", updateCompanyList);
+                }
+
+                // Initial update when the page loads
+                updateCompanyList();
+            </script>
 
 
 
 
             <input type="hidden" id="lead_source" name="lead_source" value="Registration">
-        
-                             <label for="region" >Region name</label>
-                <select id="region" name="00N5j00000TWkBW" required>
-                    <option value="" selected>--Select a Region--</option>
-                    <option value="South America">South America</option>
-                    <option value="Australia (Oceania)">Australia (Oceania)</option>
-                    <option value="North America">North America</option>
-                    <option value="Europe">Europe</option>
-                    <option value="Asia">Asia</option>
-                    <option value="Africa">Africa</option>
-                </select >
-                
-                <!-- <label for="country">Preferred Country:</label>
+
+            <label for="region">Region name</label>
+            <select id="region" name="00N5j00000TWkBW" required>
+                <option value="" selected>--Select a Region--</option>
+                <option value="South America">South America</option>
+                <option value="Australia (Oceania)">Australia (Oceania)</option>
+                <option value="North America">North America</option>
+                <option value="Europe">Europe</option>
+                <option value="Asia">Asia</option>
+                <option value="Africa">Africa</option>
+            </select>
+
+            <!-- <label for="country">Preferred Country:</label>
                 <select id="country" name="00N5j00000TWkBb">
                     <option value="" selected>--Select a Country--</option>
                 </select> -->
-           
-
-                <label for="country" required>Country</label>
-<select id="country" name="00N5j00000TWkBb">
-    <option value="" selected>--Select a Country--</option>
-</select>
-
-<label for="city" required>City</label>
-<select id="city" name="city">
-    <option value="" selected>--Select a City--</option>
-</select><br>
-
-<!--             Region country and city list control -->
-
-<script>
-    var regionDropdown = document.getElementById("region");
-    var countryDropdown = document.getElementById("country");
-    var cityDropdown = document.getElementById("city");
-
-    var countryOptions = {
-        "South America": ["Argentina", "Chile", "Colombia", "Peru"],
-        "Australia (Oceania)": ["Fiji", "New Zealand", "Papua New Guinea", "Samoa"],
-        "North America": ["Mexico", "Guatemala", "Cuba", "Dominican Republic"],
-        "Europe": ["Italy", "Netherlands", "Spain", "Switzerland"],
-        "Asia": ["China", "India", "Malaysia", "South Korea", "Thailand"],
-        "Africa": ["Egypt", "Kenya", "Morocco", "Nigeria", "Algeria"]
-    };
-
-    var cityOptions = {
-            "Argentina": ["Buenos Aires", "Córdoba", "Rosario", "Mendoza", "La Plata"],
-            "Chile": ["Santiago", "Valparaíso", "Concepción", "La Serena", "Antofagasta"],
-            "Colombia": ["Bogotá", "Medellín", "Cali", "Barranquilla", "Cartagena"],
-            "Peru": ["Lima", "Arequipa", "Trujillo", "Chiclayo", "Cusco"],
-            "Mexico": ["Mexico City", "Guadalajara", "Monterrey", "Puebla", "Cancún"],
-            "Guatemala": ["Guatemala City", "Mixco", "Villa Nueva", "Quetzaltenango", "Escuintla"],
-            "Cuba": ["Havana", "Santiago de Cuba", "Camagüey", "Holguín", "Santa Clara"],
-            "Dominican Republic": ["Santo Domingo", "Santiago de los Caballeros", "Santo Domingo Este", "La Romana", "San Pedro de Macorís"],
-            "Italy": ["Rome (Roma)", "Milan (Milano)", "Naples (Napoli)", "Florence (Firenze)", "Venice (Venezia)"],
-            "Netherlands": ["Amsterdam", "Rotterdam", "The Hague (Den Haag)", "Utrecht", "Eindhoven"],
-            "Spain": ["Madrid", "Barcelona", "Valencia", "Seville (Sevilla)", "Zaragoza"],
-            "Switzerland": ["Zurich (Zürich)", "Geneva (Genève)", "Basel", "Bern", "Lausanne"],
-            "China": ["Beijing", "Shanghai", "Guangzhou", "Shenzhen", "Chengdu"],
-            "India": ["Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata"],
-            "Malaysia": ["Kuala Lumpur", "George Town (Penang)", "Johor Bahru", "Kota Kinabalu", "Kuching"],
-            "South Korea": ["Seoul", "Busan", "Incheon", "Daegu", "Daejeon"],
-            "Thailand": ["Bangkok", "Chiang Mai", "Phuket", "Pattaya", "Ayutthaya"],
-            "Egypt": ["Cairo", "Alexandria", "Giza", "Luxor", "Aswan"],
-            "Kenya": ["Nairobi", "Mombasa", "Kisumu", "Nakuru", "Eldoret"],
-            "Morocco": ["Casablanca", "Marrakech", "Fes", "Rabat", "Tangier"],
-            "Nigeria": ["Lagos", "Abuja", "Kano", "Ibadan", "Port Harcourt"],
-            "Fiji": ["Suva", "Lautoka", "Nadi", "Labasa", "Ba"],
-            "New Zealand": ["Auckland", "Wellington", "Christchurch", "Hamilton", "Dunedin"],
-            "Papua New Guinea": ["Port Moresby", "Lae", "Mount Hagen", "Madang", "Goroka"],
-            "Samoa": ["Apia", "Vaitele", "Faleula", "Fasito'o Uta", "Saleimoa"],
-            
-                
-    };
-
-    regionDropdown.addEventListener("change", function () {
-        var selectedRegion = regionDropdown.value;
-        var countryOptionsForRegion = countryOptions[selectedRegion] || [];
-
-        countryDropdown.innerHTML = "<option value=''>--Select a Country--</option>";
-        cityDropdown.innerHTML = "<option value=''>--Select a City--</option>";
-
-        for (var i = 0; i < countryOptionsForRegion.length; i++) {
-            var option = document.createElement("option");
-            option.value = countryOptionsForRegion[i];
-            option.textContent = countryOptionsForRegion[i];
-            countryDropdown.appendChild(option);
-        }
-    });
-
-    countryDropdown.addEventListener("change", function () {
-        var selectedCountry = countryDropdown.value;
-        var cityOptionsForCountry = cityOptions[selectedCountry] || [];
-
-        cityDropdown.innerHTML = "<option value=''>--Select a City--</option>";
-
-        for (var i = 0; i < cityOptionsForCountry.length; i++) {
-            var option = document.createElement("option");
-            option.value = cityOptionsForCountry[i];
-            option.textContent = cityOptionsForCountry[i];
-            cityDropdown.appendChild(option);
-        }
-    });
-</script>
 
 
-                <!-- Phone number and email valiadtions -->
+            <label for="country" required>Country</label>
+            <select id="country" name="00N5j00000TWkBb">
+                <option value="" selected>--Select a Country--</option>
+            </select>
 
-                <script>
-                    var emailInput = document.getElementById("email");
-                    var emailError = document.getElementById("emailError");
-                    var phoneInput = document.getElementById("phone");
-                    var phoneError = document.getElementById("phoneError");
-                
-                    emailInput.addEventListener("input", function () {
-                        var emailValue = emailInput.value;
-                        if (!emailValue.endsWith("@gmail.com")) {
-                            // The email does not contain "@gmail.com"
-                            emailError.textContent = "Email must contain @gmail.com";
+            <label for="city" required>City</label>
+            <select id="city" name="city">
+                <option value="" selected>--Select a City--</option>
+            </select><br>
+
+            <!--             Region country and city list control -->
+
+            <script>
+                var regionDropdown = document.getElementById("region");
+                var countryDropdown = document.getElementById("country");
+                var cityDropdown = document.getElementById("city");
+
+                var countryOptions = {
+                    "South America": ["Argentina", "Chile", "Colombia", "Peru"],
+                    "Australia (Oceania)": ["Fiji", "New Zealand", "Papua New Guinea", "Samoa"],
+                    "North America": ["Mexico", "Guatemala", "Cuba", "Dominican Republic"],
+                    "Europe": ["Italy", "Netherlands", "Spain", "Switzerland"],
+                    "Asia": ["China", "India", "Malaysia", "South Korea", "Thailand"],
+                    "Africa": ["Egypt", "Kenya", "Morocco", "Nigeria", "Algeria"]
+                };
+
+                var cityOptions = {
+                    "Argentina": ["Buenos Aires", "Córdoba", "Rosario", "Mendoza", "La Plata"],
+                    "Chile": ["Santiago", "Valparaíso", "Concepción", "La Serena", "Antofagasta"],
+                    "Colombia": ["Bogotá", "Medellín", "Cali", "Barranquilla", "Cartagena"],
+                    "Peru": ["Lima", "Arequipa", "Trujillo", "Chiclayo", "Cusco"],
+                    "Mexico": ["Mexico City", "Guadalajara", "Monterrey", "Puebla", "Cancún"],
+                    "Guatemala": ["Guatemala City", "Mixco", "Villa Nueva", "Quetzaltenango", "Escuintla"],
+                    "Cuba": ["Havana", "Santiago de Cuba", "Camagüey", "Holguín", "Santa Clara"],
+                    "Dominican Republic": ["Santo Domingo", "Santiago de los Caballeros", "Santo Domingo Este", "La Romana", "San Pedro de Macorís"],
+                    "Italy": ["Rome (Roma)", "Milan (Milano)", "Naples (Napoli)", "Florence (Firenze)", "Venice (Venezia)"],
+                    "Netherlands": ["Amsterdam", "Rotterdam", "The Hague (Den Haag)", "Utrecht", "Eindhoven"],
+                    "Spain": ["Madrid", "Barcelona", "Valencia", "Seville (Sevilla)", "Zaragoza"],
+                    "Switzerland": ["Zurich (Zürich)", "Geneva (Genève)", "Basel", "Bern", "Lausanne"],
+                    "China": ["Beijing", "Shanghai", "Guangzhou", "Shenzhen", "Chengdu"],
+                    "India": ["Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata"],
+                    "Malaysia": ["Kuala Lumpur", "George Town (Penang)", "Johor Bahru", "Kota Kinabalu", "Kuching"],
+                    "South Korea": ["Seoul", "Busan", "Incheon", "Daegu", "Daejeon"],
+                    "Thailand": ["Bangkok", "Chiang Mai", "Phuket", "Pattaya", "Ayutthaya"],
+                    "Egypt": ["Cairo", "Alexandria", "Giza", "Luxor", "Aswan"],
+                    "Kenya": ["Nairobi", "Mombasa", "Kisumu", "Nakuru", "Eldoret"],
+                    "Morocco": ["Casablanca", "Marrakech", "Fes", "Rabat", "Tangier"],
+                    "Nigeria": ["Lagos", "Abuja", "Kano", "Ibadan", "Port Harcourt"],
+                    "Fiji": ["Suva", "Lautoka", "Nadi", "Labasa", "Ba"],
+                    "New Zealand": ["Auckland", "Wellington", "Christchurch", "Hamilton", "Dunedin"],
+                    "Papua New Guinea": ["Port Moresby", "Lae", "Mount Hagen", "Madang", "Goroka"],
+                    "Samoa": ["Apia", "Vaitele", "Faleula", "Fasito'o Uta", "Saleimoa"],
+
+
+                };
+
+                regionDropdown.addEventListener("change", function () {
+                    var selectedRegion = regionDropdown.value;
+                    var countryOptionsForRegion = countryOptions[selectedRegion] || [];
+
+                    countryDropdown.innerHTML = "<option value=''>--Select a Country--</option>";
+                    cityDropdown.innerHTML = "<option value=''>--Select a City--</option>";
+
+                    for (var i = 0; i < countryOptionsForRegion.length; i++) {
+                        var option = document.createElement("option");
+                        option.value = countryOptionsForRegion[i];
+                        option.textContent = countryOptionsForRegion[i];
+                        countryDropdown.appendChild(option);
+                    }
+                });
+
+                countryDropdown.addEventListener("change", function () {
+                    var selectedCountry = countryDropdown.value;
+                    var cityOptionsForCountry = cityOptions[selectedCountry] || [];
+
+                    cityDropdown.innerHTML = "<option value=''>--Select a City--</option>";
+
+                    for (var i = 0; i < cityOptionsForCountry.length; i++) {
+                        var option = document.createElement("option");
+                        option.value = cityOptionsForCountry[i];
+                        option.textContent = cityOptionsForCountry[i];
+                        cityDropdown.appendChild(option);
+                    }
+                });
+            </script>
+
+
+            <!-- Phone number and email valiadtions -->
+
+            <script>
+                var emailInput = document.getElementById("email");
+                var emailError = document.getElementById("emailError");
+                var phoneInput = document.getElementById("phone");
+                var phoneError = document.getElementById("phoneError");
+
+                emailInput.addEventListener("input", function () {
+                    var emailValue = emailInput.value;
+                    if (!emailValue.endsWith("@gmail.com")) {
+                        // The email does not contain "@gmail.com"
+                        emailError.textContent = "Email must contain @gmail.com";
+                    } else {
+                        emailError.textContent = "";
+                    }
+                });
+
+                phoneInput.addEventListener("input", function () {
+                    var phoneValue = phoneInput.value;
+                    if (phoneValue.length === 10 && /^\d{10}$/.test(phoneValue)) {
+                        // The phone number is valid
+                        phoneError.textContent = "";
+                    } else {
+                        // The phone number is not 10 digits
+                        phoneError.textContent = "Phone number must be exactly 10 digits.";
+                    }
+                });
+            </script>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    function updateFormStatus() {
+                        var formStatusElement = document.getElementById("formStatus");
+                        var registerButton = document.getElementsByName("register")[0];
+
+                        var currentDate = new Date();
+                        var currentHour = currentDate.getHours();
+
+                        // Set the opening time for the next day at 10 AM
+                        var nextOpeningTime = new Date(currentDate);
+                        nextOpeningTime.setDate(currentDate.getDate() + 1);
+                        nextOpeningTime.setHours(10, 0, 0, 0);
+
+                        // Calculate time difference
+                        var timeDifference = nextOpeningTime - currentDate;
+
+                        if (currentHour >= 10 && currentHour < 17) {
+                            // Form is open
+                            formStatusElement.innerHTML = ".";
+                            registerButton.disabled = false; // Enable the submit button
                         } else {
-                            emailError.textContent = "";
+                            // Form is closed
+                            formStatusElement.style.color = "red";
+                            formStatusElement.style.textAlign = "center";
+                            formStatusElement.style.padding = "3px";
+                            formStatusElement.style.margin = "1px 0";
+                            formStatusElement.innerHTML = "⚠️ Sorry, the registration form is currently closed. It will reopen in: " + getRemainingTime(timeDifference);
+                            registerButton.disabled = true; // Disable the submit button
                         }
-                    });
-                
-                    phoneInput.addEventListener("input", function () {
-                        var phoneValue = phoneInput.value;
-                        if (phoneValue.length === 10 && /^\d{10}$/.test(phoneValue)) {
-                            // The phone number is valid
-                            phoneError.textContent = "";
-                        } else {
-                            // The phone number is not 10 digits
-                            phoneError.textContent = "Phone number must be exactly 10 digits.";
-                        }
-                    });
-                </script>
+                    }
 
+                    function getRemainingTime(timeDifference) {
+                        var hours = Math.floor(timeDifference / 3600000);
+                        var minutes = Math.floor((timeDifference % 3600000) / 60000);
+                        var seconds = Math.floor((timeDifference % 60000) / 1000);
+
+                        return (hours < 10 ? "0" : "") + hours + "h " + (minutes < 10 ? "0" : "") + minutes + "m " + (seconds < 10 ? "0" : "") + seconds + "s";
+                    }
+
+                    // Initial update when the page loads
+                    updateFormStatus();
+
+                    // Update the form status every second
+                    setInterval(updateFormStatus, 1000);
+                });
+            </script>
 
             <br><label for="termsCheckbox">
-                    <input type="checkbox" id="termsCheckbox" name="termsCheckbox" required>
-                    I have read and agree to the <a href="https://patilsaurabh83.github.io/Salesforce_Forms/Terms and conditions.html" target="_blank">terms and conditions</a> and privacy Policy.
-                </label> <br>
+                <input type="checkbox" id="termsCheckbox" name="termsCheckbox" required>
+                I have read and agree to the <a
+                    href="https://patilsaurabh83.github.io/Salesforce_Forms/Terms and conditions.html"
+                    target="_blank">terms and conditions</a> and privacy Policy.
+            </label> <br>
 
-            
-            
+
+            <div id="formStatus"></div><br>
             <input type="submit" name="register" value="Register">
             <div class="message">
                 NOTE :Before you proceed, we recommend reviewing your details to ensure accuracy
@@ -447,4 +497,5 @@
         </form>
     </div>
 </body>
+
 </html>

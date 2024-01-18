@@ -433,23 +433,23 @@
                     }
                 });
             </script>
-            <script>
+           <script>
                 document.addEventListener("DOMContentLoaded", function () {
                     function updateFormStatus() {
                         var formStatusElement = document.getElementById("formStatus");
                         var registerButton = document.getElementsByName("register")[0];
-
+                    
                         var currentDate = new Date();
                         var currentHour = currentDate.getHours();
-
+                    
                         // Set the opening time for the next day at 10 AM
                         var nextOpeningTime = new Date(currentDate);
                         nextOpeningTime.setDate(currentDate.getDate() + 1);
                         nextOpeningTime.setHours(10, 0, 0, 0);
-
+                    
                         // Calculate time difference
                         var timeDifference = nextOpeningTime - currentDate;
-
+                    
                         if (currentHour >= 10 && currentHour < 17) {
                             // Form is open
                             formStatusElement.innerHTML = ".";
@@ -460,19 +460,25 @@
                             formStatusElement.style.textAlign = "center";
                             formStatusElement.style.padding = "3px";
                             formStatusElement.style.margin = "1px 0";
+                    
+                            // Update the remaining time
                             formStatusElement.innerHTML = "⚠️ Sorry, the registration form is currently closed. It will reopen in: " + getRemainingTime(timeDifference);
                             registerButton.disabled = true; // Disable the submit button
                         }
                     }
-
+                    
                     function getRemainingTime(timeDifference) {
-                        var hours = Math.floor(timeDifference / 3600000);
-                        var minutes = Math.floor((timeDifference % 3600000) / 60000);
-                        var seconds = Math.floor((timeDifference % 60000) / 1000);
-
+                        var seconds = Math.floor(timeDifference / 1000);
+                        var minutes = Math.floor(seconds / 60);
+                        var hours = Math.floor(minutes / 60);
+                    
+                        seconds %= 60;
+                        minutes %= 60;
+                        hours %= 24;
+                    
                         return (hours < 10 ? "0" : "") + hours + "h " + (minutes < 10 ? "0" : "") + minutes + "m " + (seconds < 10 ? "0" : "") + seconds + "s";
                     }
-
+                    
                     // Initial update when the page loads
                     updateFormStatus();
 

@@ -150,18 +150,17 @@
 </head>
 
 <body>
-    <div id="mobileMessage">
-        <p>This page isn't optimized for your device. Please switch to desktop mode or open this page on a laptop
-            or computer Devices for the best viewing experience.</p>
-    </div>
-
-    <nav>
+     <nav>
         <div class="tagline">
             <h1>RecruiterPro</h1>
             <p>Unlocking Opportunities, Transforming Careers</p>
             <br>
         </div>
     </nav>
+    <div id="mobileMessage">
+        <p>This page isn't optimized for your device. Please switch to desktop mode or open this page on a laptop
+            or computer Devices for the best viewing experience.</p>
+    </div>
     <div class="container">
         <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D5j00000DAZO0"
             method="POST" id="myForm">
@@ -643,6 +642,7 @@
                                 // Form is closed
                                 formStatusElement.style.color = "red";
                                 formStatusElement.style.textAlign = "left";
+                                formStatusElement.style.fontSize = "14px";
 
                                 // Update the remaining time
                                 formStatusElement.innerHTML = "⚠️Sorry, the registration form is currently closed.It will reopen in: " + getRemainingTime(timeDifference);
@@ -672,27 +672,21 @@
 
 
                     function checkDeviceCompatibility() {
-                        var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Mobile|Mobile|Tablet/i.test(navigator.userAgent);
-                        var mobileMessage = document.getElementById("mobileMessage");
-                        var messageOverlay = document.getElementById("messageOverlay");
-                        var myForm = document.getElementById("myForm");
+            var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Mobile|Mobile|Tablet/i.test(navigator.userAgent);
+            var mobileMessage = document.getElementById("mobileMessage");
 
-                        if (isMobile && window.innerWidth < 800) {
-                            mobileMessage.style.display = "block";
-                            messageOverlay.style.display = "block";
-                            setTimeout(function () {
-                                mobileMessage.style.display = "none";
-                                messageOverlay.style.display = "none";
-                            }, 3000);
-                        } else {
-                            mobileMessage.style.display = "none";
-                            messageOverlay.style.display = "none";
-                        }
-                    }
+            if (isMobile && window.innerWidth < 800) {
+                mobileMessage.style.display = "block";
+                setTimeout(function () {
+                    mobileMessage.style.display = "none";
+                }, 3000);
+            } else {
+                mobileMessage.style.display = "none";
+            }
+        }
 
-                    window.onload = checkDeviceCompatibility;
-                    window.addEventListener("orientationchange", checkDeviceCompatibility);
-
+        window.onload = checkDeviceCompatibility;
+        window.addEventListener("orientationchange", checkDeviceCompatibility);
                 </script>
 
 

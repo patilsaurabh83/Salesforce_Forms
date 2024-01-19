@@ -11,11 +11,7 @@
             margin: 0;
             padding: 0;
             background-color: #ffffff;
-        }
-
-        .container {
-        max-width: 800px;
-        margin: 0 auto;
+            overflow-x: hidden;
         }
 
         #formSection {
@@ -73,7 +69,7 @@
             font-size: 12px;
         }
 
-            .message {
+        .message {
             padding-top: 10px;
             font-size: 11px;
             font-style: italic;
@@ -91,22 +87,15 @@
             color: #333;
             display: block;
             margin-bottom: 5px;
-            text-align: left; /* Center text within label */
+            text-align: left;
         }
-        
-        /* Additional styling for checkbox */
+
         input[type="checkbox"] {
             margin-right: 5px;
             transform: scale(1.3);
         }
-        
-        /* Styling for the form status */
-        #formStatus {
-            margin-bottom: 2px;
-            text-align: left;
-        }
-        
-        /* Styling for the submit button */
+
+
         input[type="submit"] {
             background-color: #007BFF;
             color: #fff;
@@ -115,19 +104,13 @@
             border-radius: 3px;
             cursor: pointer;
         }
-        
+
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
 
         .form-container {
             text-align: left;
-        }
-
-        @media (min-width: 768px) {
-            #formSection>div {
-                width: calc(50% - 20px);
-            }
         }
 
         footer {
@@ -137,6 +120,7 @@
             width: 100%;
             text-align: center;
         }
+
 
         .required {
             color: red;
@@ -148,15 +132,27 @@
             margin-top: 15px;
             margin-right: 15px;
             margin-top: 10px;
-            color: rgba(215, 26, 26, 0.8); 
+            color: rgba(215, 26, 26, 0.8);
         }
-        
-        
+
+
+        #mobileMessage {
+            display: none;
+            text-align: center;
+            padding: 5px;
+            background-color: #63d273;
+            color: rgb(0, 0, 0);
+        }
     </style>
 
 </head>
 
 <body>
+    <div id="mobileMessage">
+        <p>This page isn't optimized for your device. Please switch to desktop mode or open this page on a laptop
+            or computer Devices for the best viewing experience.</p>
+    </div>
+
     <nav>
         <div class="tagline">
             <h1>RecruiterPro</h1>
@@ -166,16 +162,17 @@
     </nav>
     <div class="container">
         <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D5j00000DAZO0"
-            method="POST">
+            method="POST" id="myForm">
 
             <div class="mandatory-text">*Marked fields are mandatory</div>
+
 
             <input type=hidden name="oid" value="00D5j00000DAZO0">
             <input type=hidden name="retURL" value="https://patilsaurabh83.github.io/Salesforce_Forms/Thank You.html">
 
 
             <section id="formSection">
-                
+
                 <div>
                     <h3>Personal Information</h3>
                     <label for="first_name">First Name<span class="required">*</span></label>
@@ -197,7 +194,7 @@
 
                 </div>
 
-                
+
                 <div>
                     <h3>Educational Information</h3>
 
@@ -207,7 +204,7 @@
                     <label for="12th_percentage">12th Percentage<span class="required">*</span></label>
                     <input id="00N5j00000UOjbc" name="00N5j00000UOjbc" size="20" type="text" /><br>
 
-                    <label for="education" >Education<span class="required">*</span></label>
+                    <label for="education">Education<span class="required">*</span></label>
                     <select id="00N5j00000UOxZF" name="00N5j00000UOxZF" size="1">
                         <option>Select the option</option>
                         <option value="Engineering">Engineering</option>
@@ -334,7 +331,7 @@
                         <option value="Other">Other</option>
                     </select>
 
-                    
+
                 </div>
 
 
@@ -643,12 +640,10 @@
                             } else {
                                 // Form is closed
                                 formStatusElement.style.color = "red";
-                                formStatusElement.style.textAlign = "center";
-                                formStatusElement.style.padding = "3px";
-                                formStatusElement.style.margin = "1px 0";
+                                formStatusElement.style.textAlign = "left";
 
                                 // Update the remaining time
-                                 formStatusElement.innerHTML = "⚠️Sorry, the registration form is currently closed.It will reopen in: " + getRemainingTime(timeDifference);
+                                formStatusElement.innerHTML = "⚠️Sorry, the registration form is currently closed.It will reopen in: " + getRemainingTime(timeDifference);
                                 registerButton.disabled = true; // Disable the submit button
                             }
                         }
@@ -671,6 +666,31 @@
                         // Update the form status every second
                         setInterval(updateFormStatus, 1000);
                     });
+
+
+
+                    function checkDeviceCompatibility() {
+                        var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Mobile|Mobile|Tablet/i.test(navigator.userAgent);
+                        var mobileMessage = document.getElementById("mobileMessage");
+                        var messageOverlay = document.getElementById("messageOverlay");
+                        var myForm = document.getElementById("myForm");
+
+                        if (isMobile && window.innerWidth < 800) {
+                            mobileMessage.style.display = "block";
+                            messageOverlay.style.display = "block";
+                            setTimeout(function () {
+                                mobileMessage.style.display = "none";
+                                messageOverlay.style.display = "none";
+                            }, 3000);
+                        } else {
+                            mobileMessage.style.display = "none";
+                            messageOverlay.style.display = "none";
+                        }
+                    }
+
+                    window.onload = checkDeviceCompatibility;
+                    window.addEventListener("orientationchange", checkDeviceCompatibility);
+
                 </script>
 
 
@@ -683,8 +703,8 @@
                             href="https://patilsaurabh83.github.io/Salesforce_Forms/Terms and conditions.html"
                             target="_blank">terms and conditions</a> and privacy Policy.
                     </label><br>
-                    
-                    <div id="formStatus"></div><br>
+
+                    <div class="timer" id="formStatus"></div><br>
                     <div>
                         <input type="submit" name="register" value="Register">
                     </div>
@@ -693,14 +713,14 @@
                         NOTE :Before you proceed, we recommend reviewing your details to ensure accuracy
                     </div>
 
-                    
+
                 </div>
-                
+
         </form>
     </div>
     <footer>
         <div>
-            &copy; 2023 RecruiterPro. All rights reserved.ransforming Careers and Connecting Talent. Trusted by top
+            &copy; 2023 RecruiterPro. All rights reserved.Transforming Careers and Connecting Talent. Trusted by top
             companies worldwide.
         </div>
     </footer>

@@ -14,14 +14,20 @@
             overflow-x: hidden;
         }
 
+        .container {
+            width: 100%;
+        }
+
         #formSection {
-            display: flex;
-            flex-wrap: wrap;
+
+            margin-left: 40px;
+            justify-content: center;
         }
 
         #formSection>div {
-            width: calc(50% - 20px);
-            box-sizing: border-box;
+            width: 80%;
+            justify-content: center;
+            align-items: center;
             padding: 20px;
             background-color: #fff;
             margin-bottom: 15px;
@@ -31,13 +37,14 @@
             color: #007BFF;
             font-weight: bold;
             font-size: 16px;
+            align-items: center;
             margin-bottom: 15px;
         }
 
         #formSection label {
-            display: block;
             margin-bottom: 5px;
             font-weight: bold;
+            align-items: center;
             font-size: 14px;
             color: #333;
         }
@@ -57,6 +64,15 @@
         select {
             height: 40px;
         }
+
+        .section-description {
+            font-size: 14px;
+            color: rgb(244, 44, 44);
+            align-items: center;
+            margin-bottom: 20px;
+            margin-left: 30px;
+        }
+        
 
         .tagline {
             color: #007BFF;
@@ -83,12 +99,35 @@
             width: 100%;
         }
 
+        .buttons-prevNext {
+            display: flex;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .buttons-prevNext button {
+            width: 10%;
+            margin: 5px;
+            margin-left: 60px;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .buttons-prevNext button:hover {
+            background-color: #0056b3;
+        }
+
         label[for="termsCheckbox"] {
-            font-size: 12px;
+            font-size: 14px;
             color: #333;
             display: block;
             margin-bottom: 5px;
-            text-align: left;
+            text-align: center;
+            font-weight: bold;
         }
 
         input[type="checkbox"] {
@@ -111,7 +150,8 @@
         }
 
         .form-container {
-            text-align: left;
+            text-align: center;
+            padding-bottom: 5px;
         }
 
         footer {
@@ -147,16 +187,15 @@
         }
 
         #mobileMessage p {
-         margin: 0;
-         padding: 0;
+            margin: 0;
+            padding: 0;
         }
-        
     </style>
 
 </head>
 
 <body>
-     <nav>
+    <nav>
         <div class="tagline">
             <h1>RecruiterPro</h1>
             <p>Unlocking Opportunities, Transforming Careers</p>
@@ -374,8 +413,10 @@
 
                 <div>
                     <h3>Additional Info(For Internal Use)</h3>
+
                     <label>Experience<span class="required">*</span></label>
-                    <input id="00N5j00000SCZVo" name="00N5j00000SCZVo" type="text" placeholder="0 - 45" required /><br>
+                    <input id="00N5j00000SCZVo" name="00N5j00000SCZVo" type="text" placeholder="0 - 45" required
+                        oninput="togglePreviousEmploymentDiv(this.value)" /><br>
 
                     <!-- Experience Level field -->
                     <label for="00N5j00000RpTNG">Experience Level<span class="required">*</span></label>
@@ -387,336 +428,425 @@
                         <option value="" disabled selected>Select a company</option>
                     </select>
 
-
-                </div>
-
-                <select id="00N5j00000TYwVZ" name="00N5j00000TYwVZ" title="Grade" hidden>
-                    <option value="">--None--</option>
-                    <option value="A+">A+</option>
-                    <option value="A">A</option>
-                    <option value="B+">B+</option>
-                    <option value="B">B</option>
-                </select><br>
-
-                <input type="hidden" id="lead_source" name="lead_source" value="Registration">
-
-
-                <!-- Script to calculate and update Experience Level based on entered experience -->
-                <script>
-                    function updateExperienceLevel() {
-                        var experienceInput = document.getElementById("00N5j00000SCZVo");
-                        var experienceLevelInput = document.getElementById("00N5j00000RpTNG");
-
-                        if (experienceInput && experienceLevelInput) {
-                            var experience = parseInt(experienceInput.value, 10);
-
-                            // Define your experience level ranges
-                            var experienceLevels = [
-                                { level: "Entry Level", range: [0, 1] },
-                                { level: "Junior", range: [1, 3] },
-                                { level: "Entry to Mid-Level", range: [0, 5] },
-                                { level: "Mid-Level", range: [3, 8] },
-                                { level: "Mid to Senior", range: [5, 10] },
-                                { level: "Senior", range: [8, 12] },
-                                { level: "Senior to Lead", range: [10, 15] },
-                                { level: "Lead", range: [12, 18] },
-                                { level: "Director", range: [15, 25] },
-                                { level: "Executive", range: [25, 45] },
-                            ];
-
-                            // Find the appropriate experience level based on the entered experience
-                            var selectedLevel = experienceLevels.find(level => experience >= level.range[0] && experience <= level.range[1]);
-
-                            // Update the value of the read-only experience level field
-                            if (selectedLevel) {
-                                experienceLevelInput.value = selectedLevel.level;
-                            } else {
-                                experienceLevelInput.value = "Not specified";
-                            }
-                        }
-                    }
-
-                    // Attach an event listener to the experience input field to update the experience level
-                    var experienceInput = document.getElementById("00N5j00000SCZVo");
-                    if (experienceInput) {
-                        experienceInput.addEventListener("input", updateExperienceLevel);
-                    }
-
-                    // Function to calculate the grade based on experience
-                    function calculateGrade(experience) {
-                        if (experience >= 0 && experience <= 5) {
-                            return 'B';
-                        } else if (experience > 5 && experience <= 10) {
-                            return 'B+';
-                        } else if (experience > 10 && experience <= 15) {
-                            return 'A';
-                        } else if (experience > 15) {
-                            return 'A+';
-                        }
-                        // Default to B if experience is not within defined ranges
-                        return 'None';
-                    }
-
-                    // Function to update the grade input field
-                    function updateGradeInput() {
-                        var experienceInput = document.getElementById("00N5j00000SCZVo"); // Replace with the actual experience input field
-                        var gradeInput = document.getElementById("00N5j00000TYwVZ");
-
-                        if (experienceInput && gradeInput) {
-                            var experience = parseInt(experienceInput.value, 10);
-                            var calculatedGrade = calculateGrade(experience);
-
-                            gradeInput.value = calculatedGrade;
-                            // Trigger a change event on the grade input
-                            var event = new Event('change');
-                            gradeInput.dispatchEvent(event);
-
-                            // Trigger a change event on the grade select (if available)
-                            var gradeSelect = document.getElementById("gradeSelect");
-                            if (gradeSelect) {
-                                gradeSelect.dispatchEvent(event);
-                            }
-                        }
-                    }
-
-                    // Attach an event listener to the experience input field to update the grade input
-                    var experienceInput = document.getElementById("00N5j00000SCZVo");
-                    if (experienceInput) {
-                        experienceInput.addEventListener("input", updateGradeInput);
-                    }
-
-                    // Initial update when the page loads
-                    updateGradeInput();
-
-                    // Function to update the list of companies based on the selected grade
-                    function updateCompanyList() {
-                        var selectedGrade = document.getElementById("00N5j00000TYwVZ").value;
-                        var companySelect = document.getElementById("company");
-
-                        var companies = {
-                            "A+": ["Amazon.com, Inc.", "Apple Inc.", "Google", "Facebook", "Microsoft", "Samsung Electronics Co., Ltd.", "Toyota Motor Corporation", "Volkswagen Group", "Alphabet Inc.", "Alibaba Group", "Tencent Holdings", "Intel Corporation", "Amazon Web Services", "Sony Corporation", "NVIDIA Corporation"],
-                            "A": ["Berkshire Hathaway Inc.", "Accenture", "Capgemini Ltd.", "Nestlé S.A.", "Infosys", "Samsung Electronics Co., Ltd.", "Apple Inc.", "Microsoft", "Google", "Amazon.com, Inc.", "Toyota Motor Corporation", "Volkswagen Group", "IBM", "Deloitte", "TCS (Tata Consultancy Services)"],
-                            "B+": ["Cognizant", "Wipro", "EY Ltd.", "Shoprite Holdings Ltd", "Infosys", "Accenture", "HCL Technologies", "Tech Mahindra", "Deloitte", "IBM", "TCS (Tata Consultancy Services)"],
-                            "B": ["Discovery Limited", "Cognizant", "EY Ltd.", "Accenture", "Wipro", "Infosys", "HCL Technologies", "Tech Mahindra"]
-                        };
-
-
-                        // Clear the current options
-                        companySelect.innerHTML = '<option value="" disabled selected>Select a company</option>';
-
-                        // Add options based on the selected grade
-                        var companiesForGrade = companies[selectedGrade];
-                        if (companiesForGrade) {
-                            companiesForGrade.forEach(function (company) {
-                                var option = document.createElement("option");
-                                option.value = company;
-                                option.textContent = company;
-                                companySelect.appendChild(option);
-                            });
-                        }
-                    }
-
-                    // Attach an event listener to the grade select element to update the company list
-                    var gradeSelect = document.getElementById("00N5j00000TYwVZ");
-                    if (gradeSelect) {
-                        gradeSelect.addEventListener("change", updateCompanyList);
-                    }
-
-                    // Initial update when the page loads
-                    updateCompanyList();
-
-
-                    var regionDropdown = document.getElementById("region");
-                    var countryDropdown = document.getElementById("country");
-                    var cityDropdown = document.getElementById("city");
-
-                    var countryOptions = {
-                        "South America": ["Argentina", "Chile", "Colombia", "Peru"],
-                        "Australia (Oceania)": ["Fiji", "New Zealand", "Papua New Guinea", "Samoa"],
-                        "North America": ["Mexico", "Guatemala", "Cuba", "Dominican Republic"],
-                        "Europe": ["Italy", "Netherlands", "Spain", "Switzerland"],
-                        "Asia": ["China", "India", "Malaysia", "South Korea", "Thailand"],
-                        "Africa": ["Egypt", "Kenya", "Morocco", "Nigeria", "Algeria"]
-                    };
-
-                    var cityOptions = {
-                        "Argentina": ["Buenos Aires", "Córdoba", "Rosario", "Mendoza", "La Plata"],
-                        "Chile": ["Santiago", "Valparaíso", "Concepción", "La Serena", "Antofagasta"],
-                        "Colombia": ["Bogotá", "Medellín", "Cali", "Barranquilla", "Cartagena"],
-                        "Peru": ["Lima", "Arequipa", "Trujillo", "Chiclayo", "Cusco"],
-                        "Mexico": ["Mexico City", "Guadalajara", "Monterrey", "Puebla", "Cancún"],
-                        "Guatemala": ["Guatemala City", "Mixco", "Villa Nueva", "Quetzaltenango", "Escuintla"],
-                        "Cuba": ["Havana", "Santiago de Cuba", "Camagüey", "Holguín", "Santa Clara"],
-                        "Dominican Republic": ["Santo Domingo", "Santiago de los Caballeros", "Santo Domingo Este", "La Romana", "San Pedro de Macorís"],
-                        "Italy": ["Rome (Roma)", "Milan (Milano)", "Naples (Napoli)", "Florence (Firenze)", "Venice (Venezia)"],
-                        "Netherlands": ["Amsterdam", "Rotterdam", "The Hague (Den Haag)", "Utrecht", "Eindhoven"],
-                        "Spain": ["Madrid", "Barcelona", "Valencia", "Seville (Sevilla)", "Zaragoza"],
-                        "Switzerland": ["Zurich (Zürich)", "Geneva (Genève)", "Basel", "Bern", "Lausanne"],
-                        "China": ["Beijing", "Shanghai", "Guangzhou", "Shenzhen", "Chengdu"],
-                        "India": ["Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata"],
-                        "Malaysia": ["Kuala Lumpur", "George Town (Penang)", "Johor Bahru", "Kota Kinabalu", "Kuching"],
-                        "South Korea": ["Seoul", "Busan", "Incheon", "Daegu", "Daejeon"],
-                        "Thailand": ["Bangkok", "Chiang Mai", "Phuket", "Pattaya", "Ayutthaya"],
-                        "Egypt": ["Cairo", "Alexandria", "Giza", "Luxor", "Aswan"],
-                        "Kenya": ["Nairobi", "Mombasa", "Kisumu", "Nakuru", "Eldoret"],
-                        "Morocco": ["Casablanca", "Marrakech", "Fes", "Rabat", "Tangier"],
-                        "Nigeria": ["Lagos", "Abuja", "Kano", "Ibadan", "Port Harcourt"],
-                        "Fiji": ["Suva", "Lautoka", "Nadi", "Labasa", "Ba"],
-                        "New Zealand": ["Auckland", "Wellington", "Christchurch", "Hamilton", "Dunedin"],
-                        "Papua New Guinea": ["Port Moresby", "Lae", "Mount Hagen", "Madang", "Goroka"],
-                        "Samoa": ["Apia", "Vaitele", "Faleula", "Fasito'o Uta", "Saleimoa"],
-
-
-                    };
-
-                    regionDropdown.addEventListener("change", function () {
-                        var selectedRegion = regionDropdown.value;
-                        var countryOptionsForRegion = countryOptions[selectedRegion] || [];
-
-                        countryDropdown.innerHTML = "<option value=''>--Select a Country--</option>";
-                        cityDropdown.innerHTML = "<option value=''>--Select a City--</option>";
-
-                        for (var i = 0; i < countryOptionsForRegion.length; i++) {
-                            var option = document.createElement("option");
-                            option.value = countryOptionsForRegion[i];
-                            option.textContent = countryOptionsForRegion[i];
-                            countryDropdown.appendChild(option);
-                        }
-                    });
-
-                    countryDropdown.addEventListener("change", function () {
-                        var selectedCountry = countryDropdown.value;
-                        var cityOptionsForCountry = cityOptions[selectedCountry] || [];
-
-                        cityDropdown.innerHTML = "<option value=''>--Select a City--</option>";
-
-                        for (var i = 0; i < cityOptionsForCountry.length; i++) {
-                            var option = document.createElement("option");
-                            option.value = cityOptionsForCountry[i];
-                            option.textContent = cityOptionsForCountry[i];
-                            cityDropdown.appendChild(option);
-                        }
-                    });
-
-
-                    var emailInput = document.getElementById("email");
-                    var emailError = document.getElementById("emailError");
-                    var phoneInput = document.getElementById("phone");
-                    var phoneError = document.getElementById("phoneError");
-
-                    emailInput.addEventListener("input", function () {
-                        var emailValue = emailInput.value;
-                        if (!emailValue.endsWith("@gmail.com")) {
-                            // The email does not contain "@gmail.com"
-                            emailError.textContent = "Email must contain @gmail.com";
-                        } else {
-                            emailError.textContent = "";
-                        }
-                    });
-
-                    phoneInput.addEventListener("input", function () {
-                        var phoneValue = phoneInput.value;
-                        if (phoneValue.length === 10 && /^\d{10}$/.test(phoneValue)) {
-                            // The phone number is valid
-                            phoneError.textContent = "";
-                        } else {
-                            // The phone number is not 10 digits
-                            phoneError.textContent = "Phone number must be exactly 10 digits.";
-                        }
-                    });
-
-                    document.addEventListener("DOMContentLoaded", function () {
-                        function updateFormStatus() {
-                            var formStatusElement = document.getElementById("formStatus");
-                            var registerButton = document.getElementsByName("register")[0];
-
-                            var currentDate = new Date();
-                            var currentHour = currentDate.getHours();
-
-                            // Set the opening time for the next day at 10 AM
-                            var nextOpeningTime = new Date(currentDate);
-                            nextOpeningTime.setDate(currentDate.getDate() + 1);
-                            nextOpeningTime.setHours(10, 0, 0, 0);
-
-                            // Calculate time difference
-                            var timeDifference = nextOpeningTime - currentDate;
-
-                            if (currentHour >= 10 && currentHour < 17) {
-                                // Form is open
-                                registerButton.disabled = false; // Enable the submit button
-                            } else {
-                                // Form is closed
-                                formStatusElement.style.color = "red";
-                                formStatusElement.style.textAlign = "left";
-                                formStatusElement.style.fontSize = "14px";
-
-                                // Update the remaining time
-                                formStatusElement.innerHTML = "⚠️Sorry, the registration form is currently closed.It will reopen in: " + getRemainingTime(timeDifference);
-                                registerButton.disabled = true; // Disable the submit button
-                            }
-                        }
-
-                        function getRemainingTime(timeDifference) {
-                            var seconds = Math.floor(timeDifference / 1000);
-                            var minutes = Math.floor(seconds / 60);
-                            var hours = Math.floor(minutes / 60);
-
-                            seconds %= 60;
-                            minutes %= 60;
-                            hours %= 24;
-
-                            return (hours < 10 ? "0" : "") + hours + "h " + (minutes < 10 ? "0" : "") + minutes + "m " + (seconds < 10 ? "0" : "") + seconds + "s";
-                        }
-
-                        // Initial update when the page loads
-                        updateFormStatus();
-
-                        // Update the form status every second
-                        setInterval(updateFormStatus, 1000);
-                    });
-
-
-
-                    function checkDeviceCompatibility() {
-            var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Mobile|Mobile|Tablet/i.test(navigator.userAgent);
-            var mobileMessage = document.getElementById("mobileMessage");
-
-            if (isMobile && window.innerWidth < 800) {
-                mobileMessage.style.display = "block";
-                setTimeout(function () {
-                    mobileMessage.style.display = "none";
-                }, 10000);
-            } else {
-                mobileMessage.style.display = "none";
-            }
-        }
-
-        window.onload = checkDeviceCompatibility;
-        window.addEventListener("orientationchange", checkDeviceCompatibility);
-                </script>
-
-
-
-                <div class="form-container">
-                    <!-- Your HTML content goes here -->
-                    <label for="termsCheckbox">
-                        <input type="checkbox" id="termsCheckbox" name="termsCheckbox" required>
-                        I have read and agree to the <a
-                            href="https://patilsaurabh83.github.io/Salesforce_Forms/Terms and conditions.html"
-                            target="_blank">terms and conditions</a> and privacy Policy.
-                    </label><br>
-
-                    <div class="timer" id="formStatus"></div><br>
-                    <div>
-                        <input type="submit" name="register" value="Register">
-                    </div>
-
-                    <div class="message">
-                        NOTE :Before you proceed, we recommend reviewing your details to ensure accuracy
-                    </div>
+                    <label for="linkedin">LinkedIn Profile</label>
+                    <input id="linkedin" name="linkedin" type="text" placeholder="Your LinkedIn Profile URL" />
 
 
                 </div>
+
+                <div id="previousEmploymentDiv">
+                    <h3>Previous Employment Info</h3>
+                    <p class="section-description">If you have prior work experience, please provide details of your previous employment(Experinced Candidates Only).</p>
+
+                    <label for="prevCompanyName">Company Name</label>
+                    <input id="prevCompanyName" name="prevCompanyName" type="text"
+                        placeholder="Previous Company Name" /><br>
+
+                    <label for="prevPosition">Position</label>
+                    <input id="prevPosition" name="prevPosition" type="text"
+                        placeholder="Your Position e.g., Senior Software Developer" /><br>
+
+                    <label for="prevDuration">Duration</label>
+                    <input id="prevDuration" name="prevDuration" type="text" placeholder="Duration of Employment" /><br>
+
+                    <label for="prevResponsibilities">Responsibilities</label>
+                    <textarea id="prevResponsibilities" name="prevResponsibilities"
+                        placeholder="Your Responsibilities in the Previous Role"
+                        style="width: 100%; height: 150px;"></textarea><br>
+
+                    <label for="prevReasonForLeaving">Reason for Leaving</label>
+                    <input id="prevReasonForLeaving" name="prevReasonForLeaving" type="text"
+                        placeholder="Reason for Leaving" /><br>
+
+                </div>
+
+            </section>
+
+            <div class="buttons-container">
+                <div class="buttons-prevNext">
+                    <button id="prevButton" onclick="prevSection()">Previous</button>
+                    <button id="nextButton" onclick="nextSection()">Next</button>
+                </div>
+            </div>
+
+
+            <div id="lastTabContent" class="form-container" if:true={}>
+                <!-- Your HTML content goes here -->
+
+                <label for="termsCheckbox">
+                    <input type="checkbox" id="termsCheckbox" name="termsCheckbox" required>
+                    I have read and agree to the <a
+                        href="https://patilsaurabh83.github.io/Salesforce_Forms/Terms and conditions.html"
+                        target="_blank">terms and conditions</a> and privacy Policy.
+                </label><br>
+
+                <div class="timer" id="formStatus"></div><br>
+                <div>
+                    <input type="submit" name="register" value="Register">
+                </div>
+
+                <div class="message">
+                    NOTE :Before you proceed, we recommend reviewing your details to ensure accuracy
+                </div>
+
+
+            </div>
+
+
+
+
+            <select id="00N5j00000TYwVZ" name="00N5j00000TYwVZ" title="Grade" hidden>
+                <option value="">--None--</option>
+                <option value="A+">A+</option>
+                <option value="A">A</option>
+                <option value="B+">B+</option>
+                <option value="B">B</option>
+            </select><br>
+
+            <input type="hidden" id="lead_source" name="lead_source" value="Registration">
+
+
+            <!-- Script to calculate and update Experience Level based on entered experience -->
+            <script>
+
+                const sections = document.querySelectorAll('#formSection > div');
+                let currentSection = 0;
+                const prevButton = document.getElementById('prevButton');
+                const nextButton = document.getElementById('nextButton');
+                const lastTabContainer = document.getElementById('lastTabContent');
+
+                function showSection(index) {
+                    sections.forEach((section, i) => {
+                        section.style.display = i === index ? 'block' : 'none';
+                    });
+                }
+
+                function updateButtonsVisibility() {
+                    prevButton.style.display = currentSection === 0 ? 'none' : 'block';
+                    nextButton.style.display = currentSection === sections.length - 1 ? 'none' : 'block';
+
+                    // Always show last tab container when last section is reached
+                    lastTabContainer.style.display = currentSection === sections.length - 1 ? 'block' : 'none';
+                }
+
+                function nextSection() {
+                    if (currentSection < sections.length - 1) {
+                        currentSection++;
+                        showSection(currentSection);
+                        updateButtonsVisibility();
+                    }
+                }
+
+                function prevSection() {
+                    if (currentSection > 0) {
+                        currentSection--;
+                        showSection(currentSection);
+                        updateButtonsVisibility();
+                    }
+                }
+
+                // Initial display
+                showSection(currentSection);
+                updateButtonsVisibility();
+
+
+
+
+                function updateExperienceLevel() {
+                    var experienceInput = document.getElementById("00N5j00000SCZVo");
+                    var experienceLevelInput = document.getElementById("00N5j00000RpTNG");
+
+                    if (experienceInput && experienceLevelInput) {
+                        var experience = parseInt(experienceInput.value, 10);
+
+                        // Define your experience level ranges
+                        var experienceLevels = [
+                            { level: "Entry Level", range: [0, 1] },
+                            { level: "Junior", range: [1, 3] },
+                            { level: "Entry to Mid-Level", range: [0, 5] },
+                            { level: "Mid-Level", range: [3, 8] },
+                            { level: "Mid to Senior", range: [5, 10] },
+                            { level: "Senior", range: [8, 12] },
+                            { level: "Senior to Lead", range: [10, 15] },
+                            { level: "Lead", range: [12, 18] },
+                            { level: "Director", range: [15, 25] },
+                            { level: "Executive", range: [25, 45] },
+                        ];
+
+                        // Find the appropriate experience level based on the entered experience
+                        var selectedLevel = experienceLevels.find(level => experience >= level.range[0] && experience <= level.range[1]);
+
+                        // Update the value of the read-only experience level field
+                        if (selectedLevel) {
+                            experienceLevelInput.value = selectedLevel.level;
+                        } else {
+                            experienceLevelInput.value = "Not specified";
+                        }
+                    }
+                }
+
+
+                // Attach an event listener to the experience input field to update the experience level
+                var experienceInput = document.getElementById("00N5j00000SCZVo");
+                if (experienceInput) {
+                    experienceInput.addEventListener("input", updateExperienceLevel);
+                }
+
+                // Function to calculate the grade based on experience
+                function calculateGrade(experience) {
+                    if (experience >= 0 && experience <= 5) {
+                        return 'B';
+                    } else if (experience > 5 && experience <= 10) {
+                        return 'B+';
+                    } else if (experience > 10 && experience <= 15) {
+                        return 'A';
+                    } else if (experience > 15) {
+                        return 'A+';
+                    }
+                    // Default to B if experience is not within defined ranges
+                    return 'None';
+                }
+
+                // Function to update the grade input field
+                function updateGradeInput() {
+                    var experienceInput = document.getElementById("00N5j00000SCZVo"); // Replace with the actual experience input field
+                    var gradeInput = document.getElementById("00N5j00000TYwVZ");
+
+                    if (experienceInput && gradeInput) {
+                        var experience = parseInt(experienceInput.value, 10);
+                        var calculatedGrade = calculateGrade(experience);
+
+                        gradeInput.value = calculatedGrade;
+                        // Trigger a change event on the grade input
+                        var event = new Event('change');
+                        gradeInput.dispatchEvent(event);
+
+                        // Trigger a change event on the grade select (if available)
+                        var gradeSelect = document.getElementById("gradeSelect");
+                        if (gradeSelect) {
+                            gradeSelect.dispatchEvent(event);
+                        }
+                    }
+                }
+
+                // Attach an event listener to the experience input field to update the grade input
+                var experienceInput = document.getElementById("00N5j00000SCZVo");
+                if (experienceInput) {
+                    experienceInput.addEventListener("input", updateGradeInput);
+                }
+
+                // Initial update when the page loads
+                updateGradeInput();
+
+                // Function to update the list of companies based on the selected grade
+                function updateCompanyList() {
+                    var selectedGrade = document.getElementById("00N5j00000TYwVZ").value;
+                    var companySelect = document.getElementById("company");
+
+                    var companies = {
+                        "A+": ["Amazon.com, Inc.", "Apple Inc.", "Google", "Facebook", "Microsoft", "Samsung Electronics Co., Ltd.", "Toyota Motor Corporation", "Volkswagen Group", "Alphabet Inc.", "Alibaba Group", "Tencent Holdings", "Intel Corporation", "Amazon Web Services", "Sony Corporation", "NVIDIA Corporation"],
+                        "A": ["Berkshire Hathaway Inc.", "Accenture", "Capgemini Ltd.", "Nestlé S.A.", "Infosys", "Samsung Electronics Co., Ltd.", "Apple Inc.", "Microsoft", "Google", "Amazon.com, Inc.", "Toyota Motor Corporation", "Volkswagen Group", "IBM", "Deloitte", "TCS (Tata Consultancy Services)"],
+                        "B+": ["Cognizant", "Wipro", "EY Ltd.", "Shoprite Holdings Ltd", "Infosys", "Accenture", "HCL Technologies", "Tech Mahindra", "Deloitte", "IBM", "TCS (Tata Consultancy Services)"],
+                        "B": ["Discovery Limited", "Cognizant", "EY Ltd.", "Accenture", "Wipro", "Infosys", "HCL Technologies", "Tech Mahindra"]
+                    };
+
+
+                    // Clear the current options
+                    companySelect.innerHTML = '<option value="" disabled selected>Select a company</option>';
+
+                    // Add options based on the selected grade
+                    var companiesForGrade = companies[selectedGrade];
+                    if (companiesForGrade) {
+                        companiesForGrade.forEach(function (company) {
+                            var option = document.createElement("option");
+                            option.value = company;
+                            option.textContent = company;
+                            companySelect.appendChild(option);
+                        });
+                    }
+                }
+
+                // Attach an event listener to the grade select element to update the company list
+                var gradeSelect = document.getElementById("00N5j00000TYwVZ");
+                if (gradeSelect) {
+                    gradeSelect.addEventListener("change", updateCompanyList);
+                }
+
+                // Initial update when the page loads
+                updateCompanyList();
+
+
+                var regionDropdown = document.getElementById("region");
+                var countryDropdown = document.getElementById("country");
+                var cityDropdown = document.getElementById("city");
+
+                var countryOptions = {
+                    "South America": ["Argentina", "Chile", "Colombia", "Peru"],
+                    "Australia (Oceania)": ["Fiji", "New Zealand", "Papua New Guinea", "Samoa"],
+                    "North America": ["Mexico", "Guatemala", "Cuba", "Dominican Republic"],
+                    "Europe": ["Italy", "Netherlands", "Spain", "Switzerland"],
+                    "Asia": ["China", "India", "Malaysia", "South Korea", "Thailand"],
+                    "Africa": ["Egypt", "Kenya", "Morocco", "Nigeria", "Algeria"]
+                };
+
+                var cityOptions = {
+                    "Argentina": ["Buenos Aires", "Córdoba", "Rosario", "Mendoza", "La Plata"],
+                    "Chile": ["Santiago", "Valparaíso", "Concepción", "La Serena", "Antofagasta"],
+                    "Colombia": ["Bogotá", "Medellín", "Cali", "Barranquilla", "Cartagena"],
+                    "Peru": ["Lima", "Arequipa", "Trujillo", "Chiclayo", "Cusco"],
+                    "Mexico": ["Mexico City", "Guadalajara", "Monterrey", "Puebla", "Cancún"],
+                    "Guatemala": ["Guatemala City", "Mixco", "Villa Nueva", "Quetzaltenango", "Escuintla"],
+                    "Cuba": ["Havana", "Santiago de Cuba", "Camagüey", "Holguín", "Santa Clara"],
+                    "Dominican Republic": ["Santo Domingo", "Santiago de los Caballeros", "Santo Domingo Este", "La Romana", "San Pedro de Macorís"],
+                    "Italy": ["Rome (Roma)", "Milan (Milano)", "Naples (Napoli)", "Florence (Firenze)", "Venice (Venezia)"],
+                    "Netherlands": ["Amsterdam", "Rotterdam", "The Hague (Den Haag)", "Utrecht", "Eindhoven"],
+                    "Spain": ["Madrid", "Barcelona", "Valencia", "Seville (Sevilla)", "Zaragoza"],
+                    "Switzerland": ["Zurich (Zürich)", "Geneva (Genève)", "Basel", "Bern", "Lausanne"],
+                    "China": ["Beijing", "Shanghai", "Guangzhou", "Shenzhen", "Chengdu"],
+                    "India": ["Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata"],
+                    "Malaysia": ["Kuala Lumpur", "George Town (Penang)", "Johor Bahru", "Kota Kinabalu", "Kuching"],
+                    "South Korea": ["Seoul", "Busan", "Incheon", "Daegu", "Daejeon"],
+                    "Thailand": ["Bangkok", "Chiang Mai", "Phuket", "Pattaya", "Ayutthaya"],
+                    "Egypt": ["Cairo", "Alexandria", "Giza", "Luxor", "Aswan"],
+                    "Kenya": ["Nairobi", "Mombasa", "Kisumu", "Nakuru", "Eldoret"],
+                    "Morocco": ["Casablanca", "Marrakech", "Fes", "Rabat", "Tangier"],
+                    "Nigeria": ["Lagos", "Abuja", "Kano", "Ibadan", "Port Harcourt"],
+                    "Fiji": ["Suva", "Lautoka", "Nadi", "Labasa", "Ba"],
+                    "New Zealand": ["Auckland", "Wellington", "Christchurch", "Hamilton", "Dunedin"],
+                    "Papua New Guinea": ["Port Moresby", "Lae", "Mount Hagen", "Madang", "Goroka"],
+                    "Samoa": ["Apia", "Vaitele", "Faleula", "Fasito'o Uta", "Saleimoa"],
+
+
+                };
+
+                regionDropdown.addEventListener("change", function () {
+                    var selectedRegion = regionDropdown.value;
+                    var countryOptionsForRegion = countryOptions[selectedRegion] || [];
+
+                    countryDropdown.innerHTML = "<option value=''>--Select a Country--</option>";
+                    cityDropdown.innerHTML = "<option value=''>--Select a City--</option>";
+
+                    for (var i = 0; i < countryOptionsForRegion.length; i++) {
+                        var option = document.createElement("option");
+                        option.value = countryOptionsForRegion[i];
+                        option.textContent = countryOptionsForRegion[i];
+                        countryDropdown.appendChild(option);
+                    }
+                });
+
+                countryDropdown.addEventListener("change", function () {
+                    var selectedCountry = countryDropdown.value;
+                    var cityOptionsForCountry = cityOptions[selectedCountry] || [];
+
+                    cityDropdown.innerHTML = "<option value=''>--Select a City--</option>";
+
+                    for (var i = 0; i < cityOptionsForCountry.length; i++) {
+                        var option = document.createElement("option");
+                        option.value = cityOptionsForCountry[i];
+                        option.textContent = cityOptionsForCountry[i];
+                        cityDropdown.appendChild(option);
+                    }
+                });
+
+
+                var emailInput = document.getElementById("email");
+                var emailError = document.getElementById("emailError");
+                var phoneInput = document.getElementById("phone");
+                var phoneError = document.getElementById("phoneError");
+
+                emailInput.addEventListener("input", function () {
+                    var emailValue = emailInput.value;
+                    if (!emailValue.endsWith("@gmail.com")) {
+                        // The email does not contain "@gmail.com"
+                        emailError.textContent = "Email must contain @gmail.com";
+                    } else {
+                        emailError.textContent = "";
+                    }
+                });
+
+                phoneInput.addEventListener("input", function () {
+                    var phoneValue = phoneInput.value;
+                    if (phoneValue.length === 10 && /^\d{10}$/.test(phoneValue)) {
+                        // The phone number is valid
+                        phoneError.textContent = "";
+                    } else {
+                        // The phone number is not 10 digits
+                        phoneError.textContent = "Phone number must be exactly 10 digits.";
+                    }
+                });
+
+                document.addEventListener("DOMContentLoaded", function () {
+                    function updateFormStatus() {
+                        var formStatusElement = document.getElementById("formStatus");
+                        var registerButton = document.getElementsByName("register")[0];
+
+                        var currentDate = new Date();
+                        var currentHour = currentDate.getHours();
+
+                        // Set the opening time for the next day at 10 AM
+                        var nextOpeningTime = new Date(currentDate);
+                        nextOpeningTime.setDate(currentDate.getDate() + 1);
+                        nextOpeningTime.setHours(10, 0, 0, 0);
+
+                        // Calculate time difference
+                        var timeDifference = nextOpeningTime - currentDate;
+
+                        if (currentHour >= 10 && currentHour < 17) {
+                            // Form is open
+                            registerButton.disabled = false; // Enable the submit button
+                        } else {
+                            // Form is closed
+                            formStatusElement.style.color = "red";
+                            formStatusElement.style.textAlign = "center";
+                            formStatusElement.style.fontSize = "14px";
+
+                            // Update the remaining time
+                            formStatusElement.innerHTML = "⚠️Sorry, the registration form is currently closed.It will reopen in: " + getRemainingTime(timeDifference);
+                            registerButton.disabled = true; // Disable the submit button
+                        }
+                    }
+
+                    function getRemainingTime(timeDifference) {
+                        var seconds = Math.floor(timeDifference / 1000);
+                        var minutes = Math.floor(seconds / 60);
+                        var hours = Math.floor(minutes / 60);
+
+                        seconds %= 60;
+                        minutes %= 60;
+                        hours %= 24;
+
+                        return (hours < 10 ? "0" : "") + hours + "h " + (minutes < 10 ? "0" : "") + minutes + "m " + (seconds < 10 ? "0" : "") + seconds + "s";
+                    }
+
+                    // Initial update when the page loads
+                    updateFormStatus();
+
+                    // Update the form status every second
+                    setInterval(updateFormStatus, 1000);
+                });
+
+
+
+                function checkDeviceCompatibility() {
+                    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Mobile|Mobile|Tablet/i.test(navigator.userAgent);
+                    var mobileMessage = document.getElementById("mobileMessage");
+
+                    if (isMobile && window.innerWidth < 487) {
+                        mobileMessage.style.display = "block";
+                        setTimeout(function () {
+                            mobileMessage.style.display = "none";
+                        }, 10000);
+                    } else {
+                        mobileMessage.style.display = "none";
+                    }
+                }
+
+                window.onload = checkDeviceCompatibility;
+                window.addEventListener("orientationchange", checkDeviceCompatibility);
+
+
+            </script>
+
 
         </form>
     </div>

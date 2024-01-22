@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RecruiterPro Registration Form</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -52,7 +53,6 @@
         #formSection input[type="text"],
         #formSection select {
             width: 100%;
-            /* Changed width to 100% for full-width */
             padding: 10px;
             margin-bottom: 10px;
             border: 1px solid #ccc;
@@ -72,7 +72,7 @@
             margin-bottom: 20px;
             margin-left: 30px;
         }
-        
+
 
         .tagline {
             color: #007BFF;
@@ -99,27 +99,6 @@
             width: 100%;
         }
 
-        .buttons-prevNext {
-            display: flex;
-            margin-left: 20px;
-            margin-right: 20px;
-        }
-
-        .buttons-prevNext button {
-            width: 10%;
-            margin: 5px;
-            margin-left: 60px;
-            padding: 10px;
-            background-color: #007BFF;
-            color: #fff;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-
-        .buttons-prevNext button:hover {
-            background-color: #0056b3;
-        }
 
         label[for="termsCheckbox"] {
             font-size: 14px;
@@ -176,6 +155,33 @@
             color: rgba(215, 26, 26, 0.8);
         }
 
+        .buttons-container {
+            margin-left: 60px;
+            display: inline-flex;
+            margin-bottom: 20px;
+            padding: 10px;
+
+        }
+
+
+        #validationMessage {
+           font-size: 12px;
+            color: red;
+        }   
+
+        .navigation-buttons {
+            background-color: #3396ff;
+            padding: 10px;
+            margin-right: 20px;
+            border-radius: 3px;
+            border: none;
+
+        }
+
+
+        .navigation-buttons:hover {
+            background-color: rgb(0, 154, 74);
+        }
 
         #mobileMessage {
             display: none;
@@ -245,10 +251,12 @@
                     <h3>Educational Information</h3>
 
                     <label for="10th_percentage">10th Percentage<span class="required">*</span></label>
-                    <input id="00N5j00000UOjbI" name="00N5j00000UOjbI" size="20" type="text" /><br>
+                    <input id="00N5j00000UOjbI" name="00N5j00000UOjbI" size="20" type="text"
+                        placeholder=" e.g., 70.00%" /><br>
 
                     <label for="12th_percentage">12th Percentage<span class="required">*</span></label>
-                    <input id="00N5j00000UOjbc" name="00N5j00000UOjbc" size="20" type="text" /><br>
+                    <input id="00N5j00000UOjbc" name="00N5j00000UOjbc" size="20" type="text"
+                        placeholder=" e.g., 70.00%" /><br>
 
                     <label for="education">Education<span class="required">*</span></label>
                     <select id="00N5j00000UOxZF" name="00N5j00000UOxZF" size="1">
@@ -257,7 +265,8 @@
                         <option value="BCA">BCA</option>
                         <option value="BSc">BSc</option>
                         <option value="MBA">MBA</option>
-                        <option value="MCom/BCom">MCom/BCom</option>
+                        <option value="MCom/BCom">MCom</option>
+                        <option value="MCom/BCom">BCom</option>
                     </select><br>
 
 
@@ -376,8 +385,6 @@
 
                         <option value="Other">Other</option>
                     </select>
-
-
                 </div>
 
 
@@ -430,13 +437,12 @@
 
                     <label for="linkedin">LinkedIn Profile</label>
                     <input id="linkedin" name="linkedin" type="text" placeholder="Your LinkedIn Profile URL" />
-
-
                 </div>
 
                 <div id="previousEmploymentDiv">
                     <h3>Previous Employment Info</h3>
-                    <p class="section-description">If you have prior work experience, please provide details of your previous employment(Experinced Candidates Only).</p>
+                    <p class="section-description">If you have prior work experience, please provide details of your
+                        previous employment(Experinced Candidates Only).</p>
 
                     <label for="prevCompanyName">Company Name</label>
                     <input id="prevCompanyName" name="prevCompanyName" type="text"
@@ -457,20 +463,16 @@
                     <label for="prevReasonForLeaving">Reason for Leaving</label>
                     <input id="prevReasonForLeaving" name="prevReasonForLeaving" type="text"
                         placeholder="Reason for Leaving" /><br>
-
                 </div>
 
             </section>
 
             <div class="buttons-container">
-                <div class="buttons-prevNext">
-                    <button id="prevButton" onclick="prevSection()">Previous</button>
-                    <button id="nextButton" onclick="nextSection()">Next</button>
-                </div>
+                <button id="prevButton" class="navigation-buttons" onclick="prevSection()">Previous</button>
+                <button id="nextButton" class="navigation-buttons" onclick="nextSection()">Next</button>
             </div>
 
-
-            <div id="lastTabContent" class="form-container" if:true={}>
+            <div id="lastTabContent" class="form-container">
                 <!-- Your HTML content goes here -->
 
                 <label for="termsCheckbox">
@@ -481,18 +483,17 @@
                 </label><br>
 
                 <div class="timer" id="formStatus"></div><br>
+
+                <div id="validationMessage" ></div><br>
+
                 <div>
-                    <input type="submit" name="register" value="Register">
+                    <input type="submit" name="register" value="Register" onclick="showErrorIfRequiredFieldsEmpty()">
                 </div>
 
                 <div class="message">
                     NOTE :Before you proceed, we recommend reviewing your details to ensure accuracy
                 </div>
-
-
             </div>
-
-
 
 
             <select id="00N5j00000TYwVZ" name="00N5j00000TYwVZ" title="Grade" hidden>
@@ -831,7 +832,7 @@
                     var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Mobile|Mobile|Tablet/i.test(navigator.userAgent);
                     var mobileMessage = document.getElementById("mobileMessage");
 
-                    if (isMobile && window.innerWidth < 487) {
+                    if (isMobile && window.innerWidth < 236) {
                         mobileMessage.style.display = "block";
                         setTimeout(function () {
                             mobileMessage.style.display = "none";
@@ -845,8 +846,41 @@
                 window.addEventListener("orientationchange", checkDeviceCompatibility);
 
 
-            </script>
 
+
+
+                //Mandatory fields valiadtion code
+
+                function showErrorIfRequiredFieldsEmpty() {
+                    var mandatoryFields = document.querySelectorAll('[required]');
+                    var isError = false;
+                
+                    mandatoryFields.forEach(function (field) {
+                        if (!field.value.trim()) {
+                            isError = true;
+                        } else {
+                            field.style.border = ''; 
+                        }
+                
+                        var validationMessage = document.getElementById("validationMessage");
+                        if (isError) {
+                            validationMessage.textContent = 'Warning : To proceed, kindly provide information for all required fields.';
+                            setTimeout(function () {
+                                validationMessage.textContent = ''; // Clear the message after 4 seconds
+                            }, 4000); 
+                        }
+                    });
+
+                    if(!isError){                  
+                            // Delayed reset of the form after 4 seconds
+                            setTimeout(function () {
+                                var form = document.getElementById("myForm");
+                                form.reset();
+                            }, 7000);
+                        }
+                    }
+
+            </script>
 
         </form>
     </div>

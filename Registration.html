@@ -17,14 +17,12 @@
 
         .container {
             width: 100%;
-            margin-top: 30px;
         }
 
         #formSection {
 
             margin-left: 40px;
             justify-content: center;
-            margin-top: 40px;
         }
 
         #formSection>div {
@@ -37,7 +35,7 @@
         }
 
         #formSection h3 {
-            color: #007BFF;
+            color: #002851;
             font-weight: bold;
             font-size: 16px;
             align-items: center;
@@ -53,6 +51,7 @@
         }
 
         #formSection input[type="text"],
+        #formSection input[type="date"],
         #formSection select {
             width: 100%;
             padding: 10px;
@@ -138,7 +137,8 @@
         footer {
             background-color: #333;
             color: #fff;
-            padding: 10px;
+            padding: 40px;
+            margin-top: 70px;
             width: 100%;
             text-align: center;
         }
@@ -167,9 +167,9 @@
 
 
         #validationMessage {
-           font-size: 12px;
+            font-size: 12px;
             color: red;
-        }   
+        }
 
         .navigation-buttons {
             background-color: #3396ff;
@@ -242,34 +242,33 @@
                     <span id="emailError" class="error-message"></span>
                     <br>
 
-                    <label for="alternate_email">Alternate Email</label>
-<input id="alternate_email" name="alternate_email" type="text" placeholder="e.g., xyz@example.com" />
-<br>
-                    
+                    <label for="alternate_email">Alternate Email<span class="required">*</span></label>
+                    <input id="alternate_email" name="alternate_email" type="text" required
+                        placeholder="e.g., alternate@example.com" />
+                    <span id="alternateEmailError" class="error-message"></span>
+                    <br>
+
+
                     <label for="phone">Phone (10 digits required)<span class="required">*</span></label>
                     <input id="phone" maxlength="10" name="phone" type="text" required placeholder="e.g., 1234567890" />
                     <span id="phoneError" class="error-message"></span>
                     <br>
 
-                    <label for="dob">Date of Birth</label>
-<input id="dob" name="dob" type="date" />
-<br>
+                    <label for="dob">Date of Birth<span class="required">*</span></label>
+                    <input id="dob" name="dob" type="date" required /><br>
 
-<label for="gender">Gender</label>
-<select id="gender" name="gender">
-    <option value="male">Male</option>
-    <option value="female">Female</option>
-    <option value="other">Other</option>
-</select>
-<br>
+                    <label for="gender">Gender<span class="required">*</span></label>
+                    <select id="gender" name="gender" required>
+                        <option value="" selected>--Select a Gender--</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select><br>
 
-<label for="nationality">Nationality</label>
-<input id="nationality" name="nationality" type="text" placeholder="Your Nationality" />
-<br>
-
-<label for="occupation">Occupation</label>
-<input id="occupation" name="occupation" type="text" placeholder="Your Occupation" />
-<br>
+                    <label for="nationality">Nationality<span class="required">*</span></label>
+                    <input id="nationality" name="nationality" type="text" required placeholder="Your Nationality" />
+                    <span id="nationalityError" class="error-message"></span>
+                    <br>
 
 
                 </div>
@@ -296,6 +295,16 @@
                         <option value="MCom/BCom">MCom</option>
                         <option value="MCom/BCom">BCom</option>
                     </select><br>
+
+                    <label for="graduation_percentage">Graduation Percentage<span class="required">*</span></label>
+                    <input id="graduation_percentage" name="graduation_percentage" size="20" type="text"
+                        placeholder=" e.g., 75.00%" />
+                    <br>
+
+
+                    <label for="graduation_year">Graduation Year<span class="required">*</span></label>
+                    <input id="graduation_year" name="graduation_year" type="text" placeholder=" e.g., 2022" />
+                    <br>
 
 
                     <label for="university">University Name<span class="required">*</span></label>
@@ -389,7 +398,6 @@
                         <option value="Victoria University of Wellington, New Zealand">Victoria University of
                             Wellington, New Zealand</option>
 
-                        <!-- Adding 10 colleges from Maharashtra, India -->
                         <option value="Indian Institute of Technology (IIT), Bombay">Indian Institute of Technology
                             (IIT), Bombay</option>
                         <option value="University of Pune, Pune">University of Pune, Pune</option>
@@ -408,32 +416,39 @@
                             Vidyapeeth Deemed University College of Engineering, Pune</option>
                         <option value="Government College of Engineering, Aurangabad">Government College of Engineering,
                             Aurangabad</option>
+                        <option value="Sardar Patel Institute of Technology (SPIT), Mumbai">Sardar Patel Institute of
+                            Technology (SPIT), Mumbai</option>
+                        <option value="Fr. Conceicao Rodrigues College of Engineering (CRCE), Mumbai">Fr. Conceicao
+                            Rodrigues College of Engineering (CRCE), Mumbai</option>
+                        <option value="Pillai College of Engineering (PCE), Navi Mumbai">Pillai College of Engineering
+                            (PCE), Navi Mumbai</option>
+                        <option value="Thadomal Shahani Engineering College (TSEC), Mumbai">Thadomal Shahani Engineering
+                            College (TSEC), Mumbai</option>
+                        <option value="Vivekanand Education Society's Institute of Technology (VESIT), Mumbai">
+                            Vivekanand Education Society's Institute of Technology (VESIT), Mumbai</option>
+                        <option value="K. J. Somaiya Institute of Engineering and Information Technology, Mumbai">K. J.
+                            Somaiya Institute of Engineering and Information Technology, Mumbai</option>
+                        <option value="Dwarkadas J. Sanghvi College of Engineering (DJ Sanghvi), Mumbai">Dwarkadas J.
+                            Sanghvi College of Engineering (DJ Sanghvi), Mumbai</option>
+                        <option value="Rajiv Gandhi Institute of Technology (RGIT), Mumbai">Rajiv Gandhi Institute of
+                            Technology (RGIT), Mumbai</option>
+                        <option value="Lokmanya Tilak College of Engineering (LTCE), Navi Mumbai">Lokmanya Tilak College
+                            of Engineering (LTCE), Navi Mumbai</option>
+                        <option
+                            value="Shri Vile Parle Kelavani Mandal's Dwarkadas J. Sanghvi College of Engineering (DJSCE), Mumbai">
+                            Shri Vile Parle Kelavani Mandal's Dwarkadas J. Sanghvi College of Engineering (DJSCE),
+                            Mumbai</option>
+                        <option value="Sinhgad College of Engineering, Pune">Sinhgad College of Engineering, Pune
+                        </option>
+
 
                         <!-- Other option -->
 
                         <option value="Other">Other</option>
                     </select>
 
-                    <label for="graduation_percentage">Graduation Percentage<span class="required">*</span></label>
-<input id="graduation_percentage" name="graduation_percentage" size="20" type="text" placeholder=" e.g., 75.00%" />
-<br>
 
-<label for="post_graduation_percentage">Post Graduation Percentage</label>
-<input id="post_graduation_percentage" name="post_graduation_percentage" size="20" type="text" placeholder=" e.g., 80.00%" />
-<br>
 
-<label for="specialization">Specialization<span class="required">*</span></label>
-<input id="specialization" name="specialization" type="text" placeholder=" e.g., Computer Science" />
-<br>
-
-<label for="graduation_year">Graduation Year<span class="required">*</span></label>
-<input id="graduation_year" name="graduation_year" type="text" placeholder=" e.g., 2022" />
-<br>
-
-<label for="post_graduation_year">Post Graduation Year</label>
-<input id="post_graduation_year" name="post_graduation_year" type="text" placeholder=" e.g., 2024" />
-<br>
-                    
                 </div>
 
 
@@ -461,47 +476,16 @@
                         <option value="" selected>--Select a City--</option>
                     </select><br>
 
-                    <label for="address_line_1">Address Line 1<span class="required">*</span></label>
-                    <input id="00N5j00000UOjbh" name="00N5j00000UOjbh" type="text" wrap="soft"></input><br>
-
-                </div>
-
-
-                <div><div>
-                    <h3>Address Information</h3>
-                    <!-- Add your address info form fields here -->
-                    <label for="region">Region name<span class="required">*</span></label>
-                    <select id="region" name="00N5j00000TWkBW" required>
-                        <option value="" selected>--Select a Region--</option>
-                        <option value="South America">South America</option>
-                        <option value="Australia (Oceania)">Australia (Oceania)</option>
-                        <option value="North America">North America</option>
-                        <option value="Europe">Europe</option>
-                        <option value="Asia">Asia</option>
-                        <option value="Africa">Africa</option>
-                    </select>
-
-                    <label for="country" required>Country<span class="required">*</span></label>
-                    <select id="country" name="00N5j00000TWkBb">
-                        <option value="" selected>--Select a Country--</option>
-                    </select>
-
-                    <label for="city" required>City<span class="required">*</span></label>
-                    <select id="city" name="city">
-                        <option value="" selected>--Select a City--</option>
-                    </select><br>
-
-                    <label for="address_line_1">Address Line 1<span class="required">*</span></label>
-                    <input id="00N5j00000UOjbh" name="00N5j00000UOjbh" type="text" wrap="soft"></input><br>
-
-
-                                        <label for="postal_code">Postal Code<span class="required">*</span></label>
+                    <label for="postal_code">Postal Code<span class="required">*</span></label>
                     <input id="postal_code" name="postal_code" type="text" required placeholder="e.g., 12345" /><br>
 
                     <label for="state">State/Province</label>
                     <input id="state" name="state" type="text" placeholder="e.g., California" /><br>
 
-                    <label for="address_type">Address Type<span class="required">*</span></label>
+                    <label for="address_line_1">Address Line 1<span class="required">*</span></label>
+                    <input id="00N5j00000UOjbh" name="00N5j00000UOjbh" type="text" wrap="soft"></input><br>
+
+                    <label for="address_type">Address Type</label>
                     <select id="address_type" name="address_type" required>
                         <option value="" selected>--Select an Address Type--</option>
                         <option value="Residential">Residential</option>
@@ -518,9 +502,10 @@
                         <option value="Other">Other</option>
                     </select><br>
 
-
                 </div>
 
+
+                <div>
                     <h3>Additional Info(For Internal Use)</h3>
 
                     <label>Experience<span class="required">*</span></label>
@@ -529,35 +514,7 @@
 
                     <!-- Experience Level field -->
                     <label for="00N5j00000RpTNG">Experience Level<span class="required">*</span></label>
-                    <input id="00N5j<div>
-                    <h3>Address Information</h3>
-                    <!-- Add your address info form fields here -->
-                    <label for="region">Region name<span class="required">*</span></label>
-                    <select id="region" name="00N5j00000TWkBW" required>
-                        <option value="" selected>--Select a Region--</option>
-                        <option value="South America">South America</option>
-                        <option value="Australia (Oceania)">Australia (Oceania)</option>
-                        <option value="North America">North America</option>
-                        <option value="Europe">Europe</option>
-                        <option value="Asia">Asia</option>
-                        <option value="Africa">Africa</option>
-                    </select>
-
-                    <label for="country" required>Country<span class="required">*</span></label>
-                    <select id="country" name="00N5j00000TWkBb">
-                        <option value="" selected>--Select a Country--</option>
-                    </select>
-
-                    <label for="city" required>City<span class="required">*</span></label>
-                    <select id="city" name="city">
-                        <option value="" selected>--Select a City--</option>
-                    </select><br>
-
-                    <label for="address_line_1">Address Line 1<span class="required">*</span></label>
-                    <input id="00N5j00000UOjbh" name="00N5j00000UOjbh" type="text" wrap="soft"></input><br>
-
-                </div>
-00000RpTNG" name="00N5j00000RpTNG" type="text" maxlength="20" size="20"
+                    <input id="00N5j00000RpTNG" name="00N5j00000RpTNG" type="text" maxlength="20" size="20"
                         readonly /><br>
 
                     <label for="company">Company (You are interested In)<span class="required">*</span></label>
@@ -566,7 +523,17 @@
                     </select>
 
                     <label for="linkedin">LinkedIn Profile</label>
-                    <input id="linkedin" name="linkedin" type="text" placeholder="Your LinkedIn Profile URL" />
+                    <input id="linkedin" name="linkedin" type="text" placeholder="Your LinkedIn Profile URL" /><br>
+
+                    <label for="portfolio">Portfolio URL</label>
+                    <input id="portfolio" name="portfolio" type="text" placeholder="Your Portfolio URL" /><br>
+
+                    <label for="certifications">Certifications</label>
+                    <input id="certifications" name="certifications" type="text"
+                        placeholder="Your Certifications" /><br>
+
+                    <label for="skills">Skills</label>
+                    <input id="skills" name="skills" type="text" placeholder="Your Skills" /><br>
                 </div>
 
                 <div id="previousEmploymentDiv">
@@ -614,7 +581,7 @@
 
                 <div class="timer" id="formStatus"></div><br>
 
-                <div id="validationMessage" ></div><br>
+                <div id="validationMessage"></div><br>
 
                 <div>
                     <input type="submit" name="register" value="Register" onclick="showErrorIfRequiredFieldsEmpty()">
@@ -984,36 +951,56 @@
                 function showErrorIfRequiredFieldsEmpty() {
                     var mandatoryFields = document.querySelectorAll('[required]');
                     var isError = false;
-                
+
                     mandatoryFields.forEach(function (field) {
                         if (!field.value.trim()) {
                             isError = true;
                         } else {
-                            field.style.border = ''; 
+                            field.style.border = '';
                         }
-                
+
                         var validationMessage = document.getElementById("validationMessage");
                         if (isError) {
                             validationMessage.textContent = 'Warning : To proceed, kindly provide information for all required fields.';
                             setTimeout(function () {
                                 validationMessage.textContent = ''; // Clear the message after 4 seconds
-                            }, 4000); 
+                            }, 4000);
                         }
                     });
 
-                    if(!isError){                  
-                            // Delayed reset of the form after 4 seconds
-                            setTimeout(function () {
-                                var form = document.getElementById("myForm");
-                                form.reset();
-                            }, 7000);
-                        }
+                    if (!isError) {
+                        // Delayed reset of the form after 4 seconds
+                        setTimeout(function () {
+                            var form = document.getElementById("myForm");
+                            form.reset();
+                        }, 7000);
                     }
+                }
+
+                document.addEventListener("DOMContentLoaded", function () {
+                    var contactUsLink = document.querySelector("#contactUs a");
+                    var email = "recruiterPro.queries@gmail.com";
+                    contactUsLink.addEventListener("click", function () {
+                        window.location.href = "mailto:" + email;
+                    });
+                });
 
             </script>
 
         </form>
     </div>
+    <footer>
+        <div>
+            &copy; 2023 RecruiterPro. All rights reserved.Transforming Careers and Connecting Talent. Trusted by top
+            companies worldwide.
+        </div>
+        <div id="contactUs">
+            Contact Us: <a href="#">Click here to email us</a>
+        </div>
+        <div>
+            Address: 456 Oak Avenue, Suite 789, Metropolitan City, Countryland
+        </div>
+    </footer>
 </body>
 
 </html>

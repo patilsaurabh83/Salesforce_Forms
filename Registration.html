@@ -230,7 +230,7 @@
 
             <div class="mandatory-text">*Marked fields are mandatory</div>
 
-            <div class="form-filling-time">Note : Form submission is accepted from 10 AM to 5 PM IST.</div>
+            <div class="form-filling-time" id="form-filling-time-Note"></div>
 
 
             <input type=hidden name="oid" value="00D5j00000DAZO0">
@@ -942,6 +942,7 @@
                 document.addEventListener("DOMContentLoaded", function () {
                     function updateFormStatus() {
                         var formStatusElement = document.getElementById("formStatus");
+                        var formStatusNoteElement = document.getElementById("form-filling-time-Note");
                         var registerButton = document.getElementsByName("register")[0];
 
                         var currentDate = new Date();
@@ -963,6 +964,8 @@
                             formStatusElement.style.color = "red";
                             formStatusElement.style.textAlign = "center";
                             formStatusElement.style.fontSize = "14px";
+                            formStatusNoteElement.innerHTML = "Note : Please be aware that the form is only open for submission between 10 AM and 5 PM IST.";
+
 
                             // Update the remaining time
                             formStatusElement.innerHTML = "⚠️Sorry, the registration form is currently closed.It will reopen in: " + getRemainingTime(timeDifference);

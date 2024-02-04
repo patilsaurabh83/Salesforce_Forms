@@ -67,8 +67,8 @@
         }
 
         .section-description {
-            font-size: 14px;
-            color: rgb(244, 44, 44);
+            font-size: 15px;
+            color: rgb(1, 94, 123);
             align-items: center;
             margin-bottom: 20px;
             margin-left: 30px;
@@ -76,7 +76,7 @@
 
 
         .tagline {
-            color: #007BFF;
+            color: hsl(210, 81%, 59%);
             font-weight: bold;
             font-size: 14px;
         }
@@ -140,6 +140,8 @@
             padding: 10px;
             width: 100%;
             text-align: center;
+            padding-top: 30px;
+            padding-bottom: 30px;
         }
 
 
@@ -197,6 +199,15 @@
             margin: 0;
             padding: 0;
         }
+
+        .form-filling-time {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            color: #272121;
+            margin-right: 10px;
+            text-align: right;
+            padding-top: 10px;
+        }
     </style>
 
 </head>
@@ -218,6 +229,8 @@
             method="POST" id="myForm">
 
             <div class="mandatory-text">*Marked fields are mandatory</div>
+
+            <div class="form-filling-time">Note : Form submission is accepted from 10 AM to 5 PM IST.</div>
 
 
             <input type=hidden name="oid" value="00D5j00000DAZO0">
@@ -242,7 +255,7 @@
                     <br>
 
                     <label for="alternate_email">Alternate Email<span class="required">*</span></label>
-                    <input id="alternate_email" name="alternate_email" type="text" required
+                    <input id="00N5j00000UPatp" name="00N5j00000UPatp" type="text" required
                         placeholder="e.g., alternate@example.com" />
                     <span id="alternateEmailError" class="error-message"></span>
                     <br>
@@ -253,11 +266,11 @@
                     <span id="phoneError" class="error-message"></span>
                     <br>
 
-                    <label for="dob">Date of Birth<span class="required">*</span></label>
-                    <input id="dob" name="dob" type="date" required /><br>
+                    <label for="dob">Date of Birth<span class="required dateInput dateOnlyInput">*</span></label>
+                    <input id="00N5j00000UPatu" name="00N5j00000UPatu" type="date" required /><br>
 
                     <label for="gender">Gender<span class="required">*</span></label>
-                    <select id="gender" name="gender" required>
+                    <select id="00N5j00000UPatz" name="00N5j00000UPatz" required>
                         <option value="" selected>--Select a Gender--</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
@@ -265,7 +278,8 @@
                     </select><br>
 
                     <label for="nationality">Nationality<span class="required">*</span></label>
-                    <input id="nationality" name="nationality" type="text" required placeholder="Your Nationality" />
+                    <input id="00N5j00000UPau4" name="00N5j00000UPau4" type="text" required
+                        placeholder="Your Nationality" />
                     <span id="nationalityError" class="error-message"></span>
                     <br>
 
@@ -296,13 +310,13 @@
                     </select><br>
 
                     <label for="graduation_percentage">Graduation Percentage<span class="required">*</span></label>
-                    <input id="graduation_percentage" name="graduation_percentage" size="20" type="text"
+                    <input id="00N5j00000UPau9" name="00N5j00000UPau9" size="20" type="text"
                         placeholder=" e.g., 75.00%" />
                     <br>
 
 
                     <label for="graduation_year">Graduation Year<span class="required">*</span></label>
-                    <input id="graduation_year" name="graduation_year" type="text" placeholder=" e.g., 2022" />
+                    <input id="00N5j00000UPauE" name="00N5j00000UPauE" type="text" placeholder=" e.g., 2022" />
                     <br>
 
 
@@ -476,7 +490,8 @@
                     </select><br>
 
                     <label for="postal_code">Postal Code<span class="required">*</span></label>
-                    <input id="postal_code" name="postal_code" type="text" required placeholder="e.g., 12345" /><br>
+                    <input id="00N5j00000UPauJ" name="00N5j00000UPauJ" type="text" required
+                        placeholder="e.g., 12345" /><br>
 
                     <label for="state">State/Province</label>
                     <input id="state" name="state" type="text" placeholder="e.g., California" /><br>
@@ -493,12 +508,61 @@
                     </select><br>
 
                     <label for="preferred_language">Preferred Language<span class="required">*</span></label>
-                    <select id="preferred_language" name="preferred_language" required>
+                    <select id="00N5j00000UPauO" name="00N5j00000UPauO" required>
                         <option value="" selected>--Select a Preferred Language--</option>
                         <option value="English">English</option>
                         <option value="Spanish">Spanish</option>
                         <option value="French">French</option>
+                        <option value="Chinese">Chinese</option>
+                        <option value="Arabic">Arabic</option>
+                        <option value="Russian">Russian</option>
+                        <option value="Hindi">Hindi</option>
+                        <option value="Portuguese">Portuguese</option>
+                        <option value="Bengali">Bengali</option>
+                        <option value="Urdu">Urdu</option>
+                        <option value="German">German</option>
+                        <option value="Japanese">Japanese</option>
+                        <option value="Korean">Korean</option>
+                        <option value="Italian">Italian</option>
+                        <option value="Turkish">Turkish</option>
+                        <option value="Dutch">Dutch</option>
+                        <option value="Polish">Polish</option>
+                        <option value="Swedish">Swedish</option>
+                        <option value="Indonesian">Indonesian</option>
+                        <option value="Vietnamese">Vietnamese</option>
+                        <option value="Thai">Thai</option>
+                        <option value="Greek">Greek</option>
+                        <option value="Hebrew">Hebrew</option>
+                        <option value="Czech">Czech</option>
+                        <option value="Hungarian">Hungarian</option>
+                        <option value="Romanian">Romanian</option>
+                        <option value="Swahili">Swahili</option>
+                        <option value="Tagalog">Tagalog</option>
+                        <option value="Malay">Malay</option>
+                        <option value="Farsi">Farsi</option>
+                        <option value="Turkmen">Turkmen</option>
+                        <option value="Hausa">Hausa</option>
+                        <option value="Zulu">Zulu</option>
+                        <option value="Sinhala">Sinhala</option>
+                        <option value="Burmese">Burmese</option>
+                        <option value="Khmer">Khmer</option>
+                        <option value="Nepali">Nepali</option>
+                        <option value="Finnish">Finnish</option>
+                        <option value="Norwegian">Norwegian</option>
+                        <option value="Danish">Danish</option>
+                        <option value="Afrikaans">Afrikaans</option>
+                        <option value="Swedish">Swedish</option>
+                        <option value="Fijian">Fijian</option>
+                        <option value="Samoan">Samoan</option>
+                        <option value="Tongan">Tongan</option>
+                        <option value="Maori">Maori</option>
+                        <option value="Hawaiian">Hawaiian</option>
+                        <option value="Esperanto">Esperanto</option>
+                        <option value="Klingon">Klingon</option>
+                        <option value="Dothraki">Dothraki</option>
+                        <option value="Valyrian">Valyrian</option>
                         <option value="Other">Other</option>
+
                     </select><br>
 
                 </div>
@@ -522,34 +586,37 @@
                     </select>
 
                     <label for="linkedin">LinkedIn Profile</label>
-                    <input id="linkedin" name="linkedin" type="text" placeholder="Your LinkedIn Profile URL" /><br>
+                    <input id="00N5j00000UPauY" name="00N5j00000UPauY" type="text"
+                        placeholder="Your LinkedIn Profile URL" /><br>
 
                     <label for="portfolio">Portfolio URL</label>
-                    <input id="portfolio" name="portfolio" type="text" placeholder="Your Portfolio URL" /><br>
+                    <input id="00N5j00000UPaun" name="00N5j00000UPaun" type="text"
+                        placeholder="Your Portfolio URL" /><br>
 
                     <label for="certifications">Certifications</label>
-                    <input id="certifications" name="certifications" type="text"
+                    <input id="00N5j00000UPaus" name="00N5j00000UPaus" type="text"
                         placeholder="Your Certifications" /><br>
 
                     <label for="skills">Skills</label>
-                    <input id="skills" name="skills" type="text" placeholder="Your Skills" /><br>
+                    <input id="00N5j00000UPaux" name="00N5j00000UPaux" type="text" placeholder="Your Skills" /><br>
                 </div>
 
                 <div id="previousEmploymentDiv">
                     <h3>Previous Employment Info</h3>
-                    <p class="section-description">If you have prior work experience, please provide details of your
-                        previous employment(Experinced Candidates Only).</p>
+                    <p class="section-description">For candidates with prior work experience, kindly furnish details of
+                        your previous employment. (Experienced Candidates Only).</p>
 
                     <label for="prevCompanyName">Company Name</label>
-                    <input id="prevCompanyName" name="prevCompanyName" type="text"
+                    <input id="00N5j00000UPav7" name="00N5j00000UPav7" type="text"
                         placeholder="Previous Company Name" /><br>
 
                     <label for="prevPosition">Position</label>
-                    <input id="prevPosition" name="prevPosition" type="text"
+                    <input id="00N5j00000UPav2" name="00N5j00000UPav2" type="text"
                         placeholder="Your Position e.g., Senior Software Developer" /><br>
 
                     <label for="prevDuration">Duration</label>
-                    <input id="prevDuration" name="prevDuration" type="text" placeholder="Duration of Employment" /><br>
+                    <input id="00N5j00000UPavC" name="00N5j00000UPavC" type="text"
+                        placeholder="Duration of Employment" /><br>
 
                     <label for="prevResponsibilities">Responsibilities</label>
                     <textarea id="prevResponsibilities" name="prevResponsibilities"
@@ -557,7 +624,7 @@
                         style="width: 100%; height: 150px;"></textarea><br>
 
                     <label for="prevReasonForLeaving">Reason for Leaving</label>
-                    <input id="prevReasonForLeaving" name="prevReasonForLeaving" type="text"
+                    <input id="00N5j00000UPavH" name="00N5j00000UPavH" type="text"
                         placeholder="Reason for Leaving" /><br>
                 </div>
 

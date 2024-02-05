@@ -267,7 +267,7 @@
                     <br>
 
                     <label for="dob">Date of Birth<span class="required dateInput dateOnlyInput">*</span></label>
-                    <input id="00N5j00000UPatu" name="00N5j00000UPatu" type="date" required /><br>
+                    <input id="dob" name="dob" type="date" required /><br>
 
                     <label for="gender">Gender<span class="required">*</span></label>
                     <select id="00N5j00000UPatz" name="00N5j00000UPatz" required>
@@ -668,10 +668,24 @@
             </select><br>
 
             <input type="hidden" id="lead_source" name="lead_source" value="Registration">
+            <span class="dateInput dateOnlyInput"><input  id="00N5j00000UPatu" name="00N5j00000UPatu" size="12" type="text" hidden/></span><br>
 
 
             <!-- Script to calculate and update Experience Level based on entered experience -->
             <script>
+
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Get the elements by their IDs
+                    var dobInput = document.getElementById('dob');
+                    var hiddenField = document.getElementById('00N5j00000UPatu');
+              
+                    // Set up an event listener for the change event on the visible date input
+                    dobInput.addEventListener('change', function() {
+                      // Set the value of the hidden text field to the date of birth
+                      hiddenField.value = dobInput.value;
+                      console.log(hiddenField.value);
+                    });
+                  });
 
                 const sections = document.querySelectorAll('#formSection > div');
                 let currentSection = 0;
@@ -958,6 +972,9 @@
 
                         if (currentHour >= 10 && currentHour < 17) {
                             // Form is open
+                            formStatusNoteElement.innerHTML = "";
+                            formStatusElement.innerHTML = "";
+                            
                             registerButton.disabled = false; // Enable the submit button
                         } else {
                             // Form is closed
@@ -1042,7 +1059,8 @@
                         setTimeout(function () {
                             var form = document.getElementById("myForm");
                             form.reset();
-                        }, 7000);
+                            location.reload();
+                        }, 6000);
                     }
                 }
 

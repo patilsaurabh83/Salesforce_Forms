@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Preference Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 10px);
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            margin-top: 30px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+
+            background-color: #45a049;
+        }
+
+        .tagline {
+            color: hsl(210, 81%, 59%);
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 16px;
+        }
+
+        .message {
+            color: green;
+            font-weight: bold;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .required-field {
+            color: red;
+            /* Change color as needed */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="tagline">
+            <p>RecruiterPro</p>
+            <p>Unlocking Opportunities, Transforming Careers</p>
+            <br>
+        </div>
+        <h3>Job Preference Form</h3>
+        <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D5j00000DAZO0"
+            method="POST" onsubmit="displayMessage()">
+            <input type="hidden" name="oid" value="00D5j00000DAZO0">
+            <input type="hidden" name="retURL" value="https://www.google.com/">
+
+            <label for="00N5j00000UPc6a">Candidate Number<span class="required-field"> *</span></label>
+            <input id="00N5j00000UPc6a" maxlength="30" name="00N5j00000UPc6a" size="20" type="text"
+                placeholder="Your candidate Number" required /><br>
+
+            <label for="00N5j00000UPc6V">Candidate ID</label>
+            <input id="00N5j00000UPc6V" maxlength="30" name="00N5j00000UPc6V" size="20" type="text"
+                placeholder="Your Candidate ID(Case - sensitive)" /><br>
+
+            <label for="email">Email<span class="required-field"> *</span></label>
+            <input id="email" maxlength="80" name="email" size="20" type="text" required /><br>
+
+            <label for="00N5j00000SCZQn">Interested In Job<span class="required-field"> *</span></label>
+            <input id="00N5j00000SCZQn" maxlength="40" name="00N5j00000SCZQn" size="20" type="text"
+                placeholder="Provide Job Number(Case - sensitive)" required /><br>
+
+            <input type="submit" name="submit" value="Submit">
+            <div id="responseMessage" class="message" style="display: none;">Your response has been recorded.</div>
+            <input type="hidden" id="lead_source" name="lead_source" value="Job Preference">
+        </form>
+    </div>
+
+    <script>
+        function displayMessage() {
+            document.getElementById("responseMessage").style.display = "block";
+        }
+    </script>
+
+</body>
+
+</html>

@@ -202,11 +202,12 @@
 
         .form-filling-time {
             font-family: Arial, sans-serif;
-            font-size: 12px;
-            color: #272121;
-            margin-right: 10px;
-            text-align: right;
+            font-size: 14px;
+            font-weight: bold;
+            color: #ffffff; 
             padding-top: 10px;
+            background-color: #183048; 
+            padding-bottom: 10px;
         }
     </style>
 
@@ -224,13 +225,12 @@
         <p>This page isn't optimized for your device. Please switch to desktop mode or open this page on a laptop
             or computer Devices for the best viewing experience.</p>
     </div>
+    <marquee class="form-filling-time" id="form-filling-time-Note" direction="left" scrollamount="5"></marquee>
     <div class="container">
         <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D5j00000DAZO0"
             method="POST" id="myForm">
 
             <div class="mandatory-text">*Marked fields are mandatory</div>
-
-            <div class="form-filling-time" id="form-filling-time-Note"></div>
 
 
             <input type=hidden name="oid" value="00D5j00000DAZO0">
@@ -981,8 +981,7 @@
                             formStatusElement.style.color = "red";
                             formStatusElement.style.textAlign = "center";
                             formStatusElement.style.fontSize = "14px";
-                            formStatusNoteElement.innerHTML = "Note : Please be aware that the form is only open for submission between 10 AM and 5 PM IST.";
-
+                           formStatusNoteElement.innerHTML = "Important Notice: The form is only available for submissions between 10 AM and 5 PM IST.&nbsp; Currently, the form is closed for today. Please come back tomorrow after 10 AM IST to fill it out. Thank you!";
 
                             // Update the remaining time
                             formStatusElement.innerHTML = "⚠️Sorry, the registration form is currently closed.It will reopen in: " + getRemainingTime(timeDifference);

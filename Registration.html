@@ -579,7 +579,8 @@
 
                     <label>Experience<span class="required">*</span></label>
                     <input id="00N5j00000SCZVo" name="00N5j00000SCZVo" type="text" placeholder="0 - 45" required
-                        oninput="togglePreviousEmploymentDiv(this.value)" /><br>
+                        oninput="togglePreviousEmploymentDiv(this.value)" />
+                    <span id="experience-error" class="error-message" style="margin-bottom: 3px;"></span><br>    
 
                     <!-- Experience Level field -->
                     <label for="00N5j00000RpTNG">Experience Level<span class="required">*</span></label>
@@ -762,8 +763,12 @@
                         // Update the value of the read-only experience level field
                         if (selectedLevel) {
                             experienceLevelInput.value = selectedLevel.level;
+                            errorMessageSpan.textContent="";
                         } else {
-                            experienceLevelInput.value = "Not specified";
+                            experienceLevelInput.value = "";
+                            experienceInput.setCustomValidity("");
+                            experienceInput.value = ""
+                            errorMessageSpan.textContent = "Please enter a number between 0 and 45.";
                         }
                     }
                 }

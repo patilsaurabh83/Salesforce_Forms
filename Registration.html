@@ -763,12 +763,18 @@
                         // Update the value of the read-only experience level field
                         if (selectedLevel) {
                             experienceLevelInput.value = selectedLevel.level;
-                            errorMessageSpan.textContent="";
                         } else {
-                            experienceLevelInput.value = "";
+                            experienceLevelInput.value = "Not Specified";
                             experienceInput.setCustomValidity("");
-                            experienceInput.value = ""
+                            
                             errorMessageSpan.textContent = "Please enter a number between 0 and 45.";
+
+                            // Clear error message after 3 seconds
+                            setTimeout(function () {
+                                errorMessageSpan.textContent = "";
+                                experienceLevelInput.value ="";
+                                experienceInput.value = ""
+                            }, 4000); // 3000 milliseconds = 3 seconds
                         }
                     }
                 }

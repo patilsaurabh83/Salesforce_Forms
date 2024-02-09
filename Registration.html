@@ -67,8 +67,9 @@
         }
 
         .section-description {
-            font-size: 15px;
+            font-size: 13px;
             color: rgb(1, 94, 123);
+            font-weight: bold;
             align-items: center;
             margin-bottom: 20px;
             margin-left: 30px;
@@ -82,7 +83,7 @@
         }
 
         .error-message {
-            color: rgb(247, 176, 11);
+            color: rgb(185, 14, 14);
             font-size: 12px;
         }
 
@@ -102,7 +103,7 @@
 
 
         label[for="termsCheckbox"] {
-            font-size: 14px;
+            font-size: 11px;
             color: #333;
             display: block;
             margin-bottom: 5px;
@@ -173,8 +174,9 @@
         }
 
         .navigation-buttons {
-            background-color: #3396ff;
+            background-color: #275483;
             padding: 10px;
+            color: #ffffff;
             margin-right: 20px;
             border-radius: 3px;
             border: none;
@@ -183,7 +185,8 @@
 
 
         .navigation-buttons:hover {
-            background-color: rgb(0, 154, 74);
+            background-color: rgb(13, 1, 1);
+            color: #ffffff;
         }
 
         #mobileMessage {
@@ -226,7 +229,9 @@
         <p>This page isn't optimized for your device. Please switch to desktop mode or open this page on a laptop
             or computer Devices for the best viewing experience.</p>
     </div>
-    <marquee class="form-filling-time" id="form-filling-time-Note" direction="left" scrollamount="5"></marquee>
+    <marquee class="form-filling-time" id="form-filling-time-Note" direction="left" scrollamount="5">
+        Important Notice: The form is only available for submissions between 10 AM and 5 PM IST.&nbsp; Currently, the form is closed for today. Please come back tomorrow after 10 AM IST to fill it out. Thank you!
+    </marquee>
     <div class="container">
         <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D5j00000DAZO0"
             method="POST" id="myForm">
@@ -604,8 +609,7 @@
 
                 <div id="previousEmploymentDiv">
                     <h3>Previous Employment Info</h3>
-                    <p class="section-description">For candidates with prior work experience, kindly furnish details of
-                        your previous employment. (Experienced Candidates Only).</p>
+                    <p class="section-description">For candidates with prior work experience.(Experienced Candidates Only).</p>
 
                     <label for="prevCompanyName">Company Name</label>
                     <input id="00N5j00000UPav7" name="00N5j00000UPav7" type="text"
@@ -973,7 +977,6 @@
 
                         if (currentHour >= 10 && currentHour < 17) {
                             // Form is open
-                            formStatusNoteElement.innerHTML = "";
                             formStatusElement.innerHTML = "";
 
                             formStatusNoteElement.style.display = "none";
@@ -984,7 +987,6 @@
                             formStatusElement.style.color = "red";
                             formStatusElement.style.textAlign = "center";
                             formStatusElement.style.fontSize = "14px";
-                           formStatusNoteElement.innerHTML = "Important Notice: The form is only available for submissions between 10 AM and 5 PM IST.&nbsp; Currently, the form is closed for today. Please come back tomorrow after 10 AM IST to fill it out. Thank you!";
 
                             // Update the remaining time
                             formStatusElement.innerHTML = "⚠️Sorry, the registration form is currently closed.It will reopen in: " + getRemainingTime(timeDifference);

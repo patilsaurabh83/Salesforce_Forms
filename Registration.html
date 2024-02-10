@@ -203,6 +203,7 @@
             padding: 0;
         }
 
+
         .form-filling-time {
             font-family: Arial, sans-serif;
             font-size: 14px;
@@ -273,7 +274,8 @@
                     <br>
 
                     <label for="dob">Date of Birth<span class="required dateInput dateOnlyInput">*</span></label>
-                    <input id="dob" name="dob" type="date" required /><br>
+                    <input id="dob" name="dob" type="date" required />
+                    <span id="dob-error" style="color: red; display: none;">Enter a valid date of birth</span><br>
 
                     <label for="gender">Gender<span class="required">*</span></label>
                     <select id="00N5j00000UPatz" name="00N5j00000UPatz" required>
@@ -875,29 +877,50 @@
             <!-- Script to calculate and update Experience Level based on entered experience -->
             <script>
 
-               document.addEventListener('DOMContentLoaded', function () {
+                document.getElementById('dob').addEventListener('change', function() {
+                    var dob = new Date(this.value);
+                    var now = new Date();
+                    var minAge = 21;
+                    var minDob = new Date(now.getFullYear() - minAge, now.getMonth(), now.getDate());
+            
+                    if (dob >= now) {
+                        document.getElementById('dob-error').innerText = "Date of birth cannot be in the future";
+                        document.getElementById('dob-error').style.display = 'inline';
+                        this.setCustomValidity("Date of birth cannot be in the future");
+                    } else if (dob >= minDob) {
+                        document.getElementById('dob-error').innerText = "Age must be at least 21 years old";
+                        document.getElementById('dob-error').style.display = 'inline';
+                        this.setCustomValidity("Age must be at least 21 years old");
+                    } else {
+                        document.getElementById('dob-error').style.display = 'none';
+                        this.setCustomValidity("");
+                    }
+                });
+
+                document.addEventListener('DOMContentLoaded', function () {
                     // Get the elements by their IDs
                     var dobInput = document.getElementById('dob');
                     var hiddenField = document.getElementById('00N5j00000UPatu');
-                
+
                     // Set up an event listener for the change event on the visible date input
                     dobInput.addEventListener('change', function () {
                         // Parse the input date using the Date object
                         var dob = new Date(dobInput.value);
-                        
+
                         // Format the date in the DD/MM/YYYY format
                         var formattedDate = padZero(dob.getDate()) + '/' + padZero(dob.getMonth() + 1) + '/' + dob.getFullYear();
-                        
+
                         // Set the value of the hidden text field to the formatted date
                         hiddenField.value = formattedDate;
                         console.log(hiddenField.value);
                     });
-                
+
                     // Function to pad zero for single-digit days and months
                     function padZero(num) {
                         return (num < 10 ? '0' : '') + num;
                     }
                 });
+
 
                 const sections = document.querySelectorAll('#formSection > div');
                 let currentSection = 0;

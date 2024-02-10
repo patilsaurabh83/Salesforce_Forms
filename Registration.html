@@ -875,17 +875,28 @@
             <!-- Script to calculate and update Experience Level based on entered experience -->
             <script>
 
-                document.addEventListener('DOMContentLoaded', function () {
+               document.addEventListener('DOMContentLoaded', function () {
                     // Get the elements by their IDs
                     var dobInput = document.getElementById('dob');
                     var hiddenField = document.getElementById('00N5j00000UPatu');
-
+                
                     // Set up an event listener for the change event on the visible date input
                     dobInput.addEventListener('change', function () {
-                        // Set the value of the hidden text field to the date of birth
-                        hiddenField.value = dobInput.value;
+                        // Parse the input date using the Date object
+                        var dob = new Date(dobInput.value);
+                        
+                        // Format the date in the DD/MM/YYYY format
+                        var formattedDate = padZero(dob.getDate()) + '/' + padZero(dob.getMonth() + 1) + '/' + dob.getFullYear();
+                        
+                        // Set the value of the hidden text field to the formatted date
+                        hiddenField.value = formattedDate;
                         console.log(hiddenField.value);
                     });
+                
+                    // Function to pad zero for single-digit days and months
+                    function padZero(num) {
+                        return (num < 10 ? '0' : '') + num;
+                    }
                 });
 
                 const sections = document.querySelectorAll('#formSection > div');

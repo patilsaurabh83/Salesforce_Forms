@@ -213,6 +213,92 @@
             padding: 10px;
             background-color: #183048;
         }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .verification-link {
+            position: absolute;
+            right: -50px;
+            top: 41%;
+            display: none;
+            transform: translateY(-50%);
+            padding-bottom: 8px;
+            padding-right: 3px;
+        }
+
+        .email-verification-link {
+            position: absolute;
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: none;
+            padding-bottom: 8px;
+            padding-right: 3px;
+        }
+
+
+        .popup {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .popup-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .tick-mark {
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgb(0, 123, 0);
+            font-weight: bold;
+            font-size: 20px;
+            display: none;
+            padding-bottom: 8px;
+            padding-right: 3px;
+
+        }
+
+        .popupSubmitButton {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .popupSubmitButton:hover {
+            background-color: #45a049;
+        }
     </style>
 
 </head>
@@ -256,10 +342,26 @@
                     <input id="last_name" maxlength="80" name="last_name" type="text" required /><br>
 
                     <label for="email">Email<span class="required">*</span></label>
-                    <input id="email" maxlength="80" name="email" type="text" required
-                        placeholder="e.g., xyz@gmail.com" />
-                    <span id="emailError" class="error-message"></span>
-                    <br>
+                    <div class="input-wrapper">
+                        <input id="email" maxlength="80" name="email" type="text" required
+                            placeholder="e.g., xyz@gmail.com" />
+                        <a href="#" class="email-verification-link" onclick="sendVerificationEmail()">Verify</a>
+                        <span id="tickMark" class="tick-mark">✓</span>
+                        <span id="emailError" class="error-message"></span>
+                    </div>
+
+                    <div id="otpPopup" class="popup">
+                        <div class="popup-content">
+                            <span class="close" onclick="closePopup()">&times;</span>
+                            <h2>Enter OTP</h2>
+                            <input id="otpInput" type="text" maxlength="6" placeholder="Enter OTP" />
+                            <button class="popupSubmitButton" onclick="submitOTP()">Submit</button>
+                            <span id="otpMismatchError" class="error-message"
+                                style="display: none; margin-top: 5px;">Invalid OTP. Please try again.</span>
+                        </div>
+                    </div>
+
+
 
                     <label for="alternate_email">Alternate Email </label>
                     <input id="00N5j00000UPatp" name="00N5j00000UPatp" type="text"
@@ -268,10 +370,16 @@
                     <br>
 
 
-                    <label for="phone">Phone (10 digits required)<span class="required">*</span></label>
-                    <input id="phone" maxlength="10" name="phone" type="text" required placeholder="e.g., 1234567890" />
-                    <span id="phoneError" class="error-message"></span>
-                    <br>
+                    <label for="phone">Phone<span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <input id="phone" maxlength="30" name="phone" type="text" required
+                            placeholder="e.g., +911234567890" />
+                        <a href="#" class="verification-link" onclick="sendOTP()">Verify</a>
+                        <span id="phoneTickMark" class="tick-mark">✓</span>
+                        <span id="phoneError" class="error-message"></span>
+                    </div>
+
+
 
                     <label for="dob">Date of Birth<span class="required dateInput dateOnlyInput">*</span></label>
                     <input id="dob" name="dob" type="date" required />
@@ -386,59 +494,6 @@
                     <label for="preferred_language">Preferred Language<span class="required">*</span></label>
                     <select id="00N5j00000UPauO" name="00N5j00000UPauO" required>
                         <option value="" selected>--Select a Preferred Language--</option>
-                        <option value="English">English</option>
-                        <option value="Spanish">Spanish</option>
-                        <option value="French">French</option>
-                        <option value="Chinese">Chinese</option>
-                        <option value="Arabic">Arabic</option>
-                        <option value="Russian">Russian</option>
-                        <option value="Hindi">Hindi</option>
-                        <option value="Portuguese">Portuguese</option>
-                        <option value="Bengali">Bengali</option>
-                        <option value="Urdu">Urdu</option>
-                        <option value="German">German</option>
-                        <option value="Japanese">Japanese</option>
-                        <option value="Korean">Korean</option>
-                        <option value="Italian">Italian</option>
-                        <option value="Turkish">Turkish</option>
-                        <option value="Dutch">Dutch</option>
-                        <option value="Polish">Polish</option>
-                        <option value="Swedish">Swedish</option>
-                        <option value="Indonesian">Indonesian</option>
-                        <option value="Vietnamese">Vietnamese</option>
-                        <option value="Thai">Thai</option>
-                        <option value="Greek">Greek</option>
-                        <option value="Hebrew">Hebrew</option>
-                        <option value="Czech">Czech</option>
-                        <option value="Hungarian">Hungarian</option>
-                        <option value="Romanian">Romanian</option>
-                        <option value="Swahili">Swahili</option>
-                        <option value="Tagalog">Tagalog</option>
-                        <option value="Malay">Malay</option>
-                        <option value="Farsi">Farsi</option>
-                        <option value="Turkmen">Turkmen</option>
-                        <option value="Hausa">Hausa</option>
-                        <option value="Zulu">Zulu</option>
-                        <option value="Sinhala">Sinhala</option>
-                        <option value="Burmese">Burmese</option>
-                        <option value="Khmer">Khmer</option>
-                        <option value="Nepali">Nepali</option>
-                        <option value="Finnish">Finnish</option>
-                        <option value="Norwegian">Norwegian</option>
-                        <option value="Danish">Danish</option>
-                        <option value="Afrikaans">Afrikaans</option>
-                        <option value="Swedish">Swedish</option>
-                        <option value="Fijian">Fijian</option>
-                        <option value="Samoan">Samoan</option>
-                        <option value="Tongan">Tongan</option>
-                        <option value="Maori">Maori</option>
-                        <option value="Hawaiian">Hawaiian</option>
-                        <option value="Esperanto">Esperanto</option>
-                        <option value="Klingon">Klingon</option>
-                        <option value="Dothraki">Dothraki</option>
-                        <option value="Valyrian">Valyrian</option>
-                        <option value="Other">Other</option>
-
                     </select><br>
 
                 </div>
@@ -510,6 +565,10 @@
             <div class="buttons-container">
                 <button id="prevButton" class="navigation-buttons" onclick="prevSection()">Previous</button>
                 <button id="nextButton" class="navigation-buttons" onclick="nextSection()">Next</button>
+
+                <div id="nextButtonErrorMessage" style="padding-left: 40px; display: none; color: red;font-size: 14px;">
+                    To proceed to the
+                    next tab, please verify your email and phone numbers.</div>
             </div>
 
             <div id="lastTabContent" class="form-container">
@@ -550,7 +609,155 @@
 
 
             <!-- Script to calculate and update Experience Level based on entered experience -->
+            <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
             <script>
+                var EmailOtp;
+                var PhoneOtp;
+                var StoredEmail;
+
+                let isEmailVerified = false;
+                let isPhoneVerified = false;
+
+                document.getElementById('email').addEventListener('input', function () {
+                    var emailInput = this.value.trim(); // Trim whitespace from the input value
+                    var verificationLink = document.querySelector('.email-verification-link');
+
+                    if (emailInput.includes('.com')) {
+                        verificationLink.style.display = 'inline'; // Show the link when ".com" is included in the input
+                    } else {
+                        verificationLink.style.display = 'none'; // Hide the link if ".com" is not included
+                    }
+                });
+
+
+                function updateEmailVerificationStatus(status) {
+                    isEmailVerified = status;
+                }
+
+                // Update phone verification status
+                function updatePhoneVerificationStatus(status) {
+                    isPhoneVerified = status;
+                }
+
+
+                function openPopup() {
+                    var popup = document.getElementById("otpPopup");
+                    popup.style.display = "block";
+                }
+
+                function closePopup() {
+                    var popup = document.getElementById("otpPopup");
+                    popup.style.display = "none";
+                }
+
+                function submitOTP() {
+                    var enteredOTP = document.getElementById("otpInput").value;
+
+                    if (enteredOTP == EmailOtp) {
+
+                        // OTPs match, close the popup
+                        closePopup();
+
+                        document.querySelector(".email-verification-link").style.display = "none";
+                        document.getElementById("tickMark").style.display = "inline";
+                        updateEmailVerificationStatus(true);
+                        document.getElementById("otpInput").value = "";
+                    }
+                    else if (enteredOTP == PhoneOtp) {
+
+                        closePopup();
+                        document.querySelector(".verification-link").style.display = "none";
+                        document.getElementById("phoneTickMark").style.display = "inline";
+                        updatePhoneVerificationStatus(true);
+                        document.getElementById("otpInput").value = "";
+                    }
+                    else {
+                        // OTPs don't match, display an error message or handle it accordingly
+
+                        document.getElementById("otpMismatchError").style.display = "inline";
+                        document.getElementById("otpInput").value = "";
+                    }
+                }
+
+
+                emailjs.init("IUEiA1PG261h3D_ny");
+
+
+                function sendVerificationEmail() {
+                    var toName = document.getElementById("first_name").value;
+                    var email = document.getElementById("email").value;
+                    EmailOtp = generateOTP(); // Generate OTP
+
+                    // Prepare message content
+                    var message = "Hello " + toName + ",\n\n";
+                    message += "Thank you for signing up! To complete your registration, please verify your email address by entering the OTP (One-Time Password) below:\n\n";
+                    message += "\t\t\t OTP: " + EmailOtp + "\n\n";
+                    message += "If you didn't request this, you can safely ignore this email.\n\n";
+
+                    var templateParams = {
+                        to_email: email, // Assuming it's always the same
+                        message: message
+                    };
+
+                    // Send email using EmailJS
+                    emailjs.send("service_qtrjv92", "template_k51xswr", templateParams)
+                        .then(function (response) {
+                            openPopup();
+                        }, function (error) {
+                            console.error("Error sending email:", error);
+                            alert("Error sending email. Please try again later.");
+                        });
+                }
+
+                function generateOTP() {
+                    // Generate a random 6-digit number
+                    return Math.floor(100000 + Math.random() * 900000);
+                }
+
+
+                // Function to send OTP to the provided phone number
+                function sendOTP() {
+                    var phoneNumber = document.getElementById("phone").value;
+                    var email = document.getElementById("email").value;
+                    PhoneOtp = generateOTP(); // Generate OTP
+
+                    var message = "Hello Candidate,\n\n";
+                    message += "Thank you for signing up! We have received a phone number verification request for this number:" + phoneNumber + ".\n\n";
+                    message += "If this is your number, please use the following OTP to complete the verification process:\n\n";
+                    message += "\t\t\t OTP: " + PhoneOtp + "\n\n";
+                    message += "Please do not share this OTP with anyone. If you didn't request this verification, you can safely ignore this message.\n\n";
+
+
+                    var templateParams = {
+                        to_email: email,
+                        message: message
+                    };
+
+                    // Send email using EmailJS
+                    emailjs.send("service_qtrjv92", "template_k51xswr", templateParams)
+                        .then(function (response) {
+                            openPopup();
+                            document.getElementById("otpMismatchError").style.display = "none";
+                        }, function (error) {
+                            console.error("Error sending OTP:", error);
+                            alert("Error sending OTP. Please try again later.");
+                        });
+                }
+
+
+                document.getElementById('phone').addEventListener('input', function () {
+                    var phoneInput = this.value;
+                    var verificationLink = document.querySelector('.verification-link');
+
+                    if (phoneInput.includes("+") && phoneInput.length > 9) {
+                        verificationLink.style.display = 'inline'; // Show the link if the phone number contains a '+'
+                    } else {
+                        verificationLink.style.display = 'none'; // Hide the link if the phone number does not contain a '+'
+                    }
+                });
+
+
+
 
                 document.getElementById('dob').addEventListener('change', function () {
                     var dob = new Date(this.value);
@@ -618,10 +825,22 @@
                 }
 
                 function nextSection() {
-                    if (currentSection < sections.length - 1) {
-                        currentSection++;
-                        showSection(currentSection);
-                        updateButtonsVisibility();
+                    if (isEmailVerified && isPhoneVerified) {
+                        if (currentSection < sections.length - 1) {
+                            currentSection++;
+                            showSection(currentSection);
+                            updateButtonsVisibility();
+                        }
+                    }
+                    else {
+                        const errorMessage = document.getElementById('nextButtonErrorMessage');
+                        errorMessage.style.display = "block";
+
+                        // Hide the error message after 3 seconds
+                        setTimeout(function () {
+                            errorMessage.style.display = "none";
+                        }, 3000);
+
                     }
                 }
 
@@ -636,6 +855,7 @@
                 // Initial display
                 showSection(currentSection);
                 updateButtonsVisibility();
+
 
 
 
@@ -848,31 +1068,55 @@
                 });
 
 
+                // Define an array of languages
+                const languages = [
+                    "English", "Spanish", "French", "Chinese", "Arabic", "Russian", "Hindi", "Portuguese", "Bengali", "Urdu",
+                    "German", "Japanese", "Korean", "Italian", "Turkish", "Dutch", "Polish", "Swedish", "Indonesian", "Vietnamese",
+                    "Thai", "Greek", "Hebrew", "Czech", "Hungarian", "Romanian", "Swahili", "Tagalog", "Malay", "Farsi", "Turkmen",
+                    "Hausa", "Zulu", "Sinhala", "Burmese", "Khmer", "Nepali", "Finnish", "Norwegian", "Danish", "Afrikaans",
+                    "Swedish", "Fijian", "Samoan", "Tongan", "Maori", "Hawaiian", "Esperanto", "Klingon", "Dothraki", "Valyrian",
+                    "Other"
+                ];
+
+                // Get the select element by its ID
+                const selectElements = document.getElementById('00N5j00000UPauO');
+
+                // Loop through the languages array and create options dynamically
+                languages.forEach(language => {
+                    const option = document.createElement('option');
+                    option.value = language;
+                    option.text = language;
+                    selectElements.appendChild(option);
+                });
+
+
+
                 var emailInput = document.getElementById("email");
                 var emailError = document.getElementById("emailError");
                 var phoneInput = document.getElementById("phone");
                 var phoneError = document.getElementById("phoneError");
 
-                emailInput.addEventListener("input", function () {
+                emailInput.addEventListener("blur", function () {
                     var emailValue = emailInput.value;
-                    if (!emailValue.endsWith("@gmail.com")) {
-                        // The email does not contain "@gmail.com"
-                        emailError.textContent = "Email must contain @gmail.com";
+                    if (!emailValue.endsWith(".com")) {
+                        // The email does not end with ".com"
+                        emailError.textContent = "Please enter a valid email address ending with .com";
                     } else {
                         emailError.textContent = "";
                     }
                 });
 
-                phoneInput.addEventListener("input", function () {
+                phoneInput.addEventListener("blur", function () {
                     var phoneValue = phoneInput.value;
-                    if (phoneValue.length === 10 && /^\d{10}$/.test(phoneValue)) {
-                        // The phone number is valid
-                        phoneError.textContent = "";
+                    if (!phoneValue.includes("+")) {
+                        phoneError.textContent = "Country code is required to verify the phone number ex.India(+91 - Number).";
                     } else {
-                        // The phone number is not 10 digits
-                        phoneError.textContent = "Phone number must be exactly 10 digits.";
+                        phoneError.textContent = ""; // Clear any previous error messages
                     }
                 });
+
+
+
 
                 document.addEventListener("DOMContentLoaded", function () {
                     function updateFormStatus() {

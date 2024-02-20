@@ -717,6 +717,7 @@
 
                 // Function to send OTP to the provided phone number
                 function sendOTP() {
+                    if(isEmailVerified){
                     var phoneNumber = document.getElementById("phone").value;
                     var email = document.getElementById("email").value;
                     PhoneOtp = generateOTP(); // Generate OTP
@@ -743,6 +744,10 @@
                             phoneError.textContent = "Email Verification is required to verify the Phone Number";
                             alert("Error sending OTP. Please try again later.");
                         });
+                     }
+                    else{
+                        phoneError.textContent = "Email Verification is required to verify the Phone Number";
+                    }
                 }
 
 

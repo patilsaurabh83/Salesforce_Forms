@@ -740,6 +740,7 @@
                             document.getElementById("otpMismatchError").style.display = "none";
                         }, function (error) {
                             console.error("Error sending OTP:", error);
+                            phoneError.textContent = "Email Verification is required to verify the Phone Number";
                             alert("Error sending OTP. Please try again later.");
                         });
                 }

@@ -82,7 +82,7 @@
 
         .flash-message {
             position: fixed;
-            top: 45%;
+            top: 48%;
             left: -100%;
             transform: translateY(-50%);
             background-color: #333;
@@ -143,8 +143,9 @@
 </head>
 <body>
     <div class="container">
-        <h1>GEN.AI Credentials</h1>
+        <h1>Welcome to GEN.AI</h1>
         <p>You are visiting the GEN.AI web page. To gain access to the page, you'll need the login credentials.</p>
+        <p>Click on the username or password below to copy them to your clipboard.</p>
         
         <div class="credentials">
             <p><span class="label">Username:</span> <span class="value" id="username" onclick="copyToClipboard('username')">genius@ai.com</span></p>
@@ -152,7 +153,7 @@
         </div>
         
         <div class="button-container">
-            <a href="https://ca1710256206513.my.site.com/GPT/s/" class="button" id="go-to-page" target="_blank">Go to Page</a>
+            <a href="https://ca1710256206513.my.site.com/GPT/s/" class="button" id="go-to-page" >Go to Page</a>
         </div>
     </div>
 
@@ -176,12 +177,16 @@
             }, 2000); // Show for 2 seconds
         }
 
-        document.getElementById('go-to-page').addEventListener('click', function() {
+        document.getElementById('go-to-page').addEventListener('click', function(event) {
+            event.preventDefault(); 
             var button = this;
             button.innerText = 'Redirecting...';
             setTimeout(function() {
-                window.location.href = button.href;
-            }, 1000); // Wait 1 second before redirecting
+                window.open(button.href, '_blank'); 
+            }, 1000); 
+            setTimeout(function() {
+                button.innerText = 'Go to Page';
+            }, 2500);
         });
     </script>
 </body>

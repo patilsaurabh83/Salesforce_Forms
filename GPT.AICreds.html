@@ -40,6 +40,7 @@
             padding: 20px;
             margin: 20px 0;
             text-align: center;
+            line-height: 1.2rem;
         }
 
         .credentials p {
@@ -53,8 +54,12 @@
 
         .credentials .value {
             color: #555;
-            cursor: text;
-            user-select: text; /* Make the text selectable for copying */
+            cursor: pointer;
+            user-select: text; 
+            border: 2px solid rgba(0, 0, 0, 0.3); 
+            border-radius: 4px;
+            padding: 2px 4px;
+            background-color: #f9f9f9; 
         }
 
         .button-container {
@@ -121,13 +126,34 @@
         <p>You are visiting the GEN.AI web page. To gain access to the page, you'll need the login credentials.</p>
         
         <div class="credentials">
-            <p><span class="label">Username:</span> <span class="value" id="username">genius@ai.com</span></p>
-            <p><span class="label">Password:</span> <span class="value" id="password">MyGPT.AI_Pass2024</span></p>
+            <p><span class="label">Username:</span> <span class="value" id="username" onclick="copyToClipboard('username')">genius@ai.com</span></p>
+            <p><span class="label">Password:</span> <span class="value" id="password" onclick="copyToClipboard('password')">MyGPT.AI_Pass2024</span></p>
         </div>
         
         <div class="button-container">
-            <a href="https://ca1710256206513.my.site.com/GPT/s/" class="button">Go to Page</a>
+            <a href="https://ca1710256206513.my.site.com/GPT/s/" class="button" id="go-to-page" target="_blank">Go to Page</a>
         </div>
     </div>
+
+    <script>
+        function copyToClipboard(id) {
+            var text = document.getElementById(id).innerText;
+            var textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            alert('Copied to clipboard: ' + text);
+        }
+
+        document.getElementById('go-to-page').addEventListener('click', function() {
+            var button = this;
+            button.innerText = 'Redirecting...';
+            setTimeout(function() {
+                window.location.href = button.href;
+            }, 1000); // Wait 1 second before redirecting
+        });
+    </script>
 </body>
 </html>

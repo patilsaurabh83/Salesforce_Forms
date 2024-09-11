@@ -291,9 +291,9 @@
     <div id="flash-message" class="flash-message"></div>
 
     <footer>
-        <p>&copy; 2024 GPT.AI. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service | <a
-                    href="#" onclick="sendEmail()">Contact Us</a></a></p>
+        <p>&copy; <span id="current-year"></span> GPT.AI. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#" onclick="sendEmail()">Contact Us</a></p>
     </footer>
+    
 
     <script>
         function copyToClipboard(id) {
@@ -331,6 +331,11 @@
             // Open the default email client with the pre-filled details
             window.location.href = mailtoLink;
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var currentYear = new Date().getFullYear();
+            document.getElementById('current-year').textContent = currentYear;
+        });        
 
         document.getElementById('go-to-page').addEventListener('click', function (event) {
             event.preventDefault();

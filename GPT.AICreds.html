@@ -1,37 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GPT.AI</title>
     <link rel="icon" type="image/png" href="https://saurabhpatil.netlify.app/src/png/robot.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap">
+
+    <!-- Open Graph metadata -->
+    <meta property="og:title" content="GPT.AI: Innovating the Future of Artificial Intelligence">
+    <meta property="og:description"
+        content="Explore GPT.AI, your gateway to cutting-edge AI technology. Discover how our advanced tools and features can transform your business and enhance your productivity. Access your personalized login credentials to get started and experience the future of AI today!">
+    <meta property="og:image" content="https://innovativewebs.netlify.app/GPT.AI%20Background.png">
+    <meta property="og:url" content="https://innovativewebs.netlify.app/GPT.AICreds">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card metadata -->
+    <meta name="twitter:card" content="https://innovativewebs.netlify.app/GPT.AI%20Background.png">
+    <meta name="twitter:title" content="GPT.AI: Innovating the Future of Artificial Intelligence">
+    <meta name="twitter:description"
+        content="Explore GPT.AI, your gateway to cutting-edge AI technology. Discover how our advanced tools and features can transform your business and enhance your productivity. Access your personalized login credentials to get started and experience the future of AI today!">
+    <meta name="twitter:image" content="https://innovativewebs.netlify.app/GPT.AI%20Background.png">
+    <meta name="twitter:site" content="@patil__Saurabh">
+
     <style>
+        html,
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
+            height: 100%;
             margin: 0;
             padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url('https://innovativewebs.netlify.app/GPT.AI%20Background.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            font-family: 'Rubik', sans-serif;
+            background-color: rgba(88, 85, 85, 0.4);
+            /* Darker, more transparent background */
+            color: #fff;
+            padding: 5px 15px;
+            text-align: left;
+            font-size: 30px;
+            font-weight: bold;
+            backdrop-filter: blur(10px);
+            /* Add blur effect */
+            flex-shrink: 0;
+        }
+
+
+        .content {
+            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            padding: 20px;
         }
 
         .container {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.9));
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
             padding: 20px;
             text-align: center;
             max-width: 600px;
             width: 100%;
+            box-sizing: border-box;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(2px);
+            /* Subtle background blur effect */
         }
 
         h1 {
-            color: #73a9e2;
-            font-size: 24px;
+            font-family: 'Rubik', sans-serif;
+            color: #2477d0;
+            font-size: 30px;
             margin-bottom: 20px;
+            font-weight: bold;
         }
 
         .credentials {
@@ -42,6 +97,7 @@
             margin: 20px 0;
             text-align: center;
             line-height: 1.2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .credentials p {
@@ -56,11 +112,17 @@
         .credentials .value {
             color: #555;
             cursor: pointer;
-            user-select: text; 
-            border: 2px solid rgba(0, 0, 0, 0.3); 
+            user-select: text;
+            border: 2px solid rgba(0, 0, 0, 0.3);
             border-radius: 4px;
             padding: 2px 4px;
-            background-color: #f9f9f9; 
+            background-color: #f9f9f9;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .credentials .value:hover {
+            background-color: #eee;
+            border-color: #888;
         }
 
         .button-container {
@@ -74,11 +136,15 @@
             text-decoration: none;
             border-radius: 5px;
             font-size: 16px;
+            font-weight: bold;
+            width: 50%;
             display: inline-block;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
         .button:hover {
             background-color: #333;
+            transform: scale(1.05);
         }
 
         .flash-message {
@@ -93,23 +159,23 @@
             opacity: 0;
             transition: opacity 0.5s, left 0.5s;
             z-index: 1000;
-            margin-left: 1%; /* Slightly offset from center */
+            margin-left: 1%;
         }
 
         .flash-message.show {
-            left: 35%; /* Adjusted position */
+            left: 35%;
             transform: translateY(-50%);
             opacity: 1;
         }
 
         .small-text {
-            font-size: 12px;
-            color: #777;
+            font-size: 13px;
+            color: #4f4f4f;
             margin-top: 20px;
         }
 
         .small-text a {
-            color: #73a9e2;
+            color: #3287e3;
             text-decoration: none;
         }
 
@@ -117,10 +183,36 @@
             text-decoration: underline;
         }
 
+        footer {
+            font-family: 'Rubik', sans-serif;
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Darker, more transparent background */
+            color: #fff;
+            text-align: center;
+            padding: 5px 10px;
+            font-size: 12px;
+            backdrop-filter: blur(10px);
+            /* Add blur effect */
+            flex-shrink: 0;
+        }
+
+        footer a {
+            color: #73a9e2;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
         /* Responsive styles */
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
+            }
+
+            .content {
+                padding: 15px 5px;
             }
 
             .credentials {
@@ -135,7 +227,8 @@
             h1 {
                 font-size: 20px;
             }
-            .flash-message{
+
+            .flash-message {
                 margin-left: -15px;
             }
         }
@@ -143,6 +236,8 @@
         @media (max-width: 480px) {
             .container {
                 padding: 10px;
+                margin-left: 3px;
+                margin-right: 3px;
             }
 
             .credentials {
@@ -160,24 +255,45 @@
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Welcome to GPT.AI</h1>
-        <p>You are visiting the GPT.AI web page. To gain access to the page, you'll need the login credentials.</p>
-        <p>Click on the username or password below to copy them to your clipboard.</p>
-        
-        <div class="credentials">
-            <p><span class="label">Username:</span> <span class="value" id="username" onclick="copyToClipboard('username')">genius@ai.com</span></p>
-            <p><span class="label">Password:</span> <span class="value" id="password" onclick="copyToClipboard('password')">MyGPT.AI_Pass2024</span></p>
+    <header>
+        <a href="#" style="text-decoration: none; color: #6b8aff;">GPT.AI</a>
+    </header>
+
+    <div class="content">
+        <div class="container">
+            <h1>Welcome to GPT.AI</h1>
+            <p>Thank you for visiting the GPT.AI web page. To access the full features, please use the provided login
+                credentials.</p>
+            <p>Click on the username or password below to copy them to your clipboard.</p>
+
+            <div class="credentials">
+                <p><span class="label">Username:</span> <span class="value" id="username"
+                        onclick="copyToClipboard('username')">genius@ai.com</span></p>
+                <p><span class="label">Password:</span> <span class="value" id="password"
+                        onclick="copyToClipboard('password')">MyGPT.AI_Pass2024</span></p>
+            </div>
+
+            <div class="button-container">
+                <a href="https://ca1710256206513.my.site.com/GPT/s/login/" class="button" id="go-to-page">Visit The
+                    Website</a>
+            </div>
+
+            <p class="small-text">
+                For any assistance or to share feedback, please <a href="mailto:patilsaurabh9978@gmail.com">contact
+                    us</a>. We value your input and are here to assist with any questions or suggestions you may have.
+            </p>
         </div>
-        
-        <div class="button-container">
-            <a href="https://ca1710256206513.my.site.com/GPT/s/login/" class="button" id="go-to-page" >Go to Page</a>
-        </div>
-        <p class="small-text">For implementation support or to share your suggestions, feel free to <a href="mailto:patilsaurabh9978@gmail.com">click here to contact us</a>. We value your feedback and are here to help with any questions or improvements you may have.</p>
     </div>
 
+
     <div id="flash-message" class="flash-message"></div>
+
+    <footer>
+        <p>&copy; 2024 GPT.AI. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service | <a
+                    href="#" onclick="sendEmail()">Contact Us</a></a></p>
+    </footer>
 
     <script>
         function copyToClipboard(id) {
@@ -188,26 +304,46 @@
             textarea.select();
             document.execCommand('copy');
             document.body.removeChild(textarea);
-            
+
             var flashMessage = document.getElementById('flash-message');
             flashMessage.innerText = id === 'username' ? 'Username copied!' : 'Password copied!';
             flashMessage.classList.add('show');
-            setTimeout(function() {
+            setTimeout(function () {
                 flashMessage.classList.remove('show');
             }, 2000); // Show for 2 seconds
         }
 
-        document.getElementById('go-to-page').addEventListener('click', function(event) {
-            event.preventDefault(); 
+        function sendEmail() {
+            var toEmail = 'gpt.aisearch@gmail.com'; // Recipient email address
+            var ccEmail = 'patilsaurabh9978@gmail.com'; // CC email address
+            var subject = 'Regarding GPT.AI Implementation and Other Questions'; // Subject of the email
+            var body = 'Dear GPT.AI Team,\n\n' +
+                'I have some questions and feedback regarding the GPT.AI implementation.\n\n\n' +
+                '//Write your own message and subject by updating this email template.\n\n\n' +
+                'Best regards,\n[Your Name]'; // Body of the email
+
+            // Construct the mailto link with the specified details
+            var mailtoLink = 'mailto:' + toEmail +
+                '?cc=' + encodeURIComponent(ccEmail) +
+                '&subject=' + encodeURIComponent(subject) +
+                '&body=' + encodeURIComponent(body);
+
+            // Open the default email client with the pre-filled details
+            window.location.href = mailtoLink;
+        }
+
+        document.getElementById('go-to-page').addEventListener('click', function (event) {
+            event.preventDefault();
             var button = this;
             button.innerText = 'Redirecting...';
-            setTimeout(function() {
-                window.open(button.href, '_blank'); 
-            }, 1500); 
-            setTimeout(function() {
+            setTimeout(function () {
+                window.open(button.href, '_blank');
+            }, 1500);
+            setTimeout(function () {
                 button.innerText = 'Go to Page';
             }, 2500);
         });
     </script>
 </body>
+
 </html>

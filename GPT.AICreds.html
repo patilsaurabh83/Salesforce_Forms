@@ -593,6 +593,15 @@
             }, 2500);
         }
 
+        function setCurrentYear() {
+            const yearSpan = document.getElementById('current-year');
+            const currentYear = new Date().getFullYear();
+            yearSpan.textContent = currentYear;
+        }
+
+        // Call the function when the DOM is fully loaded to set the year in the copyright pharse
+        document.addEventListener('DOMContentLoaded', setCurrentYear);
+
 
         // Wait for the background image to load
         window.addEventListener('load', function () {

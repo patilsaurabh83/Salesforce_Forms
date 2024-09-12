@@ -49,13 +49,27 @@
             background-color: rgba(88, 85, 85, 0.4);
             /* Darker, more transparent background */
             color: #fff;
+            visibility: hidden;
             padding: 5px 15px;
             text-align: left;
-            font-size: 30px;
+            font-size: 25px;
             font-weight: bold;
             backdrop-filter: blur(10px);
             /* Add blur effect */
             flex-shrink: 0;
+        }
+
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1f1d1d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
         }
 
 
@@ -64,6 +78,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            visibility: hidden;
             padding: 20px;
         }
 
@@ -78,7 +93,6 @@
             box-sizing: border-box;
             border: 1px solid rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(2px);
-            /* Subtle background blur effect */
         }
 
         h1 {
@@ -86,6 +100,7 @@
             color: #2477d0;
             font-size: 30px;
             margin-bottom: 20px;
+            margin-top: 0;
             font-weight: bold;
         }
 
@@ -126,25 +141,41 @@
         }
 
         .button-container {
-            margin-top: 20px;
-        }
-
-        .button {
-            background-color: #000;
-            color: #fff;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: bold;
-            width: 50%;
             display: inline-block;
-            transition: background-color 0.3s, transform 0.3s;
         }
 
-        .button:hover {
-            background-color: #333;
-            transform: scale(1.05);
+        button {
+            display: flex;
+            align-items: center;
+            font-family: inherit;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 17px;
+            padding: 0.8em 1.3em 0.8em 0.9em;
+            color: white;
+            background: #ad5389;
+            background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+            border: none;
+            letter-spacing: 0.05em;
+            border-radius: 16px;
+        }
+
+        button svg {
+            margin-right: 3px;
+            transform: rotate(30deg);
+            transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+        }
+
+        button span {
+            transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+        }
+
+        button:hover svg {
+            transform: translateX(5px) rotate(90deg);
+        }
+
+        button:hover span {
+            transform: translateX(7px);
         }
 
         .flash-message {
@@ -168,6 +199,60 @@
             opacity: 1;
         }
 
+        .slogan {
+            font-size: 9px;
+            font-family: 'Rubik', sans-serif;
+            font-weight: normal;
+            color: #ffffff;
+            padding: 0;
+            margin: 0;
+        }
+
+        .circleCss {
+            height: 120px;
+            width: 120px;
+        }
+
+        .loading-screen .svg {
+            width: 3.25em;
+            transform-origin: center;
+            animation: rotate4 2s linear infinite;
+        }
+
+        circle {
+            fill: none;
+            stroke: hsl(214, 97%, 59%);
+            stroke-width: 2;
+            stroke-dasharray: 1, 200;
+            stroke-dashoffset: 0;
+            stroke-linecap: round;
+            animation: dash4 1.5s ease-in-out infinite;
+        }
+
+        @keyframes rotate4 {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes dash4 {
+            0% {
+                stroke-dasharray: 1, 200;
+                stroke-dashoffset: 0;
+            }
+
+            50% {
+                stroke-dasharray: 90, 200;
+                stroke-dashoffset: -35px;
+            }
+
+            100% {
+                stroke-dashoffset: -125px;
+            }
+        }
+
+
+
         .small-text {
             font-size: 13px;
             color: #4f4f4f;
@@ -188,6 +273,7 @@
             background-color: rgba(0, 0, 0, 0.4);
             /* Darker, more transparent background */
             color: #fff;
+            visibility: hidden;
             text-align: center;
             padding: 5px 10px;
             font-size: 12px;
@@ -215,13 +301,13 @@
                 padding: 15px 5px;
             }
 
-            .credentials {
-                padding: 15px;
+            .circleCss {
+                height: 100px;
+                width: 100px;
             }
 
-            .button {
-                padding: 12px 20px;
-                font-size: 14px;
+            .credentials {
+                padding: 15px;
             }
 
             h1 {
@@ -244,11 +330,6 @@
                 padding: 10px;
             }
 
-            .button {
-                padding: 10px 15px;
-                font-size: 12px;
-            }
-
             h1 {
                 font-size: 20px;
             }
@@ -259,14 +340,25 @@
 <body>
     <header>
         <a href="#" style="text-decoration: none; color: #6b8aff;">GPT.AI</a>
+        <p class="slogan">Empowering Your Conversations with AI</p>
     </header>
+
+    <div class="loading-screen">
+        <div class="circleCss">
+            <svg viewBox="25 25 50 50">
+                <circle r="20" cy="50" cx="50"></circle>
+            </svg>
+        </div>
+        
+    </div>
 
     <div class="content">
         <div class="container">
             <h1>Welcome to GPT.AI</h1>
-            <p>Thank you for visiting the GPT.AI web page. To access the full features, please use the provided login
-                credentials.</p>
-            <p>Click on the username or password below to copy them to your clipboard.</p>
+            <p>We’re thrilled to have you explore GPT.AI! To unlock all the exciting features, use the login credentials
+                provided below.</p>
+            <p>For your convenience, simply click on the Username or Password to copy them directly to your clipboard.
+            </p>
 
             <div class="credentials">
                 <p><span class="label">Username:</span> <span class="value" id="username"
@@ -275,10 +367,20 @@
                         onclick="copyToClipboard('password')">MyGPT.AI_Pass2024</span></p>
             </div>
 
+
             <div class="button-container">
-                <a href="https://ca1710256206513.my.site.com/GPT/s/login/" class="button" id="go-to-page">Visit The
-                    Website</a>
+                <button onclick="redirectToPage()">
+                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path
+                            d="M5 13c0-5.088 2.903-9.436 7-11.182C16.097 3.564 19 7.912 19 13c0 .823-.076 1.626-.22 2.403l1.94 1.832a.5.5 0 0 1 .095.603l-2.495 4.575a.5.5 0 0 1-.793.114l-2.234-2.234a1 1 0 0 0-.707-.293H9.414a1 1 0 0 0-.707.293l-2.234 2.234a.5.5 0 0 1-.793-.114l-2.495-4.575a.5.5 0 0 1 .095-.603l1.94-1.832C5.077 14.626 5 13.823 5 13zm1.476 6.696l.817-.817A3 3 0 0 1 9.414 18h5.172a3 3 0 0 1 2.121.879l.817.817.982-1.8-1.1-1.04a2 2 0 0 1-.593-1.82c.124-.664.187-1.345.187-2.036 0-3.87-1.995-7.3-5-8.96C8.995 5.7 7 9.13 7 13c0 .691.063 1.372.187 2.037a2 2 0 0 1-.593 1.82l-1.1 1.039.982 1.8zM12 13a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
+                            fill="currentColor"></path>
+                    </svg>
+                    <span>Visit The Website</span>
+                </button>
             </div>
+
+
 
             <p class="small-text">
                 For any assistance or to share feedback, please <a href="mailto:patilsaurabh9978@gmail.com">contact
@@ -291,9 +393,10 @@
     <div id="flash-message" class="flash-message"></div>
 
     <footer>
-        <p>&copy; <span id="current-year"></span> GPT.AI. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#" onclick="sendEmail()">Contact Us</a></p>
+        <p>&copy; <span id="current-year"></span> GPT.AI. All rights reserved. | <a href="#">Privacy Policy</a> | <a
+                href="#">Terms of Service</a> | <a href="#" onclick="sendEmail()">Contact Us</a></p>
     </footer>
-    
+
 
     <script>
         function copyToClipboard(id) {
@@ -332,22 +435,36 @@
             window.location.href = mailtoLink;
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            var currentYear = new Date().getFullYear();
-            document.getElementById('current-year').textContent = currentYear;
-        });        
-
-        document.getElementById('go-to-page').addEventListener('click', function (event) {
-            event.preventDefault();
-            var button = this;
+        function redirectToPage() {
+            var button = document.querySelector('.button-container button span');
             button.innerText = 'Redirecting...';
             setTimeout(function () {
-                window.open(button.href, '_blank');
+                window.open('https://ca1710256206513.my.site.com/GPT/s/login/', '_blank');
             }, 1500);
             setTimeout(function () {
-                button.innerText = 'Go to Page';
+                button.innerText = 'Launch Again';
             }, 2500);
+        }
+
+        // Wait for the background image to load
+        window.addEventListener('load', function () {
+            var loadingScreen = document.querySelector('.loading-screen');
+            var content = document.querySelector('.content');
+            var header = document.querySelector('header');
+            var footer = document.querySelector('footer');
+
+            // Function to hide the loading screen and show the content
+            function showContent() {
+                loadingScreen.style.display = 'none';
+                content.style.visibility = 'visible';
+                header.style.visibility = 'visible';
+                footer.style.visibility = 'visible';
+            }
+
+            // Set a timeout to ensure the loading screen is visible for at least 5000 ms
+            setTimeout(showContent, 4000);
         });
+
     </script>
 </body>
 

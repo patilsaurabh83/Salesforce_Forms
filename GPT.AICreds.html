@@ -618,17 +618,20 @@
                 footer.style.visibility = 'visible';
             }
 
-            // Check if this is the user's first visit using localStorage
-            if (!localStorage.getItem('visited')) {
-                // Set the timer for 5000 ms on the first visit
-                setTimeout(function () {
+            const maskedKey = btoa('user_visited_session');  //masked key
+            const maskedValue = btoa('true');  //masked value
+
+            // Check if this is the user's first visit in the current session using sessionStorage
+            if (!sessionStorage.getItem(maskedKey)) {
+            // Set the timer for 4000 ms on the first visit in the session
+                  setTimeout(function () {
                     showContent();
-                    localStorage.setItem('visited', 'true'); // Mark that the user has visited
-                }, 4000);
-            } else {
-                // If the user has visited before, show content immediately
-                showContent();
-            }
+                    sessionStorage.setItem(maskedKey, maskedValue); // Store masked key and value
+                 }, 4000);
+           } else {
+                  // If the user has visited before in this session, show content immediately
+                  showContent();
+           }
 
         });
 

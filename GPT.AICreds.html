@@ -8,6 +8,7 @@
     <link rel="icon" type="image/png" href="https://innovativewebs.netlify.app/robot.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap">
+    <link rel="preload" href="https://ca1710256206513.my.site.com/GPT/s/login/" as="document">
 
     <!-- Open Graph metadata -->
     <meta property="og:title" content="GPT.AI: Innovating the Future of Artificial Intelligence">
@@ -579,18 +580,13 @@
             // Change button text to "Redirecting..."
             button.innerText = 'Redirecting...';
 
-            // Remove the hover effect (assuming the class is 'hover-effect')
-            buttonContainer.classList.remove('hover-effect');
-
             // Redirect after 1.5 seconds
             setTimeout(function () {
                 window.open('https://ca1710256206513.my.site.com/GPT/s/login/', '_blank');
-            }, 1500);
-
-            // Change button text back to "Launch Again" after 2.5 seconds
-            setTimeout(function () {
+                // Remove the hover effect (assuming the class is 'hover-effect')
+                buttonContainer.classList.remove('hover-effect');
                 button.innerText = 'Launch Again';
-            }, 2500);
+            }, 1500);
         }
 
         function setCurrentYear() {
@@ -623,19 +619,20 @@
 
             // Check if this is the user's first visit in the current session using sessionStorage
             if (!sessionStorage.getItem(maskedKey)) {
-            // Set the timer for 4000 ms on the first visit in the session
-                  setTimeout(function () {
+                // Set the timer for 4000 ms on the first visit in the session
+                setTimeout(function () {
                     showContent();
                     sessionStorage.setItem(maskedKey, maskedValue); // Store masked key and value
-                 }, 4000);
-           } else {
-                  // If the user has visited before in this session, show content immediately
-                  showContent();
-           }
+                }, 4000);
+            } else {
+                // If the user has visited before in this session, show content immediately
+                showContent();
+            }
 
         });
 
     </script>
-    
+
 </body>
+
 </html>

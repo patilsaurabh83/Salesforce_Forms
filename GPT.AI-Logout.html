@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logged Out</title>
+    <link rel="icon" href="https://innovativewebs.netlify.app/robot.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Dark Mode CSS Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        .container {
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #e0e0e0;
+            font-size: 1.1em;
+        }
+
+        main {
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-size: 4em;
+            margin: 0;
+            color: #ffffff;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #cccccc;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            p {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://innovativewebs.netlify.app/robot.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Research</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <main>
+            <h1>Logged Out</h1>
+            <p>You have been successfully logged out. Thank you for visiting. We hope to see you back soon!</p>
+            <p>Hang tight! Taking you back to the main site in just a few seconds...</p>
+        </main>
+    </div>
+    
+
+    <script>
+        // JavaScript for automatic redirect after 5 seconds
+        setTimeout(function() {
+            window.location.href = "https://innovativeminds-dev-ed.develop.my.site.com/s/";
+        }, 6000);
+    </script>
+</body>
+</html>

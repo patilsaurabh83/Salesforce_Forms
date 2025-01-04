@@ -103,7 +103,13 @@
             }
 
             p {
-                font-size: 1.2em;
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 420px) {
+            p {
+                font-size: 1.0em;
             }
         }
     </style>
@@ -126,8 +132,10 @@
     <div class="container">
         <main>
             <h1>Logged Out</h1>
-            <p>You’ve logged out successfully. Thank you for visiting!<br><br>Hang tight!Taking you back to the main
-                site <br>in just a few seconds&nbsp;<span id="dots">.</span></p>
+            <p>
+                You’ve logged out successfully from GPT.AI. Thank you for visiting!<br><br>
+                This tab will close automatically in a few seconds&nbsp;<span id="dots">.</span>
+            </p>
         </main>
     </div>
 
@@ -145,10 +153,14 @@
             }
         }, 350);
 
-        // JavaScript for automatic redirect after 5 seconds
+        // Try to close the tab, and if it fails, redirect to the specified URL
         setTimeout(function () {
-            window.location.href = "https://innovativewebs.netlify.app/gpt.aicreds";
-        }, 6000);
+            window.close();
+            // Fallback to redirection if tab closure is restricted
+            if (!window.closed) {
+                window.location.href = "https://innovativewebs.netlify.app/gpt.aicreds";
+            }
+        }, 7000);
     </script>
 </body>
 

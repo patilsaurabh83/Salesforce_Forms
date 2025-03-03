@@ -12,32 +12,59 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("emailVerifyButtonMark").style.display = "none";
 
 
-  // Hide mobile message if user wants to continue
-  const mobileMessage = document.getElementById("mobileMessage")
-  const continueMobileBtn = document.getElementById("continueMobile")
+  // // Hide mobile message if user wants to continue
+  // const mobileMessage = document.getElementById("mobileMessage")
+  // const continueMobileBtn = document.getElementById("continueMobile")
 
+  // if (continueMobileBtn) {
+  //   continueMobileBtn.addEventListener("click", () => {
+  //     mobileMessage.style.display = "none"
+  //   })
+  // }
+
+  // // Check if mobile
+  // function isMobile() {
+  //   return window.innerWidth < 768
+  // }
+
+  // if (isMobile()) {
+  //   mobileMessage.style.display = "block"
+  // }
+
+  // window.addEventListener("resize", () => {
+  //   if (isMobile()) {
+  //     mobileMessage.style.display = "block"
+  //   } else {
+  //     mobileMessage.style.display = "none"
+  //   }
+  // })
+  const mobileMessage = document.getElementById("mobileMessage");
+  const continueMobileBtn = document.getElementById("continueMobile");
+  
+  // Function to handle the message display
+  function handleMobileMessage(event) {
+    if (event.matches) {
+      mobileMessage.style.display = "block";
+    } else {
+      mobileMessage.style.display = "none";
+    }
+  }
+  
+  // Create a media query listener
+  const mediaQuery = window.matchMedia("(max-width: 768px)");
+  
+  // Run on page load
+  handleMobileMessage(mediaQuery);
+  
+  // Listen for actual screen width changes (ignores zooming)
+  mediaQuery.addEventListener("change", handleMobileMessage);
+  
+  // Hide mobile message when "Continue" is clicked
   if (continueMobileBtn) {
     continueMobileBtn.addEventListener("click", () => {
-      mobileMessage.style.display = "none"
-    })
+      mobileMessage.style.display = "none";
+    });
   }
-
-  // Check if mobile
-  function isMobile() {
-    return window.innerWidth < 768
-  }
-
-  if (isMobile()) {
-    mobileMessage.style.display = "block"
-  }
-
-  window.addEventListener("resize", () => {
-    if (isMobile()) {
-      mobileMessage.style.display = "block"
-    } else {
-      mobileMessage.style.display = "none"
-    }
-  })
 
   // Initialize form
   updateFormState()

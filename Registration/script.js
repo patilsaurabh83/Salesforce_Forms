@@ -225,8 +225,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Date of birth validation
+  // Date of birth validation and hidden filed updation
   const dobInput = document.getElementById("dob")
+  const hiddenField = document.getElementById('00N5j00000UPatu');
 
   dobInput.addEventListener("change", () => {
     validateDOB()
@@ -259,9 +260,15 @@ document.addEventListener("DOMContentLoaded", () => {
       showError("Please enter a valid date of birth");
       return false;
     } else {
+      hiddenField.value = `${padZero(dob.getDate())}/${padZero(dob.getMonth() + 1)}/${dob.getFullYear()}`;
       hideError();
       return true;
     }
+  }
+
+  // Function to pad zero for single-digit days and months
+  function padZero(num) {
+    return (num < 10 ? '0' : '') + num;
   }
 
   // Experience validation and level setting

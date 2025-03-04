@@ -549,6 +549,27 @@
 
 <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const emailInput = document.getElementById("email");
+        const phoneInput = document.getElementById("phone");
+
+        emailInput.addEventListener("blur", function () {
+            if (!emailInput.checkValidity()) {
+                emailInput.reportValidity();  // Triggers browser's built-in validation error
+            }
+        });
+
+        phoneInput.addEventListener("blur", function () {
+            const phonePattern = /^[0-9]{10}$/; // Allows only 10-digit numbers
+            if (!phonePattern.test(phoneInput.value.trim())) {
+                phoneInput.setCustomValidity("Please enter a valid 10-digit phone number.");
+                phoneInput.reportValidity();  // Show browser error message
+            } else {
+                phoneInput.setCustomValidity(""); // Reset validation
+            }
+        });
+    });
 </script>
 
 </html>

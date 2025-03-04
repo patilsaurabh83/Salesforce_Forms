@@ -1027,15 +1027,13 @@ document.addEventListener("DOMContentLoaded", () => {
       formStatus.textContent = "✅ Form is currently open for submissions.";
       formStatus.style.color = "var(--success-color)";
 
-      // Hide notice banner
-      noticeBanner.style.display = "none";
+      // show notice banner banner about form available
+     noticeText.innerHTML = `Form submission is open till 5 PM IST. Submit before the deadline.`;
+
       return true;
     } else {
       formStatus.textContent = "❌ Form is currently closed. Please submit between 10 AM and 5 PM IST.";
       formStatus.style.color = "var(--error-color)";
-
-      // Show the notice banner when the form is closed
-      noticeBanner.style.display = "block";
 
       // Calculate next opening time (10 AM IST)
       let targetTime = new Date(istTime);
@@ -1095,9 +1093,6 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Form submission is only available between 10 AM and 5 PM IST. Please try again during these hours.")
       return
     }
-
-    // In a real application, you would submit the form to the server
-    console.log("Form submitted successfully!")
   })
 })
 

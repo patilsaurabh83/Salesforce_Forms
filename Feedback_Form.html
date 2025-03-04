@@ -1,173 +1,554 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Feedback Form</title>
+    <title>RecruiterPro Feedback Form</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #2f273f; 
+    <link rel="icon" type="image/png" href="https://recruiterpro.netlify.app/Images/logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+<style>
+    /* Base Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    :root {
+        --primary-color: #2c3e50;
+        --secondary-color: #3498db;
+        --accent-color: #e74c3c;
+        --light-color: #ecf0f1;
+        --dark-color: #2c3e50;
+        --success-color: #2ecc71;
+        --warning-color: #f39c12;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
+    }
+
+    body {
+        background-image: url('https://images.unsplash.com/photo-1497215842964-222b430dc094?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: var(--dark-color);
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .form-wrapper {
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
         }
 
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Header and Tagline */
+    .tagline {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .tagline h1 {
+        font-size: 2rem;
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+
+    .tagline p {
+        font-size: 1rem;
+        opacity: 0.9;
+    }
+
+    .header {
+        padding: 20px;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+
+    .header h2 {
+        color: var(--primary-color);
+        margin-bottom: 5px;
+    }
+
+    .header p {
+        color: #777;
+        font-size: 0.9rem;
+    }
+
+    /* Form Styles */
+    form {
+        padding: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: var(--dark-color);
+    }
+
+    .input-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .input-container i {
+        position: absolute;
+        left: 10px;
+        color: #aaa;
+        transition: var(--transition);
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+        padding: 12px 12px 12px 40px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: var(--transition);
+    }
+
+    textarea {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    .textarea-container i {
+        top: 12px;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    }
+
+    input:focus+i,
+    select:focus+i,
+    textarea:focus+i {
+        color: var(--secondary-color);
+    }
+
+    /* Animation for inputs */
+    input,
+    select,
+    textarea {
+        transform-origin: left;
+        animation: slideIn 0.4s ease-out backwards;
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    /* Stagger the animations */
+    .form-group:nth-child(1) input {
+        animation-delay: 0.1s;
+    }
+
+    .form-group:nth-child(2) input {
+        animation-delay: 0.2s;
+    }
+
+    .form-group:nth-child(3) input {
+        animation-delay: 0.3s;
+    }
+
+    .form-group:nth-child(4) .rating-container {
+        animation-delay: 0.4s;
+    }
+
+    .form-group:nth-child(5) select {
+        animation-delay: 0.5s;
+    }
+
+    .form-group:nth-child(6) select {
+        animation-delay: 0.6s;
+    }
+
+    .form-group:nth-child(7) input {
+        animation-delay: 0.7s;
+    }
+
+    .form-group:nth-child(8) textarea {
+        animation-delay: 0.8s;
+    }
+
+    /* Rating Styles */
+    .rating-container {
+        display: flex;
+        gap: 10px;
+        animation: slideIn 0.4s ease-out backwards;
+    }
+
+    .rating-option {
+        position: relative;
+    }
+
+    .rating-option input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .rating-option label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        background-color: #f5f5f5;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: var(--transition);
+        margin: 0;
+    }
+
+    .rating-option input[type="radio"]:checked+label {
+        background-color: var(--secondary-color);
+        color: white;
+        transform: scale(1.1);
+    }
+
+    .rating-option label:hover {
+        background-color: #e0e0e0;
+    }
+
+    .rating-option input[type="radio"]:checked+label:hover {
+        background-color: var(--secondary-color);
+    }
+
+    /* Submit Button */
+    .submit-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background-color: var(--secondary-color);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: var(--transition);
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .submit-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent);
+        transition: 0.5s;
+    }
+
+    .submit-btn:hover {
+        background-color: #2980b9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .submit-btn:hover::before {
+        left: 100%;
+    }
+
+    .submit-btn:active {
+        transform: translateY(0);
+    }
+
+    .submit-btn i {
+        transition: transform 0.3s ease;
+    }
+
+    .submit-btn:hover i {
+        transform: translateX(5px);
+    }
+
+    /* Footer */
+    .footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #f5f5f5;
+        color: #777;
+        font-size: 0.8rem;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
         .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
         }
 
-        form {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        input, textarea, select {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 16px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        select {
-            height: 34px; 
-        }
-
-        input[type="submit"] {
-            background-color: #4caf50;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+        .tagline h1 {
+            font-size: 1.8rem;
         }
 
         .rating-container {
-            display: flex;
-            gap: 10px;
-            align-items: center; 
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        body {
+            padding: 10px;
         }
 
-        input[type="radio"] {
-            margin: 0; 
-
+        .tagline h1 {
+            font-size: 1.5rem;
         }
 
-        label.rating-label {
-            display: flex;
-            align-items: center;
-           
+        .tagline p {
+            font-size: 0.9rem;
         }
 
-        input[type="submit"]:hover {
-            background-color: #45a049;
+        .header h2 {
+            font-size: 1.3rem;
         }
 
-        .header{
-            color: rgb(0, 0, 0);
-            margin: 0;
-            padding-bottom: 10px;
-            padding-top: 10px;
-            text-align: center;
-        }
-
+        input,
+        select,
         textarea {
-            max-width: calc(100% - 16px); 
-            height: 150px;
+            padding: 10px 10px 10px 35px;
+            font-size: 0.9rem;
         }
 
-        .tagline {
-            color: #007BFF;
-            font-weight: bold;
-            font-size: 14px;
-            
+        .input-container i {
+            left: 8px;
         }
 
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-            color: #777;
+        .rating-option label {
+            width: 35px;
+            height: 35px;
+        }
+    }
+
+    /* Placeholder styling */
+    ::placeholder {
+        color: #aaa;
+        opacity: 0.7;
+    }
+
+    /* Focus animation for inputs */
+    @keyframes focusPulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.4);
         }
 
-    </style>
-</head>
+        70% {
+            box-shadow: 0 0 0 5px rgba(52, 152, 219, 0);
+        }
+
+        100% {
+            box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+        }
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+        animation: focusPulse 1.5s infinite;
+    }
+</style>
+
 <body>
     <div class="container">
+        <div class="form-wrapper">
+            <div class="tagline">
+                <h1>RecruiterPro</h1>
+                <p>Unlocking Opportunities, Transforming Careers</p>
+            </div>
 
-    <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D5j00000DAZO0" method="POST">
-        <input type=hidden name="orgid" value="00D5j00000DAZO0">
-        <input type=hidden name="retURL" value="https://patilsaurabh83.github.io/Salesforce_Forms/Thank You.html">
+            <div class="header">
+                <h2>Feedback Form</h2>
+                <p>We value your opinion!</p>
+            </div>
 
-        <div class="tagline">
-            RecruiterPro<br>
-            Unlocking Opportunities, Transforming Careers
+            <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D5j00000DAZO0"
+                method="POST">
+                <input type="hidden" name="orgid" value="00D5j00000DAZO0">
+                <input type="hidden" name="retURL"
+                    value="https://patilsaurabh83.github.io/Salesforce_Forms/Thank You.html">
+                <input type="hidden" id="type" name="type" value="Feedback">
+                <input type="hidden" id="external" name="external" value="1">
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <div class="input-container">
+                        <i class="fas fa-user"></i>
+                        <input id="name" maxlength="80" name="name" type="text" required placeholder="ex. John Doe">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="input-container">
+                        <i class="fas fa-envelope"></i>
+                        <input id="email" maxlength="80" name="email" type="email" required
+                            placeholder="ex. xyz@gmail.com">
+                    </div>
+                </div>
+
+                <input type="hidden" id="type" name="type" value="Feedback">
+
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <div class="input-container">
+                        <i class="fas fa-phone"></i>
+                        <input id="phone" maxlength="40" name="phone" type="text" required
+                            placeholder="ex. (123) 456-7890">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Rate Us</label>
+                    <div class="rating-container">
+                        <div class="rating-option">
+                            <input type="radio" id="rating-1" id="00N5j00000ULq0R" name="00N5j00000ULq0R" value="1" required>
+                            <label for="rating-1">1</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" id="rating-2" id="00N5j00000ULq0R" name="00N5j00000ULq0R" value="2" required>
+                            <label for="rating-2">2</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" id="rating-3" id="00N5j00000ULq0R" name="00N5j00000ULq0R" value="3" required>
+                            <label for="rating-3">3</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" id="rating-4" id="00N5j00000ULq0R" name="00N5j00000ULq0R" value="4" required>
+                            <label for="rating-4">4</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" id="rating-5" id="00N5j00000ULq0R" name="00N5j00000ULq0R" value="5" required>
+                            <label for="rating-5">5</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="00N5j00000ULrbT">Would You Recommend Us?</label>
+                    <div class="input-container">
+                        <i class="fas fa-thumbs-up"></i>
+                        <select id="00N5j00000ULrbT" name="00N5j00000ULrbT" title="Would You Recommend Us?" required>
+                            <option value="">--None--</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="00N5j00000ULrcH">How Did You Hear About Us?</label>
+                    <div class="input-container">
+                        <i class="fas fa-info-circle"></i>
+                        <select id="00N5j00000ULrcH" name="00N5j00000ULrcH" required>
+                            <option value="">-- Select One --</option>
+                            <option value="Social Media">Social Media</option>
+                            <option value="Friend">Friend</option>
+                            <option value="Online Search">Online Search</option>
+                            <option value="Advertisement">Advertisement</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <div class="input-container">
+                        <i class="fas fa-heading"></i>
+                        <input id="subject" maxlength="80" name="subject" type="text"
+                            placeholder="Subject of your feedback">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Additional Words/Comments</label>
+                    <div class="input-container textarea-container">
+                        <i class="fas fa-comment"></i>
+                        <textarea id="description" name="description" required
+                            placeholder="Write briefly about your overall experience during the process"></textarea>
+                    </div>
+                </div>
+                <input type="hidden" id="external" name="external" value="1"><br>
+
+                <div class="form-group submit-group">
+                    <button type="submit" name="submit" class="submit-btn">
+                        <span>Submit Feedback</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+
+            <div class="footer">
+                <p>&copy; <span id="year"></span> RecruiterPro. All rights reserved.</p>
+            </div>
         </div>
-
-        <div class="header">
-            <h3>Feedback Form</h3>
-        </div>
-
-        <label for="name">Name</label><input id="name" maxlength="80" name="name" size="20" type="text" required placeholder="ex. John Doe"><br>
-
-        <label for="email">Email</label><input id="email" maxlength="80" name="email" size="20" type="email" required placeholder="ex. xyz@gmail.com"><br>
-
-        <label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" required/><br>
-
-        <input type="hidden" id="type" name="type" value="Feedback">
-
-        <label>Rate Us</label>
-        <div class="rating-container">
-            <label for="rating-1"><input type="radio" id="00N5j00000ULq0R" name="00N5j00000ULq0R" value="1" required> 1</label>
-            <label for="rating-2"><input type="radio" id="00N5j00000ULq0R" name="00N5j00000ULq0R" value="2" required> 2</label>
-            <label for="rating-3"><input type="radio" id="00N5j00000ULq0R" name="00N5j00000ULq0R" value="3" required> 3</label>
-            <label for="rating-4"><input type="radio" id="00N5j00000ULq0R" name="00N5j00000ULq0R" value="4" required> 4</label>
-            <label for="rating-5"><input type="radio" id="00N5j00000ULq0R" name="00N5j00000ULq0R" value="5" required> 5</label>
-        </div><br>
-
-        <label>Would You Recommend Us?</label><select  id="00N5j00000ULrbT" name="00N5j00000ULrbT" title="Would You Recommend Us?"><option value="">--None--</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-            </select><br>
-            
-            <label for="heardAbout">How Did You Hear About Us?</label>
-            <select id="00N5j00000ULrcH" name="00N5j00000ULrcH" required>
-                <option value="">-- Select One --</option>
-                <option value="Social Media">Social Media</option>
-                <option value="Friend">Friend</option>
-                <option value="Online Search">Online Search</option>
-                <option value="Advertisement">Advertisement</option>
-                <option value="Other">Other</option>
-            </select><br>
-
-
-        <label for="subject">Subject</label><input  id="subject" maxlength="80" name="subject" size="20" type="text" /><br>     
-
-        <label for="description">Additional Words/Comments</label><textarea name="description" required placeholder="Write briefly about your overall experince during the Process" ></textarea><br>
-       
-
-        <input type="hidden" id="external" name="external" value="1"><br>
-
-        <input type="submit" name="submit">
-    </form>
-
-    <div class="footer">
-        &copy; 2023 RecruiterPro. All rights reserved.
     </div>
-
-
-</div>
 </body>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </html>

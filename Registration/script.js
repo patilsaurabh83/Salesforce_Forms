@@ -162,12 +162,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function validateEmail() {
+   function validateEmail() {
     const email = emailInput.value.trim()
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
     if (!email) {
-      showError("Email is required")
       return false
     } else if (!emailRegex.test(email)) {
       showError("Please enter a valid email address")
@@ -209,17 +208,22 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  function validatePhone() {
+function validatePhone() {
     const phone = phoneInput.value.trim()
     const phoneRegex = /^\+?[0-9]{10,15}$/
+    const phonePattern = /^\+?[1-9]\d{0,2}-?\d{10,}$/;
 
     if (!phone) {
-      showError("Phone number is required")
       return false
     } else if (!phoneRegex.test(phone)) {
       showError("Please enter a valid phone number")
       return false
-    } else {
+    }
+    else if (!phonePattern.test(phone)) {
+      showError("Add country code to verify.")
+      return false
+    }
+    else {
       hideError()
       return true
     }
@@ -249,15 +253,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (isNaN(dob.getTime())) {
       showError("Please enter a valid date");
+      dobInput.value = "";
       return false;
     } else if (dob > today) {
       showError("Date of birth cannot be in the future");
+      dobInput.value = "";
       return false;
     } else if (age < minAge) {
       showError("You must be at least " + minAge + " years old");
+      dobInput.value = "";
       return false;
     } else if (age > maxAge) {
-      showError("Please enter a valid date of birth");
+      showError("Please enter a valid date of birth");y
+      dobInput.value = "";
       return false;
     } else {
       hiddenField.value = `${padZero(dob.getDate())}/${padZero(dob.getMonth() + 1)}/${dob.getFullYear()}`;
@@ -371,11 +379,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Helper functions for error handling
   function showError(message) {
-    const errorContainer = document.getElementById("errorMessage")
     const errorText = errorContainer.querySelector(".error-text") // Select the text inside the error container
     errorText.textContent = message // Update the error message
     errorContainer.style.display = "block" // Show the error container
 
+    // Scroll to the error message smoothly
+    errorContainer.scrollIntoView({ behavior: "smooth", block: "center" });
+    
     // Hide error after 5 seconds
     setTimeout(() => {
       hideError()

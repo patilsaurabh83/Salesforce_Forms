@@ -5,159 +5,548 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You!</title>
     <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/3771/3771518.png" type="image/png">
-    <style>
-        /* Reset and base styles */
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
-        
-        body {
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          line-height: 1.6;
-          color: #333;
-          background-color: #f9f9f9;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          min-height: 100vh;
-          padding: 20px;
-        }
-        
-        /* Image styling */
-        .custom-image {
-          width: 150px;
-          height: 150px;
-          object-fit: contain;
-          border-radius: 50%;
-          margin-bottom: 30px;
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-          border: 5px solid white;
-          animation: fadeIn 1s ease-in-out, pulse 3s infinite ease-in-out;
-        }
-        
-        /* Container styling */
-        .container {
-          max-width: 600px;
-          background-color: white;
-          padding: 30px;
-          border-radius: 10px;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-          text-align: center;
-          margin-bottom: 30px;
-          animation: slideUp 0.8s ease-out forwards;
-          transition: transform 0.3s ease;
-        }
-        
-        .container:hover {
-          transform: translateY(-5px);
-        }
-        
-        .container p {
-          margin-bottom: 15px;
-          color: #555;
-        }
-        
-        .container p strong {
-          color: #333;
-          font-weight: 600;
-        }
-        
-        /* Return home link styling */
-        .return-home {
-          margin-top: 20px;
-          animation: fadeIn 1s ease-in-out 0.3s both;
-        }
-        
-        .return-home a {
-          display: inline-block;
-          padding: 12px 24px;
-          background-color: #4a6cf7;
-          color: white;
-          text-decoration: none;
-          border-radius: 30px;
-          font-weight: 600;
-          transition: all 0.3s ease;
-          box-shadow: 0 4px 10px rgba(74, 108, 247, 0.3);
-        }
-        
-        .return-home a:hover {
-          background-color: #3a5ce5;
-          transform: scale(1.05);
-          box-shadow: 0 6px 15px rgba(74, 108, 247, 0.4);
-        }
-        
-        .return-home a:active {
-          transform: scale(0.98);
-        }
-        
-        /* Animations */
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        
-        @keyframes slideUp {
-          from { 
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to { 
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        @keyframes pulse {
-          0% { transform: scale(1); }
-          50% { transform: scale(1.05); }
-          100% { transform: scale(1); }
-        }
-        
-        /* Responsive styles */
-        @media (max-width: 768px) {
-          .container {
-            padding: 20px;
-          }
-          
-          .custom-image {
-            width: 120px;
-            height: 120px;
-          }
-        }
-        
-        @media (max-width: 480px) {
-          body {
-            padding: 15px;
-          }
-          
-          .container {
-            padding: 15px;
-          }
-          
-          .custom-image {
-            width: 100px;
-            height: 100px;
-            margin-bottom: 20px;
-          }
-          
-          .return-home a {
-            padding: 10px 20px;
-          }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+<style>
+    /* Base Styles */
+:root {
+    --bg-primary: #121212;
+    --bg-card: #1e1e1e;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --accent-primary: #8a2be2;
+    --accent-secondary: #4a148c;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --card-border: rgba(255, 255, 255, 0.1);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+  }
+  
+  /* Animated Background */
+  .stars,
+  .twinkling {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .stars {
+    background: #000 url("https://i.imgur.com/YKY28eT.png") repeat top center;
+    z-index: -2;
+  }
+  
+  .twinkling {
+    background: transparent url("https://i.imgur.com/XYMF4ca.png") repeat top center;
+    z-index: -1;
+    animation: move-twink-back 200s linear infinite;
+  }
+  
+  @keyframes move-twink-back {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: -10000px 5000px;
+    }
+  }
+  
+  /* Container and Card */
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    z-index: 1;
+  }
+  
+  .card {
+    background: var(--bg-card);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px var(--shadow-color);
+    overflow: hidden;
+    padding: 3rem 2rem;
+    text-align: center;
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 1s ease-out, floatCard 6s ease-in-out infinite;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes floatCard {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+  
+  /* Thank You Animation */
+  .thank-you-animation {
+    margin-bottom: 1.8rem;
+    transform: scale(0);
+    animation: scaleIn 0.5s ease-out 0.3s forwards;
+  }
+  
+  .thank-you-animation img {
+    max-width: 90px;
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(138, 43, 226, 0.3);
+  }
+  
+  @keyframes scaleIn {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  
+  /* Content Styling */
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .title {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--accent-primary), #ff00ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+    animation: slideInFromLeft 0.8s ease-out;
+    position: relative;
+  }
+  
+  .title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-primary), #ff00ff);
+    border-radius: 3px;
+  }
+  
+  @keyframes slideInFromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .message {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    line-height: 1.6;
+    animation: fadeInUp 1s ease-out 0.4s both;
+  }
+  
+  .submessage {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    animation: fadeInUp 1s ease-out 0.6s both;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Button Styling */
+  .button-container {
+    margin-top: 2rem;
+    animation: fadeInUp 1s ease-out 0.8s both;
+  }
+  
+  .return-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(138, 43, 226, 0.3);
+  }
+  
+  .return-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.5s ease;
+  }
+  
+  .return-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(138, 43, 226, 0.4);
+  }
+  
+  .return-button:hover::before {
+    left: 100%;
+  }
+  
+  .return-button:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+  }
+  
+  .button-icon {
+    transition: transform 0.3s ease;
+  }
+  
+  .return-button:hover .button-icon {
+    transform: translateX(3px);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .card {
+      padding: 2rem 1.5rem;
+    }
+  
+    .title {
+      font-size: 2.5rem;
+    }
+  
+    .message {
+      font-size: 1.1rem;
+    }
+  
+    .thank-you-animation img {
+      max-width: 135px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 1rem;
+    }
+  
+    .card {
+      padding: 1.5rem 1rem;
+    }
+  
+    .title {
+      font-size: 2rem;
+    }
+  
+    .message {
+      font-size: 1rem;
+    }
+  
+    .submessage {
+      font-size: 0.9rem;
+    }
+  
+    .thank-you-animation img {
+      max-width: 120px;
+    }
+  
+    .return-button {
+      padding: 0.8rem 1.5rem;
+      font-size: 0.9rem;
+    }
+  }
+  
+  
+</style>
 <body>
-    <img class="custom-image" src="https://cdn-icons-png.flaticon.com/512/5290/5290058.png" alt="Thank you icon">
-    <div class="container">
-        <h1>Thank You!</h1>
-        <p><strong>Your response has been securely recorded by our system.</strong></p>
-        <p><strong>Thank you for entrusting us with your details. If you have any further questions, feel free to contact our support team.</strong></p>
-    </div>
-    <div class="return-home">
-        <a href="https://recruiterpro.netlify.app/">Return to the Home</a>
-    </div>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    
+    <main class="container">
+        <div class="card">
+            <div class="thank-you-animation">
+                <img src="https://cdn-icons-png.flaticon.com/512/5290/5290058.png" alt="Thank you animation">
+            </div>
+            
+            <div class="content">
+                <h1 class="title">Thank You!</h1>
+                <p class="message"><strong>Your response has been securely recorded by our system.</strong></p>
+                <p class="submessage"><strong>Thank you for entrusting us with your details. If you have any further questions, feel free to contact our support team.</strong></p>
+                
+                <div class="button-container">
+                    <a href="https://recruiterpro.netlify.app/" class="return-button">
+                        <span>Return to Home</span>
+                        <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Add particle effects to the background
+            createParticles()
+          
+            // Add subtle hover effect to the card
+            const card = document.querySelector(".card")
+            const cardInner = document.querySelector(".card-inner")
+          
+            if (card && cardInner) {
+              card.addEventListener("mousemove", (e) => {
+                const rect = card.getBoundingClientRect()
+                const x = e.clientX - rect.left
+                const y = e.clientY - rect.top
+          
+                const centerX = rect.width / 2
+                const centerY = rect.height / 2
+          
+                // Reduce the rotation angle to prevent excessive movement
+                const angleX = (y - centerY) / 30
+                const angleY = (centerX - x) / 30
+          
+                // Apply the transform to the inner element for better performance
+                cardInner.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateZ(0)`
+              })
+          
+              card.addEventListener("mouseleave", () => {
+                // Add a transition for smooth return to original position
+                cardInner.style.transition = "transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1)"
+                cardInner.style.transform = "perspective(1000px) rotateX(0) rotateY(0) translateZ(0)"
+          
+                // Remove the transition after it completes to avoid affecting mousemove
+                setTimeout(() => {
+                  cardInner.style.transition = ""
+                }, 500)
+              })
+            }
+          
+            // Add typing effect to the title
+            const title = document.querySelector(".title")
+            if (title) {
+              const text = title.textContent
+              title.textContent = ""
+              title.style.opacity = "1" // Ensure the element is visible
+          
+              let i = 0
+              const typeWriter = () => {
+                if (i < text.length) {
+                  title.textContent += text.charAt(i)
+                  i++
+                  // Use requestAnimationFrame for smoother animation
+                  requestAnimationFrame(() => {
+                    setTimeout(typeWriter, 100)
+                  })
+                }
+              }
+          
+              // Start typing effect after a short delay
+              setTimeout(typeWriter, 1200)
+            }
+          })
+          
+          // Function to create floating particles
+          function createParticles() {
+            const container = document.querySelector("body")
+            // Reduce particle count for better performance
+            const particleCount = 15
+          
+            // Create a single style element for all particles
+            const styleElement = document.createElement("style")
+            let keyframesCSS = ""
+          
+            for (let i = 0; i < particleCount; i++) {
+              const particle = document.createElement("div")
+              particle.className = "particle"
+          
+              // Random values for animation
+              const size = Math.random() * 5 + 3
+              const opacity = Math.random() * 0.3 + 0.1
+              const top = Math.random() * 100
+              const left = Math.random() * 100
+              const duration = Math.random() * 10 + 10
+              const delay = Math.random() * 5
+          
+              // Use transform for better performance
+              particle.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    background-color: rgba(255, 255, 255, ${opacity});
+                    border-radius: 50%;
+                    top: ${top}vh;
+                    left: ${left}vw;
+                    pointer-events: none;
+                    z-index: 0;
+                    animation: float${i} ${duration}s linear infinite;
+                    animation-delay: ${delay}s;
+                    will-change: transform;
+                    transform: translateZ(0);
+                `
+          
+              // Create unique keyframes for each particle
+              const yMove = Math.random() * 100 + 50
+              const xMove = Math.random() * 40 - 20
+          
+              keyframesCSS += `
+                    @keyframes float${i} {
+                        0% {
+                            transform: translate3d(0, 0, 0);
+                            opacity: ${opacity};
+                        }
+                        50% {
+                            transform: translate3d(${xMove}px, -${yMove}px, 0);
+                            opacity: ${Math.random() * 0.7 + 0.3};
+                        }
+                        100% {
+                            transform: translate3d(0, 0, 0);
+                            opacity: ${opacity};
+                        }
+                    }
+                `
+          
+              container.appendChild(particle)
+            }
+          
+            // Add all keyframes at once
+            styleElement.innerHTML = keyframesCSS
+            document.head.appendChild(styleElement)
+          }
+          
+          // Add confetti effect when the page loads
+          setTimeout(() => {
+            createConfetti()
+          }, 1500)
+          
+          function createConfetti() {
+            const confettiCount = 80 // Reduced for better performance
+            const container = document.querySelector("body")
+          
+            // Create a single style element for all confetti
+            const styleElement = document.createElement("style")
+            let keyframesCSS = ""
+          
+            // Colors for confetti
+            const colors = ["#8a2be2", "#4a148c", "#ff00ff", "#9c27b0", "#673ab7"]
+          
+            for (let i = 0; i < confettiCount; i++) {
+              const confetti = document.createElement("div")
+              confetti.className = "confetti"
+          
+              const randomColor = colors[Math.floor(Math.random() * colors.length)]
+              const width = Math.random() * 10 + 5
+              const height = Math.random() * 5 + 2
+              const left = Math.random() * 100
+              const opacity = Math.random() * 0.8 + 0.2
+              const duration = Math.random() * 3 + 2
+              const rotation = Math.random() * 360
+              const finalRotation = Math.random() * 720
+          
+              confetti.style.cssText = `
+                    position: absolute;
+                    width: ${width}px;
+                    height: ${height}px;
+                    background-color: ${randomColor};
+                    top: -10px;
+                    left: ${left}vw;
+                    opacity: ${opacity};
+                    pointer-events: none;
+                    z-index: 0;
+                    animation: confettiFall${i} ${duration}s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+                    transform: rotate(${rotation}deg) translateZ(0);
+                    will-change: transform, opacity;
+                `
+          
+              keyframesCSS += `
+                    @keyframes confettiFall${i} {
+                        0% {
+                            transform: translate3d(0, -10px, 0) rotate(${rotation}deg);
+                            opacity: 1;
+                        }
+                        100% {
+                            transform: translate3d(0, ${window.innerHeight}px, 0) rotate(${finalRotation}deg);
+                            opacity: 0;
+                        }
+                    }
+                `
+          
+              container.appendChild(confetti)
+          
+              // Remove confetti after animation completes
+              setTimeout(() => {
+                confetti.remove()
+              }, duration * 1000)
+            }
+          
+            // Add all keyframes at once
+            styleElement.innerHTML = keyframesCSS
+            document.head.appendChild(styleElement)
+          
+            // Remove style element after all animations complete
+            setTimeout(() => {
+              styleElement.remove()
+            }, 5000)
+          }
+          
+          
+    </script>
 </body>
 </html>

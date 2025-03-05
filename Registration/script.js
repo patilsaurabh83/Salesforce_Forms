@@ -381,7 +381,7 @@ function validatePhone() {
   function showError(message) {
     const errorText = errorContainer.querySelector(".error-text") // Select the text inside the error container
     errorText.textContent = message // Update the error message
-    errorContainer.style.display = "block" // Show the error container
+    errorContainer.style.display = "flex"; // Show the error container
 
     // Scroll to the error message smoothly
     errorContainer.scrollIntoView({ behavior: "smooth", block: "center" });

@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevButton = document.getElementById("prevButton")
   const nextButton = document.getElementById("nextButton")
   const errorContainer = document.getElementById('errorMessage');
+  const submitButton = document.querySelector(".submit-btn");
   let currentSection = 0
   emailjs.init("IUEiA1PG261h3D_ny");
   document.getElementById("phoneVerifyButtonMark").style.display = "none";
@@ -1040,10 +1041,22 @@ function validatePhone() {
       // show notice banner banner about form available
      noticeText.innerHTML = `Form submission is open till 5 PM IST. Submit before the deadline.`;
 
+      // Enable button & restore styles
+      submitButton.disabled = false;
+      submitButton.style.backgroundColor = "var(--success-color)";
+      submitButton.style.opacity = "1";
+      submitButton.style.cursor = "pointer";
+
       return true;
     } else {
       formStatus.textContent = "❌ Form is currently closed. Please submit between 10 AM and 5 PM IST.";
       formStatus.style.color = "var(--error-color)";
+
+      // Disable button & apply fade effect
+      submitButton.disabled = true;
+      submitButton.style.backgroundColor = "gray";
+      submitButton.style.opacity = "0.5";
+      submitButton.style.cursor = "not-allowed";
 
       // Calculate next opening time (10 AM IST)
       let targetTime = new Date(istTime);

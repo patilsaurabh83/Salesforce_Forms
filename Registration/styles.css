@@ -336,20 +336,30 @@ textarea {
 
 .error-container {
   display: flex;
+  justify-content: space-between; 
   align-items: center;
-  background: #ffe6e6;
-  color: var(--error-color);
-  border: 1px solid var(--error-color);
-  padding: 12px 20px;
-  border-radius: 5px;
-  width: 100%;
-  max-width: 90%;
-  margin: 2% auto 0;
+  background-color: #f8d7da; 
+  color: #b71c1c; 
+  border: 1px solid #a60c0c; 
+  padding: 12px 18px;
+  border-radius: 6px;
   font-size: 16px;
+  font-family: Arial, sans-serif;
+  max-width: 95%;
+  margin: 20px auto; 
+  text-align: left;
 }
 
 .error-text {
-  flex-grow: 1; 
+  flex-grow: 1;
+  white-space: nowrap;
+}
+
+.close-btn {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 12px;
 }
 
 

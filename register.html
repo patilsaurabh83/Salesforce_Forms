@@ -35,6 +35,7 @@
         <span id="errorText" class="error-text">Please verify your email and phone number before proceeding</span>
         <span class="close-btn" onclick="hideError()">×</span>
     </div>
+       
 
 
     <div class="container">
@@ -60,67 +61,69 @@
                 <div class="form-card">
                     <h3><i class="fas fa-user"></i> Personal Information</h3>
 
-                    <div class="form-group">
-                        <label for="first_name">First Name<span class="required">*</span></label>
-                        <input id="first_name" label="First Name" maxlength="40" name="first_name" type="text"
-                            required />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="last_name">Last Name<span class="required">*</span></label>
-                        <input id="last_name" maxlength="80" name="last_name" type="text" required />
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="email">Email<span class="required">*</span></label>
-                        <div class="input-wrapper">
-                            <input id="email" maxlength="80" name="email" type="text" required
-                                placeholder="e.g., xyz@gmail.com" />
-                            <button type="button" id="emailVerifyButtonMark" class="verification-btn"
-                                onclick="sendVerificationEmail()">Verify</button>
-                            <span id="tickMark" class="tick-mark"><i class="fas fa-check-circle"></i></span>
+                    <div class="form-fields-container">
+                        <div class="form-group">
+                            <label for="first_name">First Name<span class="required">*</span></label>
+                            <input id="first_name" label="First Name" maxlength="40" name="first_name" type="text"
+                                required />
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="alternate_email">Alternate Email</label>
-                        <input id="00N5j00000UPatp" name="00N5j00000UPatp" type="text"
-                            placeholder="e.g., alternate@example.com" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">Phone<span class="required">*</span></label>
-                        <div class="input-wrapper">
-                            <input id="phone" maxlength="30" name="phone" type="text" required
-                                placeholder="e.g., +911234567890" />
-                            <button type="button" class="verification-btn" id="phoneVerifyButtonMark"
-                                onclick="sendOTP()">Verify</button>
-                            <span id="phoneTickMark" class="tick-mark"><i class="fas fa-check-circle"></i></span>
+                        <div class="form-group">
+                            <label for="last_name">Last Name<span class="required">*</span></label>
+                            <input id="last_name" maxlength="80" name="last_name" type="text" required />
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="dob">Date of Birth<span class="required">*</span></label>
-                        <input id="dob" name="dob" type="date" required />
-                    </div>
 
-                    <div class="form-group">
-                        <label for="00N5j00000UPatz">Gender<span class="required">*</span></label>
-                        <select id="00N5j00000UPatz" name="00N5j00000UPatz" required>
-                            <option value="" selected>--Select a Gender--</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Other</option>
-                            <option value="not_specified">Not Specified</option>
-                        </select>
-                    </div>
+                        <div class="form-group">
+                            <label for="email">Email<span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <input id="email" maxlength="80" name="email" type="text" required
+                                    placeholder="e.g., xyz@gmail.com" />
+                                <button type="button" id="emailVerifyButtonMark" class="verification-btn"
+                                    onclick="sendVerificationEmail()">Verify</button>
+                                <span id="tickMark" class="tick-mark"><i class="fas fa-check-circle"></i></span>
+                            </div>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="00N5j00000UPau4">Nationality<span class="required">*</span></label>
-                        <select id="00N5j00000UPau4" name="00N5j00000UPau4" required>
-                            <option value="" disabled selected>Select your nationality</option>
-                        </select>
+                        <div class="form-group">
+                            <label for="alternate_email">Alternate Email</label>
+                            <input id="00N5j00000UPatp" name="00N5j00000UPatp" type="text"
+                                placeholder="e.g., alternate@example.com" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone<span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <input id="phone" maxlength="30" name="phone" type="text" required
+                                    placeholder="e.g., +911234567890" />
+                                <button type="button" class="verification-btn" id="phoneVerifyButtonMark"
+                                    onclick="sendOTP()">Verify</button>
+                                <span id="phoneTickMark" class="tick-mark"><i class="fas fa-check-circle"></i></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dob">Date of Birth<span class="required">*</span></label>
+                            <input id="dob" name="dob" type="date" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="00N5j00000UPatz">Gender<span class="required">*</span></label>
+                            <select id="00N5j00000UPatz" name="00N5j00000UPatz" required>
+                                <option value="" selected>--Select a Gender--</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                                <option value="not_specified">Not Specified</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="00N5j00000UPau4">Nationality<span class="required">*</span></label>
+                            <select id="00N5j00000UPau4" name="00N5j00000UPau4" required>
+                                <option value="" disabled selected>Select your nationality</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -129,47 +132,49 @@
                 <div class="form-card">
                     <h3><i class="fas fa-graduation-cap"></i> Educational Information</h3>
 
-                    <div class="form-group">
-                        <label for="00N5j00000UOjbI">10th Percentage<span class="required">*</span></label>
-                        <input id="00N5j00000UOjbI" name="00N5j00000UOjbI" size="20" type="text"
-                            placeholder="e.g., 70.00%" />
-                    </div>
+                    <div class="form-fields-container">
+                        <div class="form-group">
+                            <label for="00N5j00000UOjbI">10th Percentage<span class="required">*</span></label>
+                            <input id="00N5j00000UOjbI" name="00N5j00000UOjbI" size="20" type="text"
+                                placeholder="e.g., 70.00%" />
+                        </div>
 
-                    <div class="form-group">
-                        <label for="00N5j00000UOjbc">12th Percentage<span class="required">*</span></label>
-                        <input id="00N5j00000UOjbc" name="00N5j00000UOjbc" size="20" type="text"
-                            placeholder="e.g., 70.00%" />
-                    </div>
+                        <div class="form-group">
+                            <label for="00N5j00000UOjbc">12th Percentage<span class="required">*</span></label>
+                            <input id="00N5j00000UOjbc" name="00N5j00000UOjbc" size="20" type="text"
+                                placeholder="e.g., 70.00%" />
+                        </div>
 
-                    <div class="form-group">
-                        <label for="00N5j00000UOxZF">Education<span class="required">*</span></label>
-                        <select id="00N5j00000UOxZF" name="00N5j00000UOxZF" size="1">
-                            <option>Select the option</option>
-                            <option value="Engineering">Engineering</option>
-                            <option value="BCA">BCA</option>
-                            <option value="BSc">BSc</option>
-                            <option value="MBA">MBA</option>
-                            <option value="MCom/BCom">MCom</option>
-                            <option value="MCom/BCom">BCom</option>
-                        </select>
-                    </div>
+                        <div class="form-group">
+                            <label for="00N5j00000UOxZF">Education<span class="required">*</span></label>
+                            <select id="00N5j00000UOxZF" name="00N5j00000UOxZF" size="1">
+                                <option>Select the option</option>
+                                <option value="Engineering">Engineering</option>
+                                <option value="BCA">BCA</option>
+                                <option value="BSc">BSc</option>
+                                <option value="MBA">MBA</option>
+                                <option value="MCom/BCom">MCom</option>
+                                <option value="MCom/BCom">BCom</option>
+                            </select>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="00N5j00000UPau9">Graduation Percentage<span class="required">*</span></label>
-                        <input id="00N5j00000UPau9" name="00N5j00000UPau9" size="20" type="text"
-                            placeholder="e.g., 75.00%" />
-                    </div>
+                        <div class="form-group">
+                            <label for="00N5j00000UPau9">Graduation Percentage<span class="required">*</span></label>
+                            <input id="00N5j00000UPau9" name="00N5j00000UPau9" size="20" type="text"
+                                placeholder="e.g., 75.00%" />
+                        </div>
 
-                    <div class="form-group">
-                        <label for="00N5j00000UPauE">Graduation Year<span class="required">*</span></label>
-                        <input id="00N5j00000UPauE" name="00N5j00000UPauE" type="text" placeholder="e.g., 2022" />
-                    </div>
+                        <div class="form-group">
+                            <label for="00N5j00000UPauE">Graduation Year<span class="required">*</span></label>
+                            <input id="00N5j00000UPauE" name="00N5j00000UPauE" type="text" placeholder="e.g., 2022" />
+                        </div>
 
-                    <div class="form-group">
-                        <label for="00N5j00000UOxCM">University/College Name<span class="required">*</span></label>
-                        <select id="00N5j00000UOxCM" name="00N5j00000UOxCM">
-                            <option>Select the option</option>
-                        </select>
+                        <div class="form-group">
+                            <label for="00N5j00000UOxCM">University/College Name<span class="required">*</span></label>
+                            <select id="00N5j00000UOxCM" name="00N5j00000UOxCM">
+                                <option>Select the option</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -178,64 +183,66 @@
                 <div class="form-card">
                     <h3><i class="fas fa-map-marker-alt"></i> Address Information</h3>
 
-                    <div class="form-group">
-                        <label for="region">Region name<span class="required">*</span></label>
-                        <select id="region" name="00N5j00000TWkBW" required>
-                            <option value="" selected>--Select a Region--</option>
-                            <option value="South America">South America</option>
-                            <option value="Australia (Oceania)">Australia (Oceania)</option>
-                            <option value="North America">North America</option>
-                            <option value="Europe">Europe</option>
-                            <option value="Asia">Asia</option>
-                            <option value="Africa">Africa</option>
-                        </select>
-                    </div>
+                    <div class="form-fields-container">
+                        <div class="form-group">
+                            <label for="region">Region name<span class="required">*</span></label>
+                            <select id="region" name="00N5j00000TWkBW" required>
+                                <option value="" selected>--Select a Region--</option>
+                                <option value="South America">South America</option>
+                                <option value="Australia (Oceania)">Australia (Oceania)</option>
+                                <option value="North America">North America</option>
+                                <option value="Europe">Europe</option>
+                                <option value="Asia">Asia</option>
+                                <option value="Africa">Africa</option>
+                            </select>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="country">Country<span class="required">*</span></label>
-                        <select id="country" name="00N5j00000TWkBb">
-                            <option value="" selected>--Select a Country--</option>
-                        </select>
-                    </div>
+                        <div class="form-group">
+                            <label for="country">Country<span class="required">*</span></label>
+                            <select id="country" name="00N5j00000TWkBb">
+                                <option value="" selected>--Select a Country--</option>
+                            </select>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="city">Nearest City<span class="required">*</span></label>
-                        <select id="city" name="city">
-                            <option value="" selected>--Select a City--</option>
-                        </select>
-                    </div>
+                        <div class="form-group">
+                            <label for="city">Nearest City<span class="required">*</span></label>
+                            <select id="city" name="city">
+                                <option value="" selected>--Select a City--</option>
+                            </select>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="00N5j00000UPauJ">Postal Code<span class="required">*</span></label>
-                        <input id="00N5j00000UPauJ" name="00N5j00000UPauJ" type="text" required
-                            placeholder="e.g., 12345" />
-                    </div>
+                        <div class="form-group">
+                            <label for="00N5j00000UPauJ">Postal Code<span class="required">*</span></label>
+                            <input id="00N5j00000UPauJ" name="00N5j00000UPauJ" type="text" required
+                                placeholder="e.g., 12345" />
+                        </div>
 
-                    <div class="form-group">
-                        <label for="state">State/Province</label>
-                        <input id="state" name="state" type="text" placeholder="e.g., California" />
-                    </div>
+                        <div class="form-group">
+                            <label for="state">State/Province</label>
+                            <input id="state" name="state" type="text" placeholder="e.g., California" />
+                        </div>
 
-                    <div class="form-group">
-                        <label for="00N5j00000UOjbh">Address Line 1<span class="required">*</span></label>
-                        <textarea id="00N5j00000UOjbh" name="00N5j00000UOjbh" wrap="soft"></textarea>
-                    </div>
+                        <div class="form-group full-width">
+                            <label for="00N5j00000UOjbh">Address Line 1<span class="required">*</span></label>
+                            <textarea id="00N5j00000UOjbh" name="00N5j00000UOjbh" wrap="soft"></textarea>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="address_type">Address Type</label>
-                        <select id="address_type" name="address_type" required>
-                            <option value="" selected>--Select an Address Type--</option>
-                            <option value="Residential">Residential</option>
-                            <option value="Business">Business</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
+                        <div class="form-group">
+                            <label for="address_type">Address Type</label>
+                            <select id="address_type" name="address_type" required>
+                                <option value="" selected>--Select an Address Type--</option>
+                                <option value="Residential">Residential</option>
+                                <option value="Business">Business</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="00N5j00000UPauO">Preferred Language<span class="required">*</span></label>
-                        <select id="00N5j00000UPauO" name="00N5j00000UPauO" required>
-                            <option value="" selected>--Select a Preferred Language--</option>
-                        </select>
+                        <div class="form-group">
+                            <label for="00N5j00000UPauO">Preferred Language<span class="required">*</span></label>
+                            <select id="00N5j00000UPauO" name="00N5j00000UPauO" required>
+                                <option value="" selected>--Select a Preferred Language--</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -244,47 +251,49 @@
                 <div class="form-card">
                     <h3><i class="fas fa-info-circle"></i> Additional Info</h3>
 
-                    <div class="form-group">
-                        <label>Experience<span class="required">*</span></label>
-                        <input id="00N5j00000SCZVo" name="00N5j00000SCZVo" type="text" placeholder="0 - 45" required
-                            oninput="togglePreviousEmploymentDiv(this.value)" />
-                        <span id="experience-error" class="error-message"></span>
-                    </div>
+                    <div class="form-fields-container">
+                        <div class="form-group">
+                            <label>Experience<span class="required">*</span></label>
+                            <input id="00N5j00000SCZVo" name="00N5j00000SCZVo" type="text" placeholder="0 - 45" required
+                                oninput="togglePreviousEmploymentDiv(this.value)" />
+                            <span id="experience-error" class="error-message"></span>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="00N5j00000RpTNG">Experience Level<span class="required">*</span></label>
-                        <input id="00N5j00000RpTNG" name="00N5j00000RpTNG" type="text" maxlength="20" size="20"
-                            readonly />
-                    </div>
+                        <div class="form-group">
+                            <label for="00N5j00000RpTNG">Experience Level<span class="required">*</span></label>
+                            <input id="00N5j00000RpTNG" name="00N5j00000RpTNG" type="text" maxlength="20" size="20"
+                                readonly />
+                        </div>
 
-                    <div class="form-group">
-                        <label for="company">Company (You are interested In)<span class="required">*</span></label>
-                        <select id="company" name="company" required>
-                            <option value="" disabled selected>Select a company</option>
-                        </select>
-                    </div>
+                        <div class="form-group">
+                            <label for="company">Company (You are interested In)<span class="required">*</span></label>
+                            <select id="company" name="company" required>
+                                <option value="" disabled selected>Select a company</option>
+                            </select>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="00N5j00000UPauY">LinkedIn Profile</label>
-                        <input id="00N5j00000UPauY" name="00N5j00000UPauY" type="text"
-                            placeholder="Your LinkedIn Profile URL" />
-                    </div>
+                        <div class="form-group">
+                            <label for="00N5j00000UPauY">LinkedIn Profile</label>
+                            <input id="00N5j00000UPauY" name="00N5j00000UPauY" type="text"
+                                placeholder="Your LinkedIn Profile URL" />
+                        </div>
 
-                    <div class="form-group">
-                        <label for="00N5j00000UPaun">Portfolio URL</label>
-                        <input id="00N5j00000UPaun" name="00N5j00000UPaun" type="text"
-                            placeholder="Your Portfolio URL" />
-                    </div>
+                        <div class="form-group">
+                            <label for="00N5j00000UPaun">Portfolio URL</label>
+                            <input id="00N5j00000UPaun" name="00N5j00000UPaun" type="text"
+                                placeholder="Your Portfolio URL" />
+                        </div>
 
-                    <div class="form-group">
-                        <label for="00N5j00000UPaus">Certifications</label>
-                        <input id="00N5j00000UPaus" name="00N5j00000UPaus" type="text"
-                            placeholder="Your Certifications" />
-                    </div>
+                        <div class="form-group">
+                            <label for="00N5j00000UPaus">Certifications</label>
+                            <input id="00N5j00000UPaus" name="00N5j00000UPaus" type="text"
+                                placeholder="Your Certifications" />
+                        </div>
 
-                    <div class="form-group">
-                        <label for="00N5j00000UPaux">Skills</label>
-                        <input id="00N5j00000UPaux" name="00N5j00000UPaux" type="text" placeholder="Your Skills" />
+                        <div class="form-group">
+                            <label for="00N5j00000UPaux">Skills</label>
+                            <input id="00N5j00000UPaux" name="00N5j00000UPaux" type="text" placeholder="Your Skills" />
+                        </div>
                     </div>
                 </div>
 
@@ -293,34 +302,36 @@
                     <p class="section-description">For candidates with prior work experience (Experienced Candidates
                         Only).</p>
 
-                    <div class="form-group">
-                        <label for="00N5j00000UPav7">Company Name</label>
-                        <input id="00N5j00000UPav7" name="00N5j00000UPav7" type="text"
-                            placeholder="Previous Company Name" />
-                    </div>
+                    <div class="form-fields-container">
+                        <div class="form-group">
+                            <label for="00N5j00000UPav7">Company Name</label>
+                            <input id="00N5j00000UPav7" name="00N5j00000UPav7" type="text"
+                                placeholder="Previous Company Name" />
+                        </div>
 
-                    <div class="form-group">
-                        <label for="00N5j00000UPav2">Position</label>
-                        <input id="00N5j00000UPav2" name="00N5j00000UPav2" type="text"
-                            placeholder="Your Position e.g., Senior Software Developer" />
-                    </div>
+                        <div class="form-group">
+                            <label for="00N5j00000UPav2">Position</label>
+                            <input id="00N5j00000UPav2" name="00N5j00000UPav2" type="text"
+                                placeholder="Your Position e.g., Senior Software Developer" />
+                        </div>
 
-                    <div class="form-group">
-                        <label for="00N5j00000UPavC">Duration</label>
-                        <input id="00N5j00000UPavC" name="00N5j00000UPavC" type="text"
-                            placeholder="Duration of Employment" />
-                    </div>
+                        <div class="form-group">
+                            <label for="00N5j00000UPavC">Duration</label>
+                            <input id="00N5j00000UPavC" name="00N5j00000UPavC" type="text"
+                                placeholder="Duration of Employment" />
+                        </div>
 
-                    <div class="form-group">
-                        <label for="prevResponsibilities">Responsibilities</label>
-                        <textarea id="prevResponsibilities" name="prevResponsibilities"
-                            placeholder="Your Responsibilities in the Previous Role"></textarea>
-                    </div>
+                        <div class="form-group full-width">
+                            <label for="prevResponsibilities">Responsibilities</label>
+                            <textarea id="prevResponsibilities" name="prevResponsibilities"
+                                placeholder="Your Responsibilities in the Previous Role"></textarea>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="00N5j00000UPavH">Reason for Leaving</label>
-                        <input id="00N5j00000UPavH" name="00N5j00000UPavH" type="text"
-                            placeholder="Reason for Leaving" />
+                        <div class="form-group">
+                            <label for="00N5j00000UPavH">Reason for Leaving</label>
+                            <input id="00N5j00000UPavH" name="00N5j00000UPavH" type="text"
+                                placeholder="Reason for Leaving" />
+                        </div>
                     </div>
                 </div>
             </section>
@@ -338,7 +349,7 @@
                         <label for="termsCheckbox">
                             <input type="checkbox" id="termsCheckbox" name="termsCheckbox" required>
                             I have read and agree to the <a
-                                href="https://innovativewebs.netlify.app/terms_and_conditions"
+                                href="https://patilsaurabh83.github.io/Salesforce_Forms/Terms and conditions.html"
                                 target="_blank">terms and conditions</a> and privacy policy.
                         </label>
                     </div>
@@ -420,12 +431,12 @@
                 <i class="fas fa-briefcase"></i> RecruiterPro
             </div>
             <div class="footer-text">
-                &copy; 2023 RecruiterPro. All rights reserved. Transforming Careers and Connecting Talent. Trusted by
+                &copy; <span id="year"></span> RecruiterPro. All rights reserved. Transforming Careers and Connecting Talent. Trusted by
                 top companies worldwide.
             </div>
             <div id="contactUs" class="footer-contact">
-                Contact Us: <a href="mailto:recruiterpro.queries@gmail.com"><i class="fas fa-envelope"></i>
-                    support@recruiterpro.com</a>
+                Contact Us: <a href="mailto:contact@recruiterpro.com"><i class="fas fa-envelope"></i>
+                    contact@recruiterpro.com</a>
             </div>
             <div class="footer-address">
                 <i class="fas fa-map-marker-alt"></i> 456 Oak Avenue, Suite 789, Metropolitan City, Countryland

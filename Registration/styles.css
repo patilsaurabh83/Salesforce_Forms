@@ -262,9 +262,55 @@ section.active {
   gap: 10px;
 }
 
+/* ZigZag Layout for Form Fields */
+.form-fields-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
 
 .form-group {
   margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+/* For desktop/laptop: create zigzag layout */
+@media (min-width: 769px) {
+  .form-fields-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .form-group {
+    width: calc(50% - 10px);
+  }
+  
+  /* Every odd form group will be on the left */
+  .form-fields-container .form-group:nth-child(odd) {
+    margin-right: auto;
+  }
+  
+  /* Every even form group will be on the right */
+  .form-fields-container .form-group:nth-child(even) {
+    margin-left: auto;
+  }
+  
+  /* Full width elements */
+  .form-group.full-width {
+    width: 100%;
+  }
+}
+
+/* For mobile: stack in a column */
+@media (max-width: 768px) {
+  .form-fields-container {
+    flex-direction: column;
+  }
+  
+  .form-group {
+    width: 100%;
+  }
 }
 
 label {
@@ -276,6 +322,130 @@ label {
 .required {
   color: var(--error-color);
   margin-left: 3px;
+}
+
+/* Add these styles to your existing CSS file */
+
+/* Country dropdown styles */
+.phone-input-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.country-select-wrapper {
+  position: relative;
+  min-width: 90px;
+}
+
+.selected-flag {
+  display: flex;
+  align-items: center;
+  padding: 10px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px 0 0 4px;
+  cursor: pointer;
+  background-color: white;
+  height: 20px;
+}
+
+.selected-flag:hover {
+  background-color: #f5f5f5;
+}
+
+.country-code {
+  margin: 0 4px;
+  font-size: 0.9rem;
+}
+
+.flag {
+  width: 20px;
+  height: 15px;
+  background-size: cover;
+  background-position: center;
+  margin-right: 5px;
+  border-radius: 2px;
+}
+
+.country-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 250px;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: white;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  z-index: 100;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.country-list.show {
+  display: block;
+}
+
+.country-list li {
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.country-list li:hover {
+  background-color: #f5f7fa;
+}
+
+.country-name {
+  margin-left: 8px;
+  font-size: 0.9rem;
+}
+
+/* Adjust the phone input to work with the country dropdown */
+.phone-input-wrapper input#phone {
+  border-radius: 0 4px 4px 0;
+  border-left: none;
+  flex: 1;
+}
+
+/* Flag sprites for common countries */
+.flag.us { background-image: url('https://flagcdn.com/w20/us.png'); }
+.flag.gb { background-image: url('https://flagcdn.com/w20/gb.png'); }
+.flag.ca { background-image: url('https://flagcdn.com/w20/ca.png'); }
+.flag.au { background-image: url('https://flagcdn.com/w20/au.png'); }
+.flag.in { background-image: url('https://flagcdn.com/w20/in.png'); }
+.flag.de { background-image: url('https://flagcdn.com/w20/de.png'); }
+.flag.fr { background-image: url('https://flagcdn.com/w20/fr.png'); }
+.flag.jp { background-image: url('https://flagcdn.com/w20/jp.png'); }
+.flag.cn { background-image: url('https://flagcdn.com/w20/cn.png'); }
+.flag.br { background-image: url('https://flagcdn.com/w20/br.png'); }
+.flag.mx { background-image: url('https://flagcdn.com/w20/mx.png'); }
+.flag.es { background-image: url('https://flagcdn.com/w20/es.png'); }
+.flag.it { background-image: url('https://flagcdn.com/w20/it.png'); }
+.flag.ru { background-image: url('https://flagcdn.com/w20/ru.png'); }
+.flag.za { background-image: url('https://flagcdn.com/w20/za.png'); }
+.flag.ng { background-image: url('https://flagcdn.com/w20/ng.png'); }
+.flag.eg { background-image: url('https://flagcdn.com/w20/eg.png'); }
+.flag.sa { background-image: url('https://flagcdn.com/w20/sa.png'); }
+.flag.ae { background-image: url('https://flagcdn.com/w20/ae.png'); }
+.flag.sg { background-image: url('https://flagcdn.com/w20/sg.png'); }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .country-list {
+    width: 200px;
+  }
+  
+  .selected-flag {
+    padding: 10px 5px;
+  }
+  
+  .country-code {
+    font-size: 0.8rem;
+  }
 }
 
 input,
@@ -336,22 +506,21 @@ textarea {
 
 .error-container {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between; /* Separates text and close button */
   align-items: center;
-  background-color: #f8d7da; 
-  color: #b71c1c; 
-  border: 1px solid #a60c0c; 
-  padding: 9px 18px;
+  background-color: #f8d7da; /* Slightly darker red background */
+  color: #b71c1c; /* Darker red text */
+  border: 1px solid #a60c0c; /* Darker red border */
+  padding: 8px 18px;
   border-radius: 6px;
   font-size: 16px;
   font-family: Arial, sans-serif;
   max-width: 95%;
-  margin: 20px auto; 
+  margin: 20px auto; /* Centers horizontally */
   text-align: left;
 }
 
 .error-text {
-  flex-grow: 1;
   white-space: nowrap;
 }
 
@@ -361,7 +530,6 @@ textarea {
   font-weight: bold;
   padding-left: 12px;
 }
-
 
 .section-description {
   color: var(--light-text);
@@ -630,7 +798,6 @@ textarea {
 .otp-sent-message i {
   color: #218838; 
 }
-
 
 /* Footer */
 footer {

@@ -751,14 +751,20 @@ function validatePhone() {
     var phoneNumber = document.getElementById("phone").value;
     var email = document.getElementById("email").value;
 
-    var message = "Hello Candidate,\n\n";
-    message += "Thank you for signing up! We have received a phone number verification request for this number:" + phoneNumber + ".\n\n";
-    message += "If this is your number, please use the following OTP to complete the verification process:\n\n";
-    message += "\t\t\t OTP: " + generatedOTP + "\n\n";
-    message += "Please do not share this OTP with anyone. If you didn't request this verification, you can safely ignore this message.\n\n";
+    const message = `  
+    Hello ${toName},  
+
+    Thank you for signing up! We have received a phone number verification request for ${phoneNumber}.  
+
+    To complete your verification, please enter the OTP (One-Time Password) below:  
+
+    📱 OTP: ${generatedOTP}  
+
+    ⚠️ Please do not share this OTP with anyone. If you didn't request this verification, you can safely ignore this message.  
+   `;
 
 
-    var templateParams = {
+    const templateParams = {
       to_email: email,
       message: message
     };
@@ -882,12 +888,18 @@ function validatePhone() {
 
   // Resend OTP
   window.resendOTP = () => {
-    generatedOTP = generateRandomOTP()
     startOTPTimer()
+
+    // Assuming otpType is a globally available variable or fetched from the DOM
+    if (otpType === "email") {
+       sendVerificationEmail(); // Call email-specific OTP method
+    } else if (otpType === "phone") {
+       sendOTP(); // Call phone-specific OTP method
+    }
 
     // Show message
     const otpMismatchError = document.getElementById("otpMismatchError")
-    otpMismatchError.textContent = "New OTP sent successfully!"
+    otpMismatchError.textContent = "A new OTP is on its way..."
     otpMismatchError.style.color = "green"
     otpMismatchError.style.display = "block"
 

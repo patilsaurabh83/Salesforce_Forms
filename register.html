@@ -77,8 +77,15 @@
                         <div class="form-group">
                             <label for="email">Email<span class="required">*</span></label>
                             <div class="input-wrapper">
+                                <div class="input-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" stroke-opacity="0.6"
+                                        class="input-svg-icon" viewBox="0 0 16 16" >
+                                        <path
+                                            d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+                                    </svg>
+                                </div>
                                 <input id="email" maxlength="80" name="email" type="text" required
-                                    placeholder="e.g., xyz@gmail.com" />
+                                    placeholder="e.g., xyz@gmail.com" class="input-with-icon" />
                                 <button type="button" id="emailVerifyButtonMark" class="verification-btn"
                                     onclick="sendVerificationEmail()">Verify</button>
                                 <span id="tickMark" class="tick-mark"><i class="fas fa-check-circle"></i></span>
@@ -94,8 +101,18 @@
                         <div class="form-group">
                             <label for="phone">Phone<span class="required">*</span></label>
                             <div class="input-wrapper">
+                                <div class="input-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="input-svg-icon">
+                                        <path
+                                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                        </path>
+                                    </svg>
+                                </div>
                                 <input id="phone" maxlength="30" name="phone" type="text" required
-                                    placeholder="e.g., +911234567890" />
+                                    placeholder="e.g., +911234567890" class="input-with-icon" />
                                 <button type="button" class="verification-btn" id="phoneVerifyButtonMark"
                                     onclick="sendOTP()">Verify</button>
                                 <span id="phoneTickMark" class="tick-mark"><i class="fas fa-check-circle"></i></span>
@@ -286,13 +303,14 @@
 
                         <div class="form-group">
                             <label for="00N5j00000UPaus">Certifications</label>
-                            <input id="00N5j00000UPaus" name="00N5j00000UPaus" type="text"
-                                placeholder="Your Certifications" />
+                            <input id="00N5j00000UPaus" name="00N5j00000UPaus" type="text" maxlength="254"
+                                placeholder="E.g., Google Cloud Associate, CISSP, ITIL"/>
                         </div>
 
                         <div class="form-group">
                             <label for="00N5j00000UPaux">Skills</label>
-                            <input id="00N5j00000UPaux" name="00N5j00000UPaux" type="text" placeholder="Your Skills" />
+                            <input id="00N5j00000UPaux" name="00N5j00000UPaux" type="text" placeholder="E.g., JavaScript, Python, Salesforce"  
+                            maxlength="254" />
                         </div>
                     </div>
                 </div>
@@ -349,7 +367,7 @@
                         <label for="termsCheckbox">
                             <input type="checkbox" id="termsCheckbox" name="termsCheckbox" required>
                             I have read and agree to the <a
-                                href="https://patilsaurabh83.github.io/Salesforce_Forms/Terms and conditions.html"
+                                href="https://innovativewebs.netlify.app/terms_and_conditions"
                                 target="_blank">terms and conditions</a> and privacy policy.
                         </label>
                     </div>
@@ -454,7 +472,7 @@
         </div>
     </footer>
 
-    <script src="Registration/script.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"><script src="Registration/script.js"></script>
 </body>
 
 </html>

@@ -12,6 +12,7 @@
   --warning-color: #ffc107;
   --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
+  --icon-color: #6c757d;
 }
 
 * {
@@ -472,8 +473,33 @@ textarea {
   resize: vertical;
 }
 
+/* Input icon styles */
 .input-wrapper {
   position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--icon-color);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-svg-icon {
+  color: var(--icon-color);
+  width: 16px;
+  height: 16px;
+}
+
+.input-with-icon {
+  padding-left: 35px !important;
 }
 
 .verification-btn {
@@ -594,6 +620,10 @@ textarea {
   background-color: var(--border-color);
   cursor: not-allowed;
   transform: none;
+}
+
+.error-message{
+  font-size: 0.8rem;
 }
 
 .button-error-message {

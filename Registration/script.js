@@ -748,8 +748,9 @@ function validatePhone() {
     generatedOTP = generateRandomOTP()
 
 
-    var phoneNumber = document.getElementById("phone").value;
-    var email = document.getElementById("email").value;
+    const phoneNumber = document.getElementById("phone").value;
+    const email = document.getElementById("email").value;
+    const toName = document.getElementById("first_name").value;
 
     const message = `  
     Hello ${toName},  

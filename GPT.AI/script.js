@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initInteractiveBackground()
 
   // Initialize video player
-  initVideoPlayer()
+  //initVideoPlayer()
 
   // Initialize credential copy functionality
   initCredentialCopy()
@@ -520,6 +520,7 @@ function initContactForm() {
       const email = document.getElementById("email").value;
       const subject = document.getElementById("subject").value;
       const message = document.getElementById("message").value;
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
       // Simple validation
       if (!name || !email || !subject || !message) {
@@ -535,7 +536,18 @@ function initContactForm() {
         return;
       }
 
-
+      if (!emailPattern.test(email)) {
+         Swal.fire({
+         icon: 'warning',
+         title: 'Invalid Email',
+         text: 'Please enter a valid email format!',
+         toast: true,
+         position: 'top-end',
+         showConfirmButton: false,
+         timer: 3000
+      });
+     return;
+     }
 
       // Create the mailto link
       const mailtoLink = `mailto:gpt.aisearch@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
@@ -611,63 +623,6 @@ function initInteractiveBackground() {
   }
 }
 
-// Initialize video player
-function initVideoPlayer() {
-  const video = document.getElementById("demo-video")
-  const playButton = document.querySelector(".play-button")
-
-  if (video && playButton) {
-    // Auto-play when in viewport
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            video.play().catch((e) => {
-              // Auto-play was prevented, show play button
-              playButton.style.display = "flex"
-            })
-          } else {
-            video.pause()
-          }
-        })
-      },
-      { threshold: 0.5 },
-    )
-
-    observer.observe(video)
-
-    // Play/pause on button click
-    playButton.addEventListener("click", () => {
-      if (video.paused) {
-        video.play()
-        playButton.style.opacity = "0"
-        setTimeout(() => {
-          playButton.style.display = "none"
-        }, 300)
-      } else {
-        video.pause()
-        playButton.style.display = "flex"
-        playButton.style.opacity = "1"
-      }
-    })
-
-    // Show play button when video is paused
-    video.addEventListener("pause", () => {
-      playButton.style.display = "flex"
-      setTimeout(() => {
-        playButton.style.opacity = "1"
-      }, 10)
-    })
-
-    // Hide play button when video is playing
-    video.addEventListener("play", () => {
-      playButton.style.opacity = "0"
-      setTimeout(() => {
-        playButton.style.display = "none"
-      }, 300)
-    })
-  }
-}
 
 // Initialize credential copy functionality
 function initCredentialCopy() {
@@ -708,6 +663,7 @@ function handleSubscribe(event) {
   event.preventDefault(); // Prevent form from submitting
 
   const email = document.getElementById('subscribe-email').value;
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   if (!email) {
     Swal.fire({
@@ -721,6 +677,20 @@ function handleSubscribe(event) {
     });
     return;
   }
+
+  if (!emailPattern.test(email)) {
+  Swal.fire({
+    icon: 'warning',
+    title: 'Invalid Email',
+    text: 'Please enter a valid email format!',
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000
+  });
+  return;
+ }
+
   localStorage.setItem('subscribedEmail', email);
 
   // ✅ Success Toast

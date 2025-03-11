@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title and Description -->
+    <title>GPT.AI - Advanced AI Solutions</title>
+    <meta name="description"
+        content="GPT.AI - The next generation AI solution for intelligent automation and enhanced user experience.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://innovativewebs.netlify.app/robot.png">
+
+    <!-- Author  -->
+    <meta name="author" content="Saurabh Patil">
+
+
+    <!-- Open Graph (For social media previews) -->
+    <meta property="og:title" content="GPT.AI - Advanced AI Solutions">
+    <meta property="og:description"
+        content="GPT.AI - The next generation AI solution for intelligent automation and enhanced user experience.">
+    <meta property="og:image" content="https://innovativewebs.netlify.app/GPT.AI/Imgaes/GPT.AI.png">
+    <meta property="og:url" content="https://innovativewebs.netlify.app/GPTAI">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card (For Twitter previews) -->
+    <meta name="twitter:card" content="https://innovativewebs.netlify.app/GPT.AI/Imgaes/GPT.AI.png">
+    <meta name="twitter:title" content="GPT.AI - Advanced AI Solutions">
+    <meta name="twitter:description"
+        content="GPT.AI - The next generation AI solution for intelligent automation and enhanced user experience.">
+    <meta name="twitter:image" content="https://innovativewebs.netlify.app/GPT.AI/Imgaes/GPT.AI.png">
+    <meta name="twitter:url" content="https://innovativewebs.netlify.app/GPTAI">
+
+    <!-- Fonts and Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://innovativeminds-dev-ed.develop.my.site.com/s/login/">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="GPT.AI/styles.css">
+
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+
+<body>
+    <!-- Header & Navbar -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="#" onclick="location.reload(); return false;">
+                    <h1>GPT.AI</h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-buttons">
+                <div class="theme-toggle">
+                    <button class="theme-button" data-theme="light" title="Light Mode">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-sun">
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <path d="M12 2v2"></path>
+                            <path d="M12 20v2"></path>
+                            <path d="m4.93 4.93 1.41 1.41"></path>
+                            <path d="m17.66 17.66 1.41 1.41"></path>
+                            <path d="M2 12h2"></path>
+                            <path d="M20 12h2"></path>
+                            <path d="m6.34 17.66-1.41 1.41"></path>
+                            <path d="m19.07 4.93-1.41 1.41"></path>
+                        </svg>
+                    </button>
+                    <button class="theme-button" data-theme="system" title="System Mode">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-monitor">
+                            <rect width="20" height="14" x="2" y="3" rx="2"></rect>
+                            <line x1="8" x2="16" y1="21" y2="21"></line>
+                            <line x1="12" x2="12" y1="17" y2="21"></line>
+                        </svg>
+                    </button>
+                    <button class="theme-button" data-theme="dark" title="Dark Mode">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-moon">
+                            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div id="particles-js"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">The Future of AI is Here</h1>
+                <p class="hero-subtitle" id="typewriter">Transforming ideas into intelligent solutions.</p>
+                <div class="hero-buttons">
+                    <button class="primary-button" onclick="window.location.href='#pricing'">Get Started</button>
+                    <button class="secondary-button" onclick="window.location.href='#test-page'">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Powerful Features</h2>
+            <p class="section-subtitle">Discover what makes GPT.AI stand out from the rest</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-zap">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                    </div>
+                    <h3>Fast & Accurate Responses</h3>
+                    <p>Get instant, precise answers to your most complex questions.</p>
+                    <a href="#" class="feature-link">Learn more</a>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-brain">
+                            <path
+                                d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z">
+                            </path>
+                            <path
+                                d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3>Context Awareness</h3>
+                    <p>Our AI understands and remembers conversation context for natural interactions.</p>
+                    <a href="#" class="feature-link">Learn more</a>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-languages">
+                            <path d="m5 8 6 6"></path>
+                            <path d="m4 14 6-6 2-3"></path>
+                            <path d="M2 5h12"></path>
+                            <path d="M7 2h1"></path>
+                            <path d="m22 22-5-10-5 10"></path>
+                            <path d="M14 18h6"></path>
+                        </svg>
+                    </div>
+                    <h3>Multi-Language Support</h3>
+                    <p>Communicate in over 100 languages with native-level fluency.</p>
+                    <a href="#" class="feature-link">Learn more</a>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-image">
+                            <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+                            <circle cx="9" cy="9" r="2"></circle>
+                            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>
+                        </svg>
+                    </div>
+                    <h3>Image Generation</h3>
+                    <p>Create stunning visuals from simple text descriptions in seconds.</p>
+                    <a href="#" class="feature-link">Learn more</a>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-eye">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                    </div>
+                    <h3>Vision</h3>
+                    <p>Analyze and understand images with powerful AI-driven insights.</p>
+                    <a href="#" class="feature-link">Learn more</a>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-shield">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3>Data Privacy</h3>
+                    <p>Your data is secure with cutting-edge encryption and privacy controls.</p>
+                    <a href="#" class="feature-link">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Simple steps to get started with GPT.AI</p>
+
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-user-plus">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <line x1="19" x2="19" y1="8" y2="14"></line>
+                            <line x1="22" x2="16" y1="11" y2="11"></line>
+                        </svg>
+                    </div>
+                    <h3>Sign Up</h3>
+                    <p>Create your account in less than a minute</p>
+                </div>
+                <div class="step-connector"></div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-message-square-text">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            <path d="M13 8H7"></path>
+                            <path d="M17 12H7"></path>
+                        </svg>
+                    </div>
+                    <h3>Ask Questions</h3>
+                    <p>Type your query or upload relevant files</p>
+                </div>
+                <div class="step-connector"></div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-message-square">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3>Get Real-Time Responses</h3>
+                    <p>Receive accurate answers instantly</p>
+                </div>
+                <div class="step-connector"></div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-thumbs-up">
+                            <path d="M7 10v12"></path>
+                            <path
+                                d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3>Improve with Feedback</h3>
+                    <p>Help our AI learn and improve over time</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section id="about" class="why-choose">
+        <div class="container">
+            <h2 class="section-title">Why Choose GPT.AI?</h2>
+            <p class="section-subtitle">The most advanced AI solution for your needs</p>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-gauge">
+                            <path d="m12 14 4-4"></path>
+                            <path d="M3.34 19a10 10 0 1 1 17.32 0"></path>
+                        </svg>
+                    </div>
+                    <h3>Unmatched Performance</h3>
+                    <p>Our AI processes information 10x faster than competitors.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-shield-check">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
+                            <path d="m9 12 2 2 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3>Enterprise-Grade Security</h3>
+                    <p>Your data is encrypted and protected at all times.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-sparkles">
+                            <path
+                                d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L12 3Z">
+                            </path>
+                            <path d="M5 3v4"></path>
+                            <path d="M19 17v4"></path>
+                            <path d="M3 5h4"></path>
+                            <path d="M17 19h4"></path>
+                        </svg>
+                    </div>
+                    <h3>Continuous Improvement</h3>
+                    <p>Our models are constantly learning and evolving.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-server">
+                            <rect x="2" y="4" width="20" height="6" rx="2"></rect>
+                            <rect x="2" y="14" width="20" height="6" rx="2"></rect>
+                            <path d="M6 8h.01"></path>
+                            <path d="M6 18h.01"></path>
+                        </svg>
+                    </div>
+                    <h3>Scalability</h3>
+                    <p>Handle increased workloads effortlessly with our scalable infrastructure.</p>
+                </div>
+
+                <!-- New Benefit Card 2: Customization -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-sliders">
+                            <line x1="4" y1="21" x2="4" y2="14"></line>
+                            <line x1="4" y1="10" x2="4" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12" y2="3"></line>
+                            <line x1="20" y1="21" x2="20" y2="16"></line>
+                            <line x1="20" y1="12" x2="20" y2="3"></line>
+                            <circle cx="4" cy="12" r="2"></circle>
+                            <circle cx="12" cy="8" r="2"></circle>
+                            <circle cx="20" cy="16" r="2"></circle>
+                        </svg>
+                    </div>
+                    <h3>Customization</h3>
+                    <p>Tailor the AI to meet your specific business needs and goals.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-headphones">
+                            <path
+                                d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Our team is always available to help you succeed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Test Page Section -->
+    <section id="test-page" class="test-page">
+        <div id="interactive-bg" class="interactive-bg"></div>
+        <div class="container">
+            <h2 class="section-title glowing-underline">Experience GPT.AI Firsthand!</h2>
+            <p class="section-subtitle">Test the power of AI – Log in and see for yourself!</p>
+
+            <div class="test-page-content">
+                <div class="login-credentials">
+                    <p>We're thrilled to have you explore GPT.AI! To unlock all the exciting features, use the login
+                        credentials provided below.</p>
+                    <p>For your convenience, simply click on the Username or Password to copy them directly to your
+                        clipboard.</p>
+
+                    <div class="credentials-container">
+                        <div class="credential-item">
+                            <span class="credential-label">Username:</span>
+                            <span class="credential-value" id="username">genius@ai.com</span>
+                            <span class="copy-tooltip">Copied!</span>
+                        </div>
+                        <div class="credential-item">
+                            <span class="credential-label">Password:</span>
+                            <span class="credential-value" id="password">MyGPT.AI_Pass2025</span>
+                            <span class="copy-tooltip">Copied!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="login-button">Access GPT.AI</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Users Say</h2>
+            <p class="section-subtitle">Trusted by thousands of businesses worldwide</p>
+
+            <div class="testimonial-carousel">
+                <div class="testimonial-track">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="testimonial-text">"GPT.AI has transformed how we handle customer support. Response
+                            times are down 80% and customer satisfaction is at an all-time high."</p>
+                        <div class="testimonial-author">
+                            <img src="https://placehold.co/60x60/4f46e5/ffffff?text=SJ" alt="Sarah Johnson"
+                                class="author-image">
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>CTO, TechCorp</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="testimonial-text">"The image generation capabilities are mind-blowing. We've cut our
+                            design time in half while improving quality."</p>
+                        <div class="testimonial-author">
+                            <img src="https://placehold.co/60x60/4f46e5/ffffff?text=MC" alt="Michael Chen"
+                                class="author-image">
+                            <div class="author-info">
+                                <h4>Michael Chen</h4>
+                                <p>Creative Director, DesignHub</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="testimonial-text">"As a small business owner, GPT.AI has been like having an entire
+                            team at my fingertips. The ROI has been incredible."</p>
+                        <div class="testimonial-author">
+                            <img src="https://placehold.co/60x60/4f46e5/ffffff?text=ER" alt="Emily Rodriguez"
+                                class="author-image">
+                            <div class="author-info">
+                                <h4>Emily Rodriguez</h4>
+                                <p>Founder, GrowthSmart</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-controls">
+                    <button class="carousel-prev">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-chevron-left">
+                            <path d="m15 18-6-6 6-6"></path>
+                        </svg>
+                    </button>
+                    <div class="carousel-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <button class="carousel-next">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-chevron-right">
+                            <path d="m9 18 6-6-6-6"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Simple, Transparent Pricing</h2>
+            <p class="section-subtitle">Choose the plan that works for you</p>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Free</h3>
+                        <div class="pricing-price">
+                            <span class="price">$5</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check">
+                                    <path d="M20 6 9 17l-5-5"></path>
+                                </svg>
+                                100 queries per day
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check">
+                                    <path d="M20 6 9 17l-5-5"></path>
+                                </svg>
+                                Basic response speed
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check">
+                                    <path d="M20 6 9 17l-5-5"></path>
+                                </svg>
+                                Standard model access
+                            </li>
+                            <li class="disabled">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-x">
+                                    <path d="M18 6 6 18"></path>
+                                    <path d="m6 6 12 12"></path>
+                                </svg>
+                                Image generation
+                            </li>
+                            <li class="disabled">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-x">
+                                    <path d="M18 6 6 18"></path>
+                                    <path d="m6 6 12 12"></path>
+                                </svg>
+                                Priority support
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="https://innovativeminds-dev-ed.develop.my.site.com/s/GPT-AI-Registrations" target="_blank">
+                        <button class="pricing-button">Get Started</button>
+                    </a>
+                </div>
+
+                <div class="pricing-card recommended">
+                    <div class="recommended-badge">Recommended</div>
+                    <div class="pricing-header">
+                        <h3>Pro</h3>
+                        <div class="pricing-price">
+                            <span class="price">$15</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check">
+                                    <path d="M20 6 9 17l-5-5"></path>
+                                </svg>
+                                Unlimited queries
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check">
+                                    <path d="M20 6 9 17l-5-5"></path>
+                                </svg>
+                                Fast response speed
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check">
+                                    <path d="M20 6 9 17l-5-5"></path>
+                                </svg>
+                                Advanced model access
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check">
+                                    <path d="M20 6 9 17l-5-5"></path>
+                                </svg>
+                                100 image generations/month
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check">
+                                    <path d="M20 6 9 17l-5-5"></path>
+                                </svg>
+                                Email support
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="https://innovativeminds-dev-ed.develop.my.site.com/s/GPT-AI-Registrations" target="_blank"
+                        rel="noopener noreferrer">
+                        <button class="pricing-button">Get Started</button>
+                    </a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="pricing-price">
+                            <span class="price">$20</span>
+                            <span class="period">pricing</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check">
+                                    <path d="M20 6 9 17l-5-5"></path>
+                                </svg>
+                                Unlimited everything
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check">
+                                    <path d="M20 6 9 17l-5-5"></path>
+                                </svg>
+                                Fastest response speed
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check">
+                                    <path d="M20 6 9 17l-5-5"></path>
+                                </svg>
+                                Custom model training
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check">
+                                    <path d="M20 6 9 17l-5-5"></path>
+                                </svg>
+                                Unlimited image generation
+                            </li>
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check">
+                                    <path d="M20 6 9 17l-5-5"></path>
+                                </svg>
+                                24/7 dedicated support
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="https://innovativeminds-dev-ed.develop.my.site.com/s/GPT-AI-Registrations" target="_blank"
+                        rel="noopener noreferrer">
+                        <button class="pricing-button">Get Started</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Find answers to common questions about GPT.AI</p>
+
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>How does GPT.AI handle data security?</h3>
+                        <span class="accordion-icon"></span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>GPT.AI employs enterprise-grade encryption for all data in transit and at rest. We follow
+                            strict data privacy protocols and are compliant with GDPR, CCPA, and other global privacy
+                            regulations. Your data is never used to train our models without explicit consent.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Can I integrate GPT.AI with my existing systems?</h3>
+                        <span class="accordion-icon"></span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Yes, GPT.AI offers robust API access and pre-built integrations with popular platforms like
+                            Slack, Microsoft Teams, Salesforce, and more. Our developer documentation provides
+                            comprehensive guides for custom integrations.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>What languages does GPT.AI support?</h3>
+                        <span class="accordion-icon"></span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>GPT.AI supports over 100 languages with near-native fluency, including English, Spanish,
+                            French, German, Chinese, Japanese, Arabic, and many more. Our multilingual capabilities
+                            allow for seamless communication across language barriers.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>How accurate is the image generation feature?</h3>
+                        <span class="accordion-icon"></span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Our image generation technology produces high-quality, detailed images based on text
+                            descriptions. The accuracy depends on the specificity of your prompt, but most users report
+                            90%+ satisfaction with generated images. You can refine results through iterative prompting.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Can I upgrade or downgrade my plan at any time?</h3>
+                        <span class="accordion-icon"></span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Yes, you can change your subscription plan at any time. Changes take effect at the start of
+                            your next billing cycle. When upgrading, you'll gain immediate access to new features, and
+                            we'll prorate the difference for your current billing period.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <h2 class="section-title">Latest from Our Blog</h2>
+            <p class="section-subtitle">Insights and updates from the world of AI</p>
+
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="GPT.AI/Imgaes/FutureAI.jpg" alt="The Future of AI">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">March 15, 2025</div>
+                        <h3>The Future of AI: Trends to Watch in 2025</h3>
+                        <p>Explore the cutting-edge developments shaping the future of artificial intelligence and how
+                            they'll impact businesses worldwide.</p>
+                        <a href="#" class="blog-link">Read More</a>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="GPT.AI/Imgaes/AIEthics.jpg" alt="AI Ethics">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">March 8, 2025</div>
+                        <h3>AI Ethics: Balancing Innovation and Responsibility</h3>
+                        <p>A deep dive into the ethical considerations of AI development and how companies can innovate
+                            responsibly.</p>
+                        <a href="#" class="blog-link">Read More</a>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="GPT.AI/Imgaes/AIForBusiness.png" alt="AI for Small Business">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">February 28, 2025</div>
+                        <h3>How Small Businesses Are Leveraging AI to Compete</h3>
+                        <p>Discover how small and medium enterprises are using AI tools to level the playing field
+                            against larger competitors.</p>
+                        <a href="#" class="blog-link">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog-cta">
+                <a href="https://towardsdatascience.com/tagged/ai" class="view-all-button">View All Articles</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-subtitle">We'd love to hear from you</p>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-mail">
+                                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Email Us</h3>
+                            <p>gpt.aisearch@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-phone">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Call Us</h3>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-map-pin">
+                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Visit Us</h3>
+                            <p>Office 456, Pune IT Park, Pune, Maharashtra 411057</p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <!-- Twitter -->
+                        <a href="https://twitter.com" target="_blank" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-twitter">
+                                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 
+                                    2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 
+                                    9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+                            </svg>
+                        </a>
+
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com" target="_blank" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-linkedin">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 
+                                    2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect width="4" height="12" x="2" y="9"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+
+                        <!-- GitHub -->
+                        <a href="https://github.com" target="_blank" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-github">
+                                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5
+                                    .08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 
+                                    0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 
+                                    1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 
+                                    3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 
+                                    1.23-.15 1.85v4"></path>
+                                <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                            </svg>
+                        </a>
+
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com" target="_blank" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-instagram">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" rows="5"></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <h2>GPT.AI</h2>
+                    </div>
+                    <p class="footer-description">Transforming the future with intelligent AI solutions for businesses
+                        and individuals worldwide.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">GDPR Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Subscribe</h3>
+                <p>Stay updated with our latest news and offers</p>
+                <form class="footer-subscribe" id="subscribe-form" onsubmit="return false;">
+                    <input type="email" id="subscribe-email" placeholder="Your email address" required>
+                    <button type="submit" id="subscribe-button" onclick="handleSubscribe()">Subscribe</button>
+                </form>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> GPT.AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="GPT.AI/script.js"></script>
+</body>
+
+</html>

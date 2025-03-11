@@ -1658,7 +1658,7 @@
   @media (max-width: 768px) {
 
     .copy-tooltip {
-      right: -35px; /* Adjust position for smaller screens */
+      right: 50px; /* Adjust position for smaller screens */
     }
   }
   
@@ -1676,7 +1676,7 @@
     }
 
     .copy-tooltip {
-      right: -38px; /* Further adjustment for very small screens */
+      right: 90px; 
     }
   }
   

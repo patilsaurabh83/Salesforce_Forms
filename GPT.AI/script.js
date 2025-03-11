@@ -214,49 +214,86 @@ function initThemeToggle() {
 
 // Initialize mobile menu
 function initMobileMenu() {
-  const mobileMenuBtn = document.querySelector(".mobile-menu-btn")
-  const navLinks = document.querySelector(".nav-links")
-  const hamburgerMenu = document.querySelector(".hamburger-menu")
+  const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+  const navLinks = document.querySelector(".nav-links");
+  const hamburgerMenu = document.querySelector(".hamburger-menu");
 
   mobileMenuBtn.addEventListener("click", function () {
-    this.classList.toggle("active")
+    this.classList.toggle("active");
 
     if (navLinks.style.display === "flex") {
-      navLinks.style.display = "none"
+      closeMenu(); // Close smoothly
     } else {
-      navLinks.style.display = "flex"
-      navLinks.style.flexDirection = "column"
-      navLinks.style.position = "absolute"
-      navLinks.style.top = "80px"
-      navLinks.style.left = "0"
-      navLinks.style.width = "100%"
-      navLinks.style.backgroundColor = "var(--background-light)"
-      navLinks.style.padding = "1rem"
-      navLinks.style.boxShadow = "var(--shadow)"
-      navLinks.style.zIndex = "1000"
-
-      // If dark mode is active, apply dark mode styles
-      if (document.body.classList.contains("dark")) {
-        navLinks.style.backgroundColor = "var(--background-dark)"
-      }
+      openMenu();
     }
-  })
+  });
 
-  // Close mobile menu when window is resized
+  // ✅ Close menu when a link inside the hamburger menu is clicked (on mobile)
+  navLinks.addEventListener("click", (e) => {
+    if (e.target.tagName === "A" && window.innerWidth <= 768) {
+      closeMenu();
+    }
+  });
+
+  // ✅ Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (
+      !mobileMenuBtn.contains(e.target) &&
+      !navLinks.contains(e.target) &&
+      !hamburgerMenu.contains(e.target)
+    ) {
+      closeMenu();
+    }
+  });
+
+  // ✅ Close menu on window resize (for desktop)
   window.addEventListener("resize", () => {
     if (window.innerWidth > 768) {
-      navLinks.style = ""
-      mobileMenuBtn.classList.remove("active")
+      navLinks.style = "";
+      mobileMenuBtn.classList.remove("active");
     }
-  })
+  });
 
-  // Close mobile menu when clicking outside
-  document.addEventListener("click", (e) => {
-    if (!mobileMenuBtn.contains(e.target) && !navLinks.contains(e.target) && !hamburgerMenu.contains(e.target)) {
-      mobileMenuBtn.classList.remove("active")
-      navLinks.style.display = ""
+  function openMenu() {
+    navLinks.style.display = "flex";
+    navLinks.style.flexDirection = "column";
+    navLinks.style.position = "absolute";
+    navLinks.style.top = "68px";
+    navLinks.style.left = "0";
+    navLinks.style.width = "100%";
+    navLinks.style.backgroundColor = "var(--background-light)";
+    navLinks.style.padding = "1rem";
+    navLinks.style.boxShadow = "var(--shadow)";
+    navLinks.style.zIndex = "1000";
+
+    // Add transition for smooth opening/closing
+    navLinks.style.transition = "opacity 0.4s ease, transform 0.4s ease";
+    navLinks.style.opacity = "0";
+    navLinks.style.transform = "translateY(-20px)";
+
+    // Trigger transition
+    setTimeout(() => {
+      navLinks.style.opacity = "1";
+      navLinks.style.transform = "translateY(0)";
+    }, 10);
+
+    if (document.body.classList.contains("dark")) {
+      navLinks.style.backgroundColor = "var(--background-dark)";
     }
-  })
+  }
+
+  function closeMenu() {
+    // Trigger closing transition
+    navLinks.style.opacity = "0";
+    navLinks.style.transform = "translateY(-20px)";
+
+    // Hide after transition completes
+    setTimeout(() => {
+      navLinks.style.display = "none";
+    }, 400); // Match transition duration
+
+    mobileMenuBtn.classList.remove("active");
+  }
 }
 
 // Initialize typewriter effect

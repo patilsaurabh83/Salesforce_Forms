@@ -33,6 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initialize credential copy functionality
   initCredentialCopy()
 
+    // Initialize parallax effect for the About App section
+  initAboutAppParallax();
+
+  // Initialize animations for tech cards
+  initTechCardAnimations();
+
   const subscribeButton = document.getElementById("subscribe-button");
   const emailInput = document.getElementById("subscribe-email");
 
@@ -210,6 +216,61 @@ function initThemeToggle() {
       setTheme("system")
     }
   })
+}
+
+// Parallax effect for the About App section
+function initAboutAppParallax() {
+  const aboutSection = document.querySelector('.about-app');
+
+  if (!aboutSection) return;
+
+  window.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY;
+    const aboutSectionPosition = aboutSection.offsetTop;
+    const windowHeight = window.innerHeight;
+
+    // Only apply parallax when the section is in view
+    if (scrollPosition + windowHeight > aboutSectionPosition &&
+      scrollPosition < aboutSectionPosition + aboutSection.offsetHeight) {
+
+      // Calculate parallax offset
+      const offset = (scrollPosition - aboutSectionPosition) * 0.4;
+
+      // Apply parallax effect to stars
+      const starsContainers = aboutSection.querySelectorAll('.stars');
+      starsContainers.forEach((stars, index) => {
+        const speed = 0.1 * (index + 1);
+        stars.style.transform = `translateY(${offset * speed}px)`;
+      });
+    }
+  });
+}
+
+// Animations for tech cards
+function initTechCardAnimations() {
+  const techCards = document.querySelectorAll('.tech-card');
+
+  // Set animation delay for each card
+  techCards.forEach((card, index) => {
+    card.style.setProperty('--card-index', index);
+  });
+
+  // Intersection Observer to trigger animations when cards come into view
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  techCards.forEach(card => {
+    observer.observe(card);
+  });
 }
 
 // Initialize mobile menu

@@ -1032,27 +1032,40 @@ function validatePhone() {
   restrictPercentageInput(document.getElementById("00N5j00000UOjbc"));
   restrictPercentageInput(document.getElementById("00N5j00000UPau9"));
 
-  // Check form submission time
+  const timezoneMap = {
+    "GMT-12:00": "AoE", "GMT-11:00": "NUT", "GMT-10:00": "HST", "GMT-9:30": "MIT", "GMT-9:00": "AKST", "GMT-9:00": "GAMT", "GMT-8:00": "PST",  
+    "GMT-7:00": "MST", "GMT-6:00": "CST", "GMT-5:00": "EST", "GMT-4:30": "VET", "GMT-4:00": "AST", "GMT-4:00": "CLT", "GMT-3:30": "NST",  
+    "GMT-3:00": "ART", "GMT-2:00": "GST", "GMT-1:00": "AZOT", "GMT+0:00": "GMT", "GMT+1:00": "CET", "GMT+2:00": "EET", "GMT+3:00": "MSK",  
+    "GMT+3:30": "IRST", "GMT+4:00": "GST", "GMT+4:30": "AFT", "GMT+5:00": "PKT", "GMT+5:30": "IST", "GMT+5:45": "NPT", "GMT+6:00": "BST",  
+    "GMT+6:00": "OMST", "GMT+6:30": "MMT", "GMT+7:00": "ICT", "GMT+8:00": "AWST", "GMT+8:00": "WITA", "GMT+8:45": "ACWST", "GMT+9:00": "JST",  
+    "GMT+9:00": "KST", "GMT+9:30": "ACST", "GMT+10:00": "AEST", "GMT+10:30": "LHST", "GMT+11:00": "SBT", "GMT+11:00": "SRET",  
+    "GMT+12:00": "NZST", "GMT+12:45": "CHAST", "GMT+13:00": "PHOT", "GMT+14:00": "LINT"
+  };
+
   function checkFormSubmissionTime() {
     const now = new Date();
-
-    // Convert to IST (UTC +5:30)
-    const istOffset = 5.5 * 60 * 60 * 1000; // Offset in milliseconds
-    const istTime = new Date(now.getTime() + istOffset);
-
-    const hours = istTime.getUTCHours();
 
     const formStatus = document.getElementById("formStatus");
     const noticeBanner = document.getElementById("form-filling-time-Notice");
     const noticeText = document.getElementById("notice-text");
 
-    // Check if form is open (between 10 AM - 5 PM IST)
+    // Get local hours (based on user's timezone)
+    const hours = now.getHours();
+
+    // Get user's GMT offset in hours and minutes  
+    const gmtOffset = new Intl.DateTimeFormat('en', { timeZoneName: 'short' }).formatToParts().find(part => part.type === 'timeZoneName').value;
+
+    // Get human-readable timezone name (fallback to GMT offset if not found)  
+    const timeZone = timezoneMap[gmtOffset] || gmtOffset;
+
+
+    // Check if form is open (between 10 AM - 5 PM local time)
     if (hours >= 10 && hours < 17) {
       formStatus.textContent = "✅ Form is currently open for submissions.";
       formStatus.style.color = "var(--success-color)";
 
-      // show notice banner banner about form available
-     noticeText.innerHTML = `Form submission is open till 5 PM IST. Submit before the deadline.`;
+      // Show notice about form availability
+      noticeText.innerHTML = `Form submission is open till 5 PM ${timeZone}. Submit before the deadline.`;
 
       // Enable button & restore styles
       submitButton.disabled = false;
@@ -1062,7 +1075,7 @@ function validatePhone() {
 
       return true;
     } else {
-      formStatus.textContent = "❌ Form is currently closed. Please submit between 10 AM and 5 PM IST.";
+      formStatus.textContent = `❌ Form is currently closed. Please submit between 10 AM and 5 PM ${timeZone}.`;
       formStatus.style.color = "var(--error-color)";
 
       // Disable button & apply fade effect
@@ -1071,14 +1084,14 @@ function validatePhone() {
       submitButton.style.opacity = "0.5";
       submitButton.style.cursor = "not-allowed";
 
-      // Calculate next opening time (10 AM IST)
-      let targetTime = new Date(istTime);
+      // Calculate next opening time (10 AM local time)
+      let targetTime = new Date(now);
       if (hours >= 17) {
-        targetTime.setUTCDate(istTime.getUTCDate() + 1); // Next day 10 AM
+        targetTime.setDate(now.getDate() + 1); // Next day 10 AM
       }
-      targetTime.setUTCHours(10, 0, 0, 0);
+      targetTime.setHours(10, 0, 0, 0);
 
-      let remainingTimeInSeconds = Math.floor((targetTime - istTime) / 1000);
+      let remainingTimeInSeconds = Math.floor((targetTime - now) / 1000);
 
       function updateCountdown() {
         let h = Math.floor(remainingTimeInSeconds / 3600);
@@ -1087,13 +1100,13 @@ function validatePhone() {
 
         let remainingTimeText = `Time remaining ${h}h ${m}m ${s}s.`;
 
-        // Update marquee message
-        noticeText.innerHTML = `The form is only available for submissions between 10 AM to 5 PM IST. Currently, the form is closed for today. Please come back tomorrow after 10 AM IST. ${remainingTimeText}`;
+        // Update notice with countdown
+        noticeText.innerHTML = `The form is only available for submissions between 10 AM to 5 PM ${timeZone}. Currently, the form is closed. ${remainingTimeText}`;
 
         remainingTimeInSeconds--;
 
         if (remainingTimeInSeconds >= 0) {
-          setTimeout(updateCountdown, 1000); // Update every second
+          setTimeout(updateCountdown, 1000);
         } else {
           location.reload(); // Refresh when countdown ends
         }
@@ -1103,8 +1116,6 @@ function validatePhone() {
       return false;
     }
   }
-
-
 
   // Run the function
   checkFormSubmissionTime();

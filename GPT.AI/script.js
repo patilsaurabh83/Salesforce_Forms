@@ -493,7 +493,7 @@ function openArticles() {
   });
 
   setTimeout(() => {
-    window.open('https://towardsdatascience.com/tagged/ai', '_blank');
+    window.open('https://www.artificial-intelligence.blog/', '_blank');
   }, 2005); // Opens after the message disappears
 }
 

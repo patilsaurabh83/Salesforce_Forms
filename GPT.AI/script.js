@@ -480,6 +480,23 @@ function initScrollAnimations() {
   window.addEventListener("scroll", handleScrollAnimations)
 }
 
+//View all articles Function
+function openArticles() {
+  Swal.fire({
+    icon: 'info',
+    title: 'Opening...',
+    text: 'Redirecting to articles.',
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 2000
+  });
+
+  setTimeout(() => {
+    window.open('https://towardsdatascience.com/tagged/ai', '_blank');
+  }, 2005); // Opens after the message disappears
+}
+
 // Initialize testimonial carousel
 function initTestimonialCarousel() {
   const track = document.querySelector(".testimonial-track")

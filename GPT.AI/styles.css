@@ -1892,7 +1892,7 @@
   }
 
   .about-app .section-title {
-    font-size: 2.4rem;
+    font-size: 2.5rem;
   }
   
   .tech-stack {
@@ -1920,6 +1920,10 @@
   .about-app .section-title {
     font-size: 2.0rem;
   }
+
+  .about-app .section-subtitle{
+     font-size: 1.1rem; 
+   }
   
   .about-app {
     padding: 4rem 0;

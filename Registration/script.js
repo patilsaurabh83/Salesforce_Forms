@@ -1069,10 +1069,19 @@ const timezoneMap = {
     const hours = now.getHours();
 
     // Get user's GMT offset in hours and minutes  
-    const gmtOffset = new Intl.DateTimeFormat('en', { timeZoneName: 'short' }).formatToParts().find(part => part.type === 'timeZoneName').value;
+    let gmtOffset = new Intl.DateTimeFormat('en', { timeZoneName: 'short' })
+      .formatToParts()
+      .find(part => part.type === 'timeZoneName').value;
 
-    // Get human-readable timezone name (fallback to GMT offset if not found)  
-    const timeZone = timezoneMap[gmtOffset] || gmtOffset;
+    // Normalize to "GMT±H:MM" format
+    if (!gmtOffset.includes(':')) {
+      gmtOffset = gmtOffset.replace(/([+-]\d{1,2})$/, '$1:00');
+    }
+
+    // Find closest match in timezoneMap
+    const timeZone = timezoneMap[gmtOffset] ||
+      Object.entries(timezoneMap).find(([key]) => key.startsWith(gmtOffset.slice(0, 6)))?.[1] ||
+      gmtOffset;
 
 
     // Check if form is open (between 10 AM - 5 PM local time)

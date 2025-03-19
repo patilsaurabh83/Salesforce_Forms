@@ -1032,15 +1032,31 @@ function validatePhone() {
   restrictPercentageInput(document.getElementById("00N5j00000UOjbc"));
   restrictPercentageInput(document.getElementById("00N5j00000UPau9"));
 
-  const timezoneMap = {
-    "GMT-12:00": "AoE", "GMT-11:00": "NUT", "GMT-10:00": "HST", "GMT-9:30": "MIT", "GMT-9:00": "AKST", "GMT-9:00": "GAMT", "GMT-8:00": "PST",  
-    "GMT-7:00": "MST", "GMT-6:00": "CST", "GMT-5:00": "EST", "GMT-4:30": "VET", "GMT-4:00": "AST", "GMT-4:00": "CLT", "GMT-3:30": "NST",  
-    "GMT-3:00": "ART", "GMT-2:00": "GST", "GMT-1:00": "AZOT", "GMT+0:00": "GMT", "GMT+1:00": "CET", "GMT+2:00": "EET", "GMT+3:00": "MSK",  
-    "GMT+3:30": "IRST", "GMT+4:00": "GST", "GMT+4:30": "AFT", "GMT+5:00": "PKT", "GMT+5:30": "IST", "GMT+5:45": "NPT", "GMT+6:00": "BST",  
-    "GMT+6:00": "OMST", "GMT+6:30": "MMT", "GMT+7:00": "ICT", "GMT+8:00": "AWST", "GMT+8:00": "WITA", "GMT+8:45": "ACWST", "GMT+9:00": "JST",  
-    "GMT+9:00": "KST", "GMT+9:30": "ACST", "GMT+10:00": "AEST", "GMT+10:30": "LHST", "GMT+11:00": "SBT", "GMT+11:00": "SRET",  
-    "GMT+12:00": "NZST", "GMT+12:45": "CHAST", "GMT+13:00": "PHOT", "GMT+14:00": "LINT"
-  };
+const timezoneMap = {
+  "GMT-12:00": "AoE", "GMT-11:00": "NUT", "GMT-10:00": "HST", "GMT-9:30": "MIT",
+  "GMT-9:00": "AKST", "GMT-9:00": "GAMT", "GMT-8:00": "PST", "GMT-8:00": "AKDT",
+  "GMT-7:00": "MST", "GMT-7:00": "PDT", "GMT-6:00": "CST", "GMT-6:00": "MDT",
+  "GMT-5:00": "EST", "GMT-5:00": "CDT", "GMT-4:30": "VET", "GMT-4:00": "AST",
+  "GMT-4:00": "CLT", "GMT-4:00": "EDT", "GMT-3:30": "NST", "GMT-3:00": "ART",
+  "GMT-3:00": "BRT", "GMT-3:00": "UYT", "GMT-2:00": "GST", "GMT-2:00": "BRST",
+  "GMT-1:00": "AZOT", "GMT-1:00": "CVT", "GMT+0:00": "GMT", "GMT+0:00": "WET",
+  "GMT+1:00": "CET", "GMT+1:00": "WAT", "GMT+2:00": "EET", "GMT+2:00": "CAT",
+  "GMT+3:00": "MSK", "GMT+3:00": "EAT", "GMT+3:30": "IRST", "GMT+4:00": "GST",
+  "GMT+4:00": "SAMT", "GMT+4:30": "AFT", "GMT+5:00": "PKT", "GMT+5:00": "TJT",
+  "GMT+5:30": "IST", "GMT+5:45": "NPT", "GMT+6:00": "BST", "GMT+6:00": "OMST",
+  "GMT+6:30": "MMT", "GMT+7:00": "ICT", "GMT+7:00": "WIB", "GMT+8:00": "AWST",
+  "GMT+8:00": "WITA", "GMT+8:45": "ACWST", "GMT+9:00": "JST", "GMT+9:00": "KST",
+  "GMT+9:00": "IRKT", "GMT+9:30": "ACST", "GMT+10:00": "AEST", "GMT+10:00": "VLAT",
+  "GMT+10:30": "LHST", "GMT+11:00": "SBT", "GMT+11:00": "SRET", "GMT+12:00": "NZST",
+  "GMT+12:00": "PETT", "GMT+12:45": "CHAST", "GMT+13:00": "PHOT", "GMT+13:00": "TKT",
+  "GMT+14:00": "LINT", "GMT+3:00": "EEST", "GMT+1:00": "WEST", "GMT+2:00": "CEST",
+  "GMT+8:00": "HKT", "GMT+9:00": "YAKT", "GMT+6:00": "KGT", "GMT+5:00": "UZT",
+  "GMT+12:00": "FJT", "GMT+12:45": "CHADT", "GMT-10:00": "TAHT", "GMT-11:00": "SST",
+  "GMT+11:00": "MAGT", "GMT+10:00": "VLAT", "GMT+6:00": "ALMT", "GMT+4:00": "AZT",
+  "GMT-3:00": "FKT", "GMT+10:30": "ACDT", "GMT-4:00": "CLDT", "GMT-2:00": "PMDT",
+  "GMT+7:00": "KRAT", "GMT+4:00": "MUT", "GMT+5:00": "TMT", "GMT+8:00": "ULAT"
+};
+
 
   function checkFormSubmissionTime() {
     const now = new Date();

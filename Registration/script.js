@@ -848,9 +848,7 @@ function validatePhone() {
     })
 
     document.getElementById("otpMismatchError").style.display = "none"
-
-    // Focus on first input
-    document.querySelector('.otp-input[data-index="1"]').focus()
+    
   }
 
   // Close OTP popup

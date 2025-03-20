@@ -155,8 +155,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const emailVerified = window.getComputedStyle(emailTickMark).display === "block";
 
     if (emailPattern.test(email)) {
-      // If the email is valid but NOT verified, show the button
-      verifyButton.style.display = emailVerified ? "none" : "block";
+      if (window.innerWidth < 768) {
+        // For mobile screens, delay by 400ms
+        setTimeout(() => {
+          verifyButton.style.display = emailVerified ? "none" : "block";
+        }, 300);
+      } else {
+        // For larger screens, apply immediately
+        verifyButton.style.display = emailVerified ? "none" : "block";
+      }
     } else {
       // If email is invalid, hide the button
       verifyButton.style.display = "none";

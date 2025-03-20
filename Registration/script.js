@@ -918,6 +918,10 @@ function validatePhone() {
         if (nextIndex <= 6) {
           document.querySelector(`.otp-input[data-index="${nextIndex}"]`).focus()
         }
+        else {
+          // If last input is filled, blur it after 100ms
+          setTimeout(() => {this.blur()}, 100)
+        }
       }
 
       // Update hidden input with combined OTP

@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // For mobile screens, delay by 400ms
         setTimeout(() => {
           verifyButton.style.display = emailVerified ? "none" : "block";
-        }, 800);
+        }, 1100);
       } else {
         // For larger screens, apply immediately
         verifyButton.style.display = emailVerified ? "none" : "block";

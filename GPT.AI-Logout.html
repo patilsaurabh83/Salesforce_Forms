@@ -1,167 +1,596 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logged Out</title>
+    <title>Logged Out | GPT.AI</title>
+    <!-- Favicon -->
     <link rel="icon" href="https://innovativewebs.netlify.app/robot.png" type="image/png">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <style>
-        /* Dark Mode CSS Styles */
-        body {
-            font-family: 'Inter', sans-serif;
+        :root {
+            --primary-color: #00b4d8;
+            --primary-hover: #0096c7;
+            --secondary-color: #f8f9fa;
+            --text-color: #212529;
+            --light-text: #6c757d;
+            --border-color: #dee2e6;
+            --success-color: #20c997;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --bg-color: #ffffff;
+            --card-bg: #ffffff;
+            --gradient-1: linear-gradient(135deg, #00b4d8, #0077b6);
+            --gradient-2: linear-gradient(135deg, #48cae4, #00b4d8);
+            --accent-color: #ff9e00;
+        }
+
+        .dark {
+            --primary-color: #00b4d8;
+            --primary-hover: #48cae4;
+            --secondary-color: #2d3748;
+            --text-color: #f8f9fa;
+            --light-text: #a0aec0;
+            --border-color: #4a5568;
+            --success-color: #10b981;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --gradient-1: linear-gradient(135deg, #00b4d8, #0077b6);
+            --gradient-2: linear-gradient(135deg, #48cae4, #00b4d8);
+            --accent-color: #ff9e00;
+        }
+
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #121212;
-            color: #e0e0e0;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        .container {
-            text-align: center;
-            width: 90%;
-            max-width: 600px;
-            margin: auto;
-        }
-
-        header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            padding: 20px;
-            box-sizing: border-box;
+            height: 100%;
+            background: 
+                radial-gradient(circle at top right, rgba(0, 180, 216, 0.15), transparent 60%),
+                radial-gradient(circle at bottom left, rgba(0, 180, 216, 0.15), transparent 60%);
+            z-index: -1;
+            opacity: 0.8;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .animated-bg span {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 180, 216, 0.1);
+            border-radius: 50%;
+            animation: float 15s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            1% {
+                opacity: 1;
+            }
+            95% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-100px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background-color: rgba(var(--card-bg), 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
 
         .logo img {
-            height: 50px;
-            margin-right: 20px;
+            height: 40px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+            transition: transform 0.3s ease;
         }
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
+        .logo:hover img {
+            transform: scale(1.08); 
+        }
+
+        .logo span {
+            font-weight: 700;
+            font-size: 1.25rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
             display: flex;
+            gap: 2rem;
         }
 
-        nav ul li {
-            margin-left: 20px;
-        }
-
-        nav ul li a {
+        .nav-links a {
             text-decoration: none;
-            color: #e0e0e0;
-            font-size: 1.1em;
+            color: var(--light-text);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.25rem 0;
         }
 
-        main {
-            margin-top: 20px;
+        .nav-links a:hover {
+            color: var(--primary-color);
         }
 
-        h1 {
-            font-size: 4em;
-            margin: 0;
-            color: #ffffff;
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: width 0.3s ease;
         }
 
-        p {
-            font-size: 1.2em;
-            color: #cccccc;
-            margin: 20px 0;
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--light-text);
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            color: var(--primary-color);
+            transform: rotate(15deg);
+            background-color: rgba(0, 180, 216, 0.1);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu-btn:hover {
+            background-color: rgba(0, 180, 216, 0.1);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            margin-top: 70px;
+        }
+
+        /* Logout Container */
+        .logout-container {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            width: 100%;
+            max-width: 500px;
+            padding: 3rem;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s forwards;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logout-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-1);
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logout-icon {
+            font-size: 4rem;
+            color: var(--success-color);
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
             position: relative;
         }
 
-        #dots {
+        .logout-icon::after {
+            content: '';
             position: absolute;
-            white-space: nowrap;
-            font-size: 1.5em;
-            font-weight: bold;
-            bottom: 1%;
+            width: 80px;
+            height: 80px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
         }
 
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .logout-container h2 {
+            margin-bottom: 1rem;
+            color: var(--text-color);
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logout-container p {
+            color: var(--light-text);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .countdown-wrapper {
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .countdown {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .countdown::after {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border: 3px solid var(--primary-color);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.2;
+            animation: ripple 10s linear forwards;
+        }
+
+        @keyframes ripple {
+            0% {
+                width: 120px;
+                height: 120px;
+                opacity: 0.2;
+            }
+            100% {
+                width: 0;
+                height: 0;
+                opacity: 0;
+            }
+        }
+
+        .countdown-text {
+            color: var(--light-text);
+            font-size: 1rem;
+        }
+
+        /* Responsive Styles */
         @media (max-width: 768px) {
-            nav ul {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: var(--card-bg);
                 flex-direction: column;
-                align-items: center;
+                padding: 1rem;
+                gap: 1rem;
+                box-shadow: var(--shadow-md);
+                transform: translateY(-150%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                z-index: 999;
+                border-bottom: 1px solid var(--border-color);
             }
 
-            nav ul li {
-                margin-left: 0;
-                margin-top: 10px;
+            .nav-links.show {
+                transform: translateY(0);
+                opacity: 1;
             }
 
-            h1 {
-                font-size: 2.5rem;
+            .mobile-menu-btn {
+                display: flex;
             }
 
-            p {
-                font-size: 1.1em;
+            .nav-actions {
+                gap: 0.5rem;
+            }
+
+            .logout-container {
+                padding: 2rem;
             }
         }
 
-        @media (max-width: 420px) {
-            p {
-                font-size: 1.0em;
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 1rem;
+            }
+
+            .logout-container {
+                padding: 1.5rem;
+                border-radius: 12px;
+            }
+
+            .logout-icon {
+                font-size: 3rem;
+            }
+
+            .logout-container h2 {
+                font-size: 1.75rem;
+            }
+
+            .countdown {
+                font-size: 3rem;
+            }
+
+            .countdown::after {
+                width: 100px;
+                height: 100px;
             }
         }
     </style>
 </head>
-
 <body>
-    <header>
+    <!-- Animated Background -->
+    <div class="animated-bg" id="animatedBg"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
         <div class="logo">
-            <img src="https://innovativewebs.netlify.app/robot.png" alt="Logo">
+            <img src="https://innovativewebs.netlify.app/robot.png" alt="Robot Logo">
+            <span>GPT.AI</span>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#">Research</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Support</a></li>
-                <li><a href="#">Blog</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div class="container">
-        <main>
-            <h1>Logged Out</h1>
-            <p>
-                You’ve logged out successfully from GPT.AI. Thank you for visiting!<br><br>
-                This tab will close automatically in a few seconds&nbsp;<span id="dots">.</span>
-            </p>
-        </main>
-    </div>
+        <div class="nav-links" id="navLinks">
+            <a href="#">Home</a>
+            <a href="#">AI Models</a>
+            <a href="#">Chat GPT</a>
+            <a href="#">Image Generation</a>
+            <a href="#">API</a>
+        </div>
+        <div class="nav-actions">
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="logout-container">
+            <div class="logout-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>You've Been Logged Out</h2>
+            <p>Thank you for using GPT.AI services. Your session has been successfully terminated. For security reasons, this window will close automatically.</p>
+            
+            <div class="countdown-wrapper">
+                <div class="countdown" id="countdown">10</div>
+                <div class="countdown-text">Seconds until window closes</div>
+            </div>
+        </div>
+    </main>
 
     <script>
-        var dots = document.getElementById('dots');
-        var dotCount = 1;
+        // Create animated background bubbles
+        const animatedBg = document.getElementById('animatedBg');
+        const bubbleCount = 15;
+        
+        for (let i = 0; i < bubbleCount; i++) {
+            const bubble = document.createElement('span');
+            const size = Math.random() * 30 + 10;
+            const left = Math.random() * 100;
+            
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            bubble.style.left = `${left}%`;
+            bubble.style.animationDuration = `${Math.random() * 10 + 10}s`;
+            bubble.style.animationDelay = `${Math.random() * 5}s`;
+            
+            animatedBg.appendChild(bubble);
+        }
+        
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+        
+        // Check for saved theme preference or use device preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            htmlElement.className = savedTheme;
+            updateThemeIcon(savedTheme === 'dark');
+        } else {
+            // Use device preference
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            htmlElement.className = prefersDark ? 'dark' : '';
+            updateThemeIcon(prefersDark);
+        }
+        
+        function updateThemeIcon(isDark) {
+            themeToggle.innerHTML = isDark 
+                ? '<i class="fas fa-sun"></i>' 
+                : '<i class="fas fa-moon"></i>';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            const isDark = htmlElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : '');
+            updateThemeIcon(isDark);
+        });
 
-        setInterval(function () {
-            if (dotCount < 4) {
-                dotCount++;
-                dots.innerHTML += '.';
-            } else {
-                dotCount = 1;
-                dots.innerHTML = '.';
-            }
-        }, 350);
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
 
-        // Try to close the tab, and if it fails, redirect to the specified URL
-        setTimeout(function () {
-            window.close();
-            // Fallback to redirection if tab closure is restricted
-            if (!window.closed) {
-                window.location.href = "https://innovativewebs.netlify.app/gpt.aicreds";
-            }
-        }, 7000);
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('show') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Countdown Timer with visual effects
+        const countdownElement = document.getElementById('countdown');
+        let countdownValue = 10;
+        let countdownInterval;
+
+        function startCountdown() {
+            countdownValue = 10;
+            countdownElement.textContent = countdownValue;
+            
+            countdownInterval = setInterval(() => {
+                countdownValue--;
+                
+                // Add a small animation when the number changes
+                countdownElement.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    countdownElement.style.transform = 'scale(1)';
+                }, 200);
+                
+                countdownElement.textContent = countdownValue;
+                
+                if (countdownValue <= 0) {
+                    clearInterval(countdownInterval);
+                    window.close();
+                    // Fallback to redirection if tab closure is restricted
+                    if (!window.closed) {
+                        window.location.href = "https://innovativewebs.netlify.app/gptai";
+                    }                    
+                }
+            }, 1000);
+        }
+
+        // Start countdown when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            startCountdown();
+        });
     </script>
 </body>
-
 </html>

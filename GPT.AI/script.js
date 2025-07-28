@@ -695,7 +695,7 @@ function initInteractiveBackground() {
         loginButton.classList.remove("clicked")
       }, 300)
 
-      window.open("https://innovativeminds-dev-ed.develop.my.site.com/s/landing", "_blank");
+      window.open("https://innovativeminds-dev-ed.develop.my.site.com/s/login", "_blank");
 
     })
   }

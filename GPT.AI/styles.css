@@ -1649,11 +1649,13 @@
   position: relative;
   z-index: 2;
   margin-bottom: 3rem;
+  text-decoration: none; /* for new a tag */
 }
 
 .login-button:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 30px rgba(79, 70, 229, 0.8);
+  color: #fff; /* for new a tag */
 }
 
   .test-page {
@@ -1934,3 +1936,4 @@
   }
 }
   
+

@@ -695,7 +695,8 @@ function initInteractiveBackground() {
         loginButton.classList.remove("clicked")
       }, 300)
 
-      window.open("https://innovativeminds-dev-ed.develop.my.site.com/s/landing", "_blank");
+      // Commented redirection since <a> tag is handling it
+      //window.open("https://innovativeminds-dev-ed.develop.my.site.com/s/landing", "_blank");
 
     })
   }
@@ -785,4 +786,5 @@ function handleSubscribe(event) {
   // ✅ Reset the form after submission
   document.getElementById('subscribe-form').reset();
 }
+
 

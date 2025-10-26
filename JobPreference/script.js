@@ -12,6 +12,62 @@ document.addEventListener("DOMContentLoaded", () => {
         this.parentElement.classList.remove("input-focused")
       })
     })
+
+
+        
+    // Function to get URL parameters
+    function getUrlParams() {
+        const params = new URLSearchParams(window.location.search);
+        return {
+            candidateNumber: params.get("CNo"),
+            candidateId: params.get("Cid"),
+            email: params.get("Email")
+        };
+    }
+
+    // Populate form fields with URL parameters and make them readonly
+    const urlParams = getUrlParams();
+
+    // Save params to sessionStorage if present
+    if (urlParams.candidateNumber) sessionStorage.setItem("candidateNumber", urlParams.candidateNumber);
+    if (urlParams.candidateId) sessionStorage.setItem("candidateId", urlParams.candidateId);
+    if (urlParams.email) sessionStorage.setItem("email", urlParams.email);
+
+    // Retrieve from sessionStorage if not in URL (for refresh)
+    const candidateNumber = urlParams.candidateNumber || sessionStorage.getItem("candidateNumber");
+    const candidateId = urlParams.candidateId || sessionStorage.getItem("candidateId");
+    const email = urlParams.email || sessionStorage.getItem("email");
+
+    // Populate Candidate Number
+    if (candidateNumber) {
+        const candidateNumberField = document.getElementById("00N5j00000UPc6a");
+        if (candidateNumberField) {
+            candidateNumberField.value = candidateNumber;
+            candidateNumberField.readOnly = true;
+        }
+    }
+
+    // Populate Candidate ID
+    if (candidateId) {
+        const candidateIdField = document.getElementById("00N5j00000UPc6V");
+        if (candidateIdField) {
+            candidateIdField.value = candidateId;
+            candidateIdField.readOnly = true;
+        }
+    }
+
+    // Populate Email
+    if (email) {
+        const emailField = document.getElementById("job-email");
+        if (emailField) {
+            emailField.value = email;
+            emailField.readOnly = true;
+        }
+    }
+
+    // Normalize the URL (remove query params without reloading)
+    const cleanUrl = window.location.origin + window.location.pathname;
+    window.history.replaceState({}, "", cleanUrl);
   
     // Job Preference Form submission
     const jobPreferenceForm = document.getElementById("jobPreferenceForm")
@@ -48,4 +104,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("year").textContent = new Date().getFullYear();
   
+
   

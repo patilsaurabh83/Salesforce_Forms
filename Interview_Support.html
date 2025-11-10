@@ -462,7 +462,7 @@
                 <div class="form-group">
                     <div class="input-group">
                         <i class="fas fa-phone icon"></i>
-                        <input id="phone" maxlength="10" name="phone" type="tel">
+                        <input id="phone" name="phone" type="tel" minlength="10" maxlength="12" />
                         <label for="phone">Phone</label>
                     </div>
                     <span id="phoneError" class="error"></span>
@@ -566,8 +566,8 @@
             }
 
             // Phone validation
-            if (phone.value && !/^\d{10}$/.test(phone.value)) {
-                phoneError.textContent = 'Please enter a valid 10-digit phone number';
+            if (phone.value && !/^\d{12}$/.test(phone.value)) {
+                phoneError.textContent = 'Please enter a valid 10/12-digit phone number';
                 isValid = false;
             }
 
@@ -665,3 +665,4 @@
 </body>
 
 </html>
+

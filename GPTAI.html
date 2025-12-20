@@ -37,6 +37,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://innovativeminds-dev-ed.develop.my.site.com/s/login/">
+
+    <link rel="preconnect" href="https://innovativeminds-dev-ed.develop.my.site.com" crossorigin>
+    <link rel="dns-prefetch" href="https://innovativeminds-dev-ed.develop.my.site.com">
+    <link rel="prefetch" href="https://innovativeminds-dev-ed.develop.my.site.com/s/landing" as="document" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -47,6 +51,18 @@
 
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Speculation Rules (Chrome): prerender on hover or idle -->
+    <script type="speculationrules">
+        {
+          "prerender": [
+            {
+              "source": "list",
+              "urls": ["https://innovativeminds-dev-ed.develop.my.site.com/s/landing"]
+            }
+          ]
+        }
+    </script>
 </head>
 
 
@@ -436,6 +452,7 @@
                  <!-- Updated button to an anchor tag since link was taking more time to load the page -->
                 <a href="https://innovativeminds-dev-ed.develop.my.site.com/s/landing" 
                     target="_blank" 
+                    rel="noopener"
                     class="login-button">
                     Access GPT.AI
                 </a>
@@ -1163,6 +1180,7 @@
 </body>
 
 </html>
+
 
 
 

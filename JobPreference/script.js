@@ -21,7 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
         return {
             candidateNumber: params.get("CNo"),
             candidateId: params.get("Cid"),
-            email: params.get("Email")
+            email: params.get("Email"),
+            jobNo: params.get("JobNo")
         };
     }
 
@@ -32,11 +33,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (urlParams.candidateNumber) sessionStorage.setItem("candidateNumber", urlParams.candidateNumber);
     if (urlParams.candidateId) sessionStorage.setItem("candidateId", urlParams.candidateId);
     if (urlParams.email) sessionStorage.setItem("email", urlParams.email);
+    if (urlParams.jobNo) sessionStorage.setItem("jobNo", urlParams.jobNo);
 
     // Retrieve from sessionStorage if not in URL (for refresh)
     const candidateNumber = urlParams.candidateNumber || sessionStorage.getItem("candidateNumber");
     const candidateId = urlParams.candidateId || sessionStorage.getItem("candidateId");
     const email = urlParams.email || sessionStorage.getItem("email");
+    const jobNo = urlParams.jobNo || sessionStorage.getItem("jobNo");
 
     // Populate Candidate Number
     if (candidateNumber) {
@@ -62,6 +65,16 @@ document.addEventListener("DOMContentLoaded", () => {
         if (emailField) {
             emailField.value = email;
             emailField.readOnly = true;
+        }
+    }
+
+    // Interested In Job - FILL BUT DO NOT MAKE READONLY
+    if (jobNo) {
+        const jobField = document.getElementById("00N5j00000SCZQn");
+        if (jobField) {
+            jobField.value = jobNo; 
+            // Notice: readOnly is NOT set to true here
+            console.log("Job Number pre-filled: " + jobNo);
         }
     }
 
@@ -106,3 +119,4 @@ document.addEventListener("DOMContentLoaded", () => {
   
 
   
+

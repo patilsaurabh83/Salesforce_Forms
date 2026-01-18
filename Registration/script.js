@@ -759,22 +759,12 @@ function validatePhone() {
     const email = document.getElementById("email").value;
     const toName = document.getElementById("first_name").value;
 
-    const message = `  
-    Hello ${toName},  
-
-    Thank you for signing up! We have received a phone number verification request for ${phoneNumber}.  
-
-    To complete your verification, please enter the OTP (One-Time Password) below:  
-
-    📱 OTP: ${generatedOTP}  
-
-    ⚠️ Please do not share this OTP with anyone. If you didn't request this verification, you can safely ignore this message.  
-   `;
-
 
     const templateParams = {
       to_email: email,
-      message: message
+      to_name: toName,
+      otp_code: generatedOTP,
+      phone_number: phoneNumber
     };
 
     // Send email using EmailJS
@@ -797,23 +787,14 @@ function validatePhone() {
     const toName = document.getElementById("first_name").value;
     const email = document.getElementById("email").value;
 
-    const message = `
-    Hello ${toName},
-
-    Thank you for signing up! To complete your registration, please verify your email address by entering the OTP (One-Time Password) below:
-
-    🔒 OTP: ${generatedOTP}
-
-    If you didn't request this, you can safely ignore this email.
-  `;
-
     const templateParams = {
       to_email: email,
-      message: message
+      to_name: toName,
+      otp_code: generatedOTP
     };
 
     // Try-catch to handle errors properly
-    emailjs.send("service_qtrjv92", "template_k51xswr", templateParams)
+    emailjs.send("service_qtrjv92", "template_9sf3fyg", templateParams)
       .then(() => {
         showOTPPopup();
         updateOTPMessage();
@@ -1176,5 +1157,6 @@ const timezoneMap = {
     }
   })
 })
+
 
 
